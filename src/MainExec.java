@@ -4,30 +4,28 @@ import utilidades.ResultExec;
 public class MainExec {
 
 	public static void main(String[] args) {
-			
+
 		ResultExec resultado = new ResultExec("");
 
 		// TODO Auto-generated method stub
 		TesteUm t1 = new TesteUm();
 		Teste t = new Teste();
-		String s = "";						//recebe a linguagem selecionada na janela
-		String idioma = "";					
-		
+		String s = ""; // recebe a linguagem selecionada na janela
+		String idioma = "";
+
 		t.setVisible(true);
 
 		while (t.isShowing() == true) {
 			s = t.selecao;
 
 		}
-		
+
 		idioma = escolheIdioma(s);
 		System.out.print(idioma);
-		
-		resultado =  t1.teste(idioma);
+
+		resultado = t1.teste(idioma);
 		System.out.print(resultado.getNomeTeste());
-		
-		
-	
+
 	}
 
 	public static String escolheIdioma(String s) {
