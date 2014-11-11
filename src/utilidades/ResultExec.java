@@ -1,12 +1,11 @@
 package utilidades;
 
-
 public class ResultExec {
-	
+
 	private boolean result;
 	private String mensagem;
 	private String nomeTeste;
-	
+
 	public ResultExec(String nomeTeste) {
 		super();
 		this.nomeTeste = nomeTeste;
@@ -38,7 +37,6 @@ public class ResultExec {
 		this.nomeTeste = nomeTeste;
 	}
 
-//Encapsulamentos
-	
-		
+	// Encapsulamentos
+
 }
