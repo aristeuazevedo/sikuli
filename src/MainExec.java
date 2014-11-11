@@ -1,5 +1,3 @@
-package main;
-import gui.Teste;
 import testes.*;
 import utilidades.ResultExec;
 
