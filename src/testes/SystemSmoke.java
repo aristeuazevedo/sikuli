@@ -15,74 +15,77 @@ import utilidades.ResultExec;
 
 public class SystemSmoke {
 	
-	public ResultExec Smoke(String idioma)
+	String LSCtitle = " ";
+	String BackupIcon = " ";
+	String BatteryIcon = " ";
+	String FilePrintersIcon = " ";
+	String MemoryIcon = " ";
+	String SoftwareUpdateIcon = " ";
+	String StorageDeviceIcon = " ";
+	String SysInfoIcon = " ";
+	String SysTabUns = " ";
+	String SysTabSel = " ";
+	String idioma = " ";
+	
+	Screen s = new Screen();
+			
+	public SystemSmoke( String idioma){
+		//caminhos das imagens
+		LSCtitle = "imgs/"+idioma+"/LSC_appTitle.PNG";
+		BackupIcon = "imgs/"+idioma+"/BackupIcon.PNG";
+		BatteryIcon = "imgs/"+idioma+"/BatteryIcon.PNG";
+		FilePrintersIcon = "imgs/"+idioma+"/FilePrintersIcon.PNG";
+		MemoryIcon = "imgs/"+idioma+"/MemoryIcon.PNG";
+		SoftwareUpdateIcon = "imgs/"+idioma+"/SoftwareUpdateIcon.PNG";
+		StorageDeviceIcon = "imgs/"+idioma+"/StorageDeviceIcon.PNG";
+		SysInfoIcon = "imgs/"+idioma+"/SystemInformationIcon.PNG";
+		SysTabUns = "imgs/"+idioma+"/SystemTabUnselected.PNG";
+		SysTabSel = "imgs/"+idioma+"/SystemTabSelected.PNG";
+		this.idioma = idioma;
+	}
+	
+	public ResultExec Smoke()
 	{
-		Screen s = new Screen();
+		
 		
 		ResultExec resultado = new ResultExec("Smoke Test");
 		
-	try {
-				
-						
+
+		try {
+										
 			java.awt.Desktop.getDesktop().open(new File("Linguagens/"+idioma+".bat"));
-			
-			//caminhos das imagens
-			String LSCtitle = "imgs/"+idioma+"/LSC_appTitle.PNG";
-			String BackupIcon = "imgs/"+idioma+"/BackupIcon.PNG";
-			String BatteryIcon = "imgs/"+idioma+"/BatteryIcon.PNG";
-			String FilePrintersIcon = "imgs/"+idioma+"/FilePrintersIcon.PNG";
-			String MemoryIcon = "imgs/"+idioma+"/MemoryIcon.PNG";
-			String SoftwareUpdateIcon = "imgs/"+idioma+"/SoftwareUpdateIcon.PNG";
-			String StorageDeviceIcon = "imgs/"+idioma+"/StorageDeviceIcon.PNG";
-			String SysInfoIcon = "imgs/"+idioma+"/SystemInformationIcon.PNG";
-			String SysTabUns = "imgs/"+idioma+"/SystemTabUnselected.PNG";
-			String SysTabSel = "imgs/"+idioma+"/SystemTabSelected.PNG";
-			
-			
-			//Tempo de espera para encontrar a imagem esperada
+					
+					
 			s.wait(LSCtitle,30.0);
 			
 			//
 			s.click(SysTabUns);
-			s.wait(StorageDeviceIcon,10.0);
-			s.click(StorageDeviceIcon);
+			StorageDevice();
+			
+			///
+			s.click(SysTabSel);
+			Memory();
 			
 			//
 			s.click(SysTabSel);
-			s.wait(StorageDeviceIcon,10.0);
-			s.click(MemoryIcon);
+			Backup();
 			
 			//
 			s.click(SysTabSel);
-			s.wait(StorageDeviceIcon,10.0);
-			s.click(BackupIcon);
+			SoftwareUpdate();
 			
 			//
 			s.click(SysTabSel);
-			s.wait(StorageDeviceIcon,10.0);
-			s.click(SoftwareUpdateIcon);
+			Battery();
 			
 			//
 			s.click(SysTabSel);
-			s.wait(StorageDeviceIcon,10.0);
-			s.click(BatteryIcon);
+			SysInfo();
 			
 			//
 			s.click(SysTabSel);
-			s.wait(StorageDeviceIcon,10.0);
-			s.click(SysInfoIcon);
-			
-			//
-			s.click(SysTabSel);
-			s.wait(StorageDeviceIcon,10.0);
-			s.click(FilePrintersIcon);
+			FilePrinters();
 
-
-			//s.paste("informção");
-			s.type(Key.DOWN);
-			s.type(Key.ENTER);
-			
-			//ScreenRegion sr = new ScreenRegion();
 			
 									
 		} catch (IOException e) {
@@ -95,6 +98,105 @@ public class SystemSmoke {
 		}
 		
 		return resultado;
+	}
+	
+	
+	public void StorageDevice()
+	{
+		try {
+			
+			s.click(LSCtitle);
+			s.wait(StorageDeviceIcon,10.0);
+			s.click(StorageDeviceIcon);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void Memory()
+	{
+		try {
+			
+			s.click(LSCtitle);
+			s.wait(StorageDeviceIcon,10.0);
+			s.click(MemoryIcon);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void Backup()
+	{
+		try {
+			
+			s.click(LSCtitle);
+			s.wait(StorageDeviceIcon,10.0);
+			s.click(BackupIcon);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void SoftwareUpdate()
+	{
+		try {
+			
+			s.click(LSCtitle);
+			s.wait(StorageDeviceIcon,10.0);
+			s.click(SoftwareUpdateIcon);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void Battery()
+	{
+		try {
+			
+			s.click(LSCtitle);
+			s.wait(StorageDeviceIcon,10.0);
+			s.click(BatteryIcon);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void SysInfo()
+	{
+		try {
+			
+			s.click(LSCtitle);
+			s.wait(StorageDeviceIcon,10.0);
+			s.click(SysInfoIcon);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void FilePrinters()
+	{
+		try {
+			
+			s.click(LSCtitle);
+			s.wait(StorageDeviceIcon,10.0);
+			s.click(FilePrintersIcon);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }

@@ -17,7 +17,7 @@ import javax.swing.AbstractButton;
 
 @SuppressWarnings("serial")
 public class Teste extends javax.swing.JFrame {
-	String selecao = new String();
+	public String selecao = new String();
     /**
      * Creates new form Teste
      */
