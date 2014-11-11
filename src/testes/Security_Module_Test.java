@@ -1,4 +1,4 @@
-package testes;
+/*package testes;
 
 import java.io.File;
 import java.io.IOException;
@@ -87,4 +87,4 @@ public class Security_Module_Test {
 		return resultado;
 	}
 
-}
+}*/
