@@ -21,8 +21,7 @@ public class SystemSmoke {
 		
 		ResultExec resultado = new ResultExec("Smoke Test");
 		
-
-		try {
+	try {
 				
 						
 			java.awt.Desktop.getDesktop().open(new File("Linguagens/"+idioma+".bat"));
