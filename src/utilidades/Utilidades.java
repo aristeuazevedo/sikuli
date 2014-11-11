@@ -29,8 +29,7 @@ public class Utilidades {
 		BufferedImage image = Utilidades.capture();
 		
 		ImageIO.write(image, "jpg", new File("C:\\Users\\Lenovo\\Desktop\\victorwork\\"+str+".jpg"));
-		
-		
+				
 	}
 	
 	//captura tela da maquina, qualquer dimensao

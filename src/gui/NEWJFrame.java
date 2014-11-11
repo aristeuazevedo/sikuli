@@ -1,3 +1,4 @@
+package gui;
 
 @SuppressWarnings("serial")
 public class NEWJFrame extends javax.swing.JFrame {
