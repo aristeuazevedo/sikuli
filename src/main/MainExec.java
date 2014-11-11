@@ -10,6 +10,7 @@ public class MainExec {
 		ResultExec resultado = new ResultExec("");
 
 		// TODO Auto-generated method stub
+		@SuppressWarnings("unused")
 		TesteUm t1 = new TesteUm();
 		
 		Teste t = new Teste();

@@ -1,4 +1,4 @@
-/*package testes;
+package testes;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,9 +8,12 @@ import org.sikuli.script.Screen;
 
 import utilidades.ResultExec;
 
+@SuppressWarnings("unused")
 public class Security_Module_Test {
 
-	public ResultExec Smoke(String idioma) {
+	public void Smoke() {}}
+		/*
+		
 		Screen s = new Screen();
 
 		ResultExec resultado = new ResultExec("Smoke Test");
@@ -86,5 +89,7 @@ public class Security_Module_Test {
 
 		return resultado;
 	}
+*/
 
-}*/
+
+

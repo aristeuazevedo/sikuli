@@ -13,6 +13,7 @@ import org.sikuli.script.*;
 
 import utilidades.ResultExec;
 
+@SuppressWarnings("unused")
 public class SystemSmoke {
 	
 	String LSCtitle = " ";
