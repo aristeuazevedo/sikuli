@@ -1,71 +1,56 @@
 package main;
 
 import java.io.File;
+
 import gui.Teste;
 import testes.*;
 import utilidades.ListaResult;
 import utilidades.ResultExec;
+import utilidades.TestsParameters;
 import utilidades.Utilidades;
+import utilidades.*;
 
 public class MainExec {
 	
 	static ResultExec resultado = new ResultExec("");
+	static TestsParameters testParam = new TestsParameters();
+	static System_Smoke_Test SystemTest ;
+	static Security_Module_Test SecurityTest ;
+	static Checkup_Smoke_Test CheckupTest ;
+	static Support_Smoke_Test SupportTest ;
+	
+	static ListaResult lista;
+	
 	
 	public static void main(String[] args) {
 				
-		@SuppressWarnings("unused")
-		TesteUm t1 = new TesteUm();
+	
 		
 		Teste t = new Teste();
-		
-		String nomeMaquina;
-		String data;
-				
-		String s = ""; // recebe a linguagem selecionada na janela
-		String idioma = "";
-		
-		
+			
 		//chama a tela de seleção de idiomas
 		t.setVisible(true);
-		
 		//verifica se a tela de seleção ainda está ativa
 		while (t.isShowing() == true) {
-			s = t.selecao;
+			testParam.setIdioma(t.selecao);
 		}
 		
-		nomeMaquina = "maquina 1";
-		data = Utilidades.horaData();
-		idioma = escolheIdioma(s);
+		testParam.setMachineName("maquina 1");
+		testParam.setData(Utilidades.horaData());
+		testParam.setShortIdioma(escolheIdioma(testParam.getIdioma()));
 		
 		//objeto que carrega as informações da execução
-		ListaResult lista = new ListaResult(nomeMaquina, data, s);
+		lista = new ListaResult(testParam.getMachineName(), testParam.getData(), testParam.getShortIdioma());
 						
-		lista.addResultado(initializeLSC(idioma));
-				
-		//criando objeto dos testes
-		System_Smoke_Test SystemTest = new System_Smoke_Test(idioma);
-		Security_Module_Test SecurityTest = new Security_Module_Test(idioma);
-		Checkup_Smoke_Test CheckupTest = new Checkup_Smoke_Test(idioma);
-		Support_Smoke_Test SupportTest = new Support_Smoke_Test(idioma);
+		lista.addResultado(initializeLSC(testParam.getShortIdioma()));
 		
 		//Executa o teste
-			/*
-		for (ResultExec result : SystemTest.Smoke() ) {
-			lista.addResultado(result);
-		}
+		testParam.setSystemSmoke(true);
+		testParam.setCheckupSmoke(true);
+		testParam.setSecuritySmoke(true);
+		testParam.setSupportSmoke(true);
 		
-		for (ResultExec result : SecurityTest.Smoke() ) {
-			lista.addResultado(result);
-		}
-		
-		for (ResultExec result : CheckupTest.Smoke() ) {
-			lista.addResultado(result);
-		}
-		
-		*/
-		for (ResultExec result : SupportTest.Smoke() ) {
-			lista.addResultado(result);
-		}
+		selectSmokeTests();
 		
 		Utilidades.grava(lista);
 		
@@ -75,83 +60,65 @@ public class MainExec {
 	 * Metodo para retornar a linguagem selecionada, a string retornada e usada para formar o caminho das imagens 
 	 */
 	public static String escolheIdioma(String s) {
-		String idioma = "";
+		
 		switch (s) {
 
 		case "Danish (da-DK)":
-			idioma = "da_DK";
-			break;
-
-		case "Dutch ( nl-NL)":
-			idioma = "nl_NL";
-			break;
+			return "da_DK";
+			
+		case "Dutch (nl-NL)":
+			return "nl_NL";
 
 		case "English (en-US)":
-			idioma = "en_US";
-			break;
+			return "en_US";
 
 		case "Finish (fi-FI)":
-			idioma = "fi_FI";
-			break;
+			return "fi_FI";
 
 		case "French (fr-FR)":
-			idioma = "fr_FR";
-			break;
+			return "fr_FR";
 
 		case "German (de-DE)":
-			idioma = "de_DE";
-			break;
+			return "de_DE";
 
 		case "Italian (it-IT)":
-			idioma = "it_IT";
-			break;
-
+			return "it_IT";
+		
 		case "Japanese (ja-JP)":
-			idioma = "ja_JP";
-			break;
+			return "ja_JP";
 
 		case "Korean (ko-KR)":
-			idioma = "ko_KR";
-			break;
+			return "ko_KR";
 
 		case "Norwegian (nb-NO)":
-			idioma = "nb_NO";
-			break;
+			return "nb_NO";
 
 		case "Polish (pl-PL)":
-			idioma = "pl_PL";
-			break;
-
+			return "pl_PL";
+			
 		case "Portuguese (pt-PT)":
-			idioma = "pt_PT";
-			break;
+			return "pt_PT";
 
 		case "Portuguese (pt-BR)":
-			idioma = "pt_BR";
-			break;
+			return "pt_BR";
 
 		case "Russian (ru-RU)":
-			idioma = "ru_RU";
-			break;
+			return "ru_RU";
 
 		case "Simplified Chinese (zh-CN)":
-			idioma = "zh_CN";
-			break;
+			return "zh_CN";
 
 		case "Spanish (es-ES)":
-			idioma = "es_ES";
-			break;
+			return "es_ES";
 
 		case "Swedish (sv-SE)":
-			idioma = "sv_SE";
-			break;
+			return "sv_SE";
 
 		case "Traditional Chinese (zh-TW)":
-			idioma = "zh_TW";
-			break;
+			return "zh_TW";
 		}
 
-		return idioma;
+		return "";
 	}
 
 	/**
@@ -170,4 +137,45 @@ public class MainExec {
 			return resultado;
 			
 		}	
+
+	public static void selectSmokeTests()
+	{
+		
+		if (testParam.isSystemSmoke()) {
+			System_Smoke_Test SystemTest = new System_Smoke_Test(
+					testParam.getShortIdioma());
+			for (ResultExec result : SystemTest.Smoke()) {
+				lista.addResultado(result);
+			}
+		}
+		
+		if (testParam.isSecuritySmoke()) {
+			Security_Module_Test SecurityTest = new Security_Module_Test(
+					testParam.getShortIdioma());
+			for (ResultExec result : SecurityTest.Smoke()) {
+				lista.addResultado(result);
+			}
+		}
+		
+		
+		if (testParam.isCheckupSmoke()) {
+			Checkup_Smoke_Test CheckupTest = new Checkup_Smoke_Test(
+					testParam.getShortIdioma());
+			for (ResultExec result : CheckupTest.Smoke()) {
+				lista.addResultado(result);
+			}
+		}
+		
+		
+		if (testParam.supportSmoke) {
+			Support_Smoke_Test SupportTest = new Support_Smoke_Test(
+					testParam.getShortIdioma());
+			for (ResultExec result : SupportTest.Smoke()) {
+				lista.addResultado(result);
+			}
+		}
+		
+	}
+	
+	
 }
