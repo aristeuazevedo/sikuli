@@ -93,7 +93,8 @@ public class Support_Smoke_Test {
 				s.wait(sys.icn_info, 20);
 				s.click(sys.icn_info);
 				resultado.addMensagens("Passed");
-				
+				//voltar para o lsc comum, pois no configHistory não possui abas laterais
+				s.click(sys.btn_back);
 				
 			}
 			//Product Registragion
@@ -111,7 +112,8 @@ public class Support_Smoke_Test {
 				}
 				
 												
-				
+				//voltar para o lsc comum, pois no configHistory não possui abas laterais
+				s.click(sys.btn_back);
 				
 			}
 			
@@ -160,14 +162,11 @@ public class Support_Smoke_Test {
 			}
 			
 			else {
+				s.wait(icone,10.0);
 				s.click(icone);
-				
 				resultado.addMensagens("Passed");
 			}
-	
-			//voltar para o lsc comum, pois no configHistory não possui abas laterais
-			s.click(sys.btn_back);
-				
+								
 		} catch (Exception e) {
 			e.printStackTrace();
 			resultado.addMensagens(e.toString());
