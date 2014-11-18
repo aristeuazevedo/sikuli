@@ -21,8 +21,18 @@ import utilidades.LSC_System;
 import utilidades.ResultExec;
 import utilidades.Utilidades;
 
+/**
+ * Executa os testes da aba de Support
+ * Entra em todas os icones disponiveis
+ *@author	Aristeu Azevedo
+ *@param 	sys 	Possui os caminhos para os arquivos e imagens
+ *@param	idioma	Idioma selecionado para realizar os testes
+ *@param	resultado	Mensagens e nomes dos testes executados
+ */
+
 public class Support_Smoke_Test {
 	String idioma = "";
+	
 	
 	LSC_Support sys;
 	private List<ResultExec> listaResultados = new ArrayList<ResultExec>();
@@ -30,11 +40,16 @@ public class Support_Smoke_Test {
 	
 	Screen s = new Screen();
 	
+	/**
+	 * Classe com metodos comuns 
+	 * @param	idioma	Idioma selecionado para realizar os testes
+	 */
 	public Support_Smoke_Test( String idioma){
 		
 		this.idioma = idioma;
 		sys = new LSC_Support(idioma);
 	}
+	
 	
 	public List<ResultExec> Smoke() {
 	
@@ -52,9 +67,17 @@ public class Support_Smoke_Test {
 			tabSelected();
 			VerificaTela(sys.icn_configHistory);
 			
+			tabSelected();
+			VerificaTela(sys.icn_ProductRegistration);
+			
 				
 		return listaResultados;
 	}
+
+	/**
+	 * Metodo para verificar se o icone clicado corresponde a tela aberta pela aplicacao
+	 * @param	icone	Icone que sera analisado	
+	 */
 
 	public void VerificaTela(String icone)
 	{
@@ -64,10 +87,32 @@ public class Support_Smoke_Test {
 			s.wait(icone,10.0);
 			s.click(icone);
 			
+			
 			//Configuration History verifica se tem o icone azul de informação
 			if(icone == sys.icn_configHistory) {
 				s.wait(sys.icn_info, 20);
 				s.click(sys.icn_info);
+				resultado.addMensagens("Passed");
+				
+				
+			}
+			//Product Registragion
+			else if(icone == sys.icn_ProductRegistration) {
+				
+				if(s.exists(sys.icn_warning) != null)
+				{
+					s.click(sys.icn_warning);
+					resultado.addMensagens("Icon warning (Passed)");
+				}
+				if(s.exists(sys.icn_aborted) != null)
+				{
+					s.click(sys.icn_aborted);
+					resultado.addMensagens("Icon aborted (Passed)");
+				}
+				
+												
+				
+				
 			}
 			
 			//Online Support
@@ -78,39 +123,62 @@ public class Support_Smoke_Test {
 					s.wait(sys.selfHelp,20);
 					
 					s.click(sys.selfHelp);
+					resultado.addMensagens("Self Help Icon (Passed)");
 					
 					s.click(sys.onlineRepair);
+					resultado.addMensagens("Online Repair Icon (Passed)");
 					
 					s.click(sys.icn_AskLenovo);
+					resultado.addMensagens("Ask Lenovo Icon (Passed)");
 					
 					s.click(sys.lenovoRobot);
+					resultado.addMensagens("Lenovo Robot Icon (Passed)");
 					
 					s.click(sys.expert);
+					resultado.addMensagens("Expert Online Icon (Passed)");
 					
 					s.click(sys.moreInfo);
-					
+					resultado.addMensagens("More Information Icon (Passed)");
 				}
 				else {
+					s.wait(sys.lenovoSupport,20);
+					s.click(sys.lenovoSupport);
+					resultado.addMensagens("Lenovo Support Icon (Passed)");
+					
+					
 					s.wait(sys.virtualAgente,20);
 					s.click(sys.virtualAgente);
+					resultado.addMensagens("Virtual Agente Icon (Passed)");
+					
+					s.wait(sys.lenovoForum,20);
+					s.click(sys.lenovoForum);
+					resultado.addMensagens("Lenovo Forum Icon (Passed)");
+					
+					
 				}
+				
 			}
 			
 			else {
-				s.wait(icone);
+				s.click(icone);
+				
+				resultado.addMensagens("Passed");
 			}
-			
-			resultado.addMensagens("Passed");
-			
+	
+			//voltar para o lsc comum, pois no configHistory não possui abas laterais
+			s.click(sys.btn_back);
 				
 		} catch (Exception e) {
 			e.printStackTrace();
 			resultado.addMensagens(e.toString());
 		}
+		
 		listaResultados.add(resultado);
 	}
 
-	//TODO Verificação do Titulo do LSC
+	/**
+	 * Metodo para verificar o titulo do LSC
+	 */
 	public void titleLSC(){
 			
 				try {
@@ -125,7 +193,9 @@ public class Support_Smoke_Test {
 				listaResultados.add(resultado);
 		}
 		
-	//TODO Verifica a aba System não selecionada
+	/**
+	 * Metodo para clicar na aba de Suporte (nao selecionada)
+	 */
 	public void tabUnselected(){
 					try {
 						resultado = new ResultExec("Tab Support Unselected");
@@ -140,6 +210,9 @@ public class Support_Smoke_Test {
 					listaResultados.add(resultado);
 		}
 		
+	/**
+	 * Metodo para clicar na aba de Suporte (selecionada)
+	 */
 	public void tabSelected(){
 			try {
 				resultado = new ResultExec("Tab Support Selected");

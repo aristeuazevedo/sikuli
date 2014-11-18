@@ -10,17 +10,18 @@ public class LSC_Main {
 	String icn_DefaultExe_LE = caminho + "icn_DefaultExe_LE.png";
 	String icn_DefaultURL_LE = caminho + "icn_DefaultURL_LE.png";
 	String icn_predictive = caminho + "icn_predictive.png";
-	String icn_premiumSupport = caminho + "icn_premiumSupport.png";
+	
 	String icn_recoveryMedia = caminho + "icn_recoveryMedia.png ";
 	String icn_systemMonitor_title = caminho + "icn_systemMonitor_title.png";
 	String icn_systemMonitor = caminho + "icn_systemMonitor.png";
     public String LSC_Title = caminho + "LSC_appTitle.png";
     
-    public String icn_save = caminho + "icnSave.png";
-    public String icn_info = caminho + "icnInfo.png";
+    
     
     //icones do Access Support Online
     public String virtualAgente = caminho + "lenovoVirtualAgentIcon.png";
+    public String lenovoForum = caminho + "lenovoForumIcon.png";
+    public String lenovoSupport = caminho + "lenovoSupportIcon.png";
     
     //icones do Access Support Online Chines
     public String moreInfo = caminho + "icn_MoreHelp.png";
@@ -29,6 +30,16 @@ public class LSC_Main {
     public String onlineRepair = caminho + "icn_OnlineRepair.png";
     public String lenovoRobot = caminho + "icn_LenovoRobot.png";
     public String icn_AskLenovo = caminho + "icn_AskLenovo.png";
+    
+    //alertas
+    public String icn_warning = caminho + "icn_accordionWarning.png";
+    public String icn_error = caminho + "icn_accordionError.png";
+    public String icn_aborted = caminho + "icn_accordionAborted.png";
+    public String icn_ok = caminho + "icn_accordionOK.png";
+    public String icn_save = caminho + "icnSave.png";
+    public String icn_info = caminho + "icnInfo.png";
+    public String btn_back = caminho + "btnBackActive.png";
+    		
     
     public String CheckupSel;
     public String CheckupUns;

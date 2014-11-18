@@ -49,7 +49,7 @@ public class MainExec {
 		Support_Smoke_Test SupportTest = new Support_Smoke_Test(idioma);
 		
 		//Executa o teste
-			
+			/*
 		for (ResultExec result : SystemTest.Smoke() ) {
 			lista.addResultado(result);
 		}
@@ -62,7 +62,7 @@ public class MainExec {
 			lista.addResultado(result);
 		}
 		
-		
+		*/
 		for (ResultExec result : SupportTest.Smoke() ) {
 			lista.addResultado(result);
 		}
@@ -71,6 +71,9 @@ public class MainExec {
 		
 	}
 
+	/**
+	 * Metodo para retornar a linguagem selecionada, a string retornada e usada para formar o caminho das imagens 
+	 */
 	public static String escolheIdioma(String s) {
 		String idioma = "";
 		switch (s) {
@@ -151,7 +154,9 @@ public class MainExec {
 		return idioma;
 	}
 
-	//TODO Executa o LSC com o idioma previamente selecionado
+	/**
+	 * Chama o bat do LSC com o idioma previamente selecionado
+	 */
 	public static ResultExec initializeLSC(String idioma){
 			
 		try {

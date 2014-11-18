@@ -12,12 +12,17 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import javax.imageio.ImageIO;
+/**
+ * Classe com metodos comuns a serem utilizados
+ *@author Aristeu Azevedo
+ */
 
 public class Utilidades {
 	
 	private  static Robot rob;
 	
 	//chama o metodo de captura e salva a imagem como jpg
+	//REFATORAR
 	public static void print(String str) throws IOException
 	{
 		try{
@@ -33,13 +38,19 @@ public class Utilidades {
 				
 	}
 	
-	//captura tela da maquina, qualquer dimensao
+
+	/**
+	 *Captura a tela atual, "Print Screen"
+	 */
 	public static BufferedImage capture()
 	{
 		return rob.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
 	}
 	
-	//retorna a data atual da maquina
+	/**
+	 * Retorna a data atual da maquina
+	 *
+	 */
 	public static String horaData ()
 	{
 		GregorianCalendar gc = new GregorianCalendar();
@@ -49,7 +60,10 @@ public class Utilidades {
 		
 	}
 	
-	//Grava o arquivo HTML
+	/**
+	* Gera o arquivo HTML com os resultados dos testes executados
+	 *@param	lista	possui os resultados de cada teste e suas respectivas mensagens	
+	 */
 	public static void grava(ListaResult lista){
 		GregorianCalendar gc = new GregorianCalendar();
 		String hora = gc.getTime().getHours()+"";
@@ -100,7 +114,11 @@ public class Utilidades {
 		  
 		}
 	}
-	
+		
+	/**
+	 * Metodo para retornar o nome do icone
+	 *@param	icone	caminho da imagem do icone	
+	 */
 	public static String nomeIcone(String icone){
 		
 		if(icone.contains("icn_systemInfo.png")){ return "System info Icon";}
