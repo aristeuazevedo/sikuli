@@ -3,7 +3,6 @@ package main;
 import java.io.File;
 
 import gui.TestSelection;
-import gui.Teste;
 import testes.*;
 import utilidades.*;
 
@@ -28,16 +27,13 @@ public class MainExec {
 			
 		//chama a tela de seleção de idiomas
 		window.setVisible(true);
-		//t.setVisible(true);
 		//verifica se a tela de seleção ainda está ativa
 		while (window.isShowing() == true) {
-			//testParam.setIdioma(t.selecao);
 			testParam = window.testParam;
 		}
 		
 		//testParam.setMachineName("maquina 1");
 		testParam.setData(Utilidades.horaData());
-		//testParam.setShortIdioma(escolheIdioma(testParam.getIdioma()));
 		
 		//objeto que carrega as informações da execução
 		lista = new ListaResult(testParam.getMachineName(), testParam.getData(), testParam.getShortIdioma());
