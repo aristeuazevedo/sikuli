@@ -78,8 +78,10 @@ public class Utilidades {
 			fw.write("</Head>");
 			fw.write("<Body>");
 			
+			fw.write("<b><font color=red size=5>Machine Name:"+lista.getNomeMaquina()+"</b>  </font>  <br>");
 			fw.write("<b><font color=red size=5>Language:"+lista.getIdioma()+"</b> </font>  <br>");
 			fw.write("<b><font color=red size=5>Date:"+lista.getData()+"</b>  </font>  <br>");
+			
 			String str = "";
 			fw.write("<table border='1' style='width:100%'>");
 			fw.write("<tr>");

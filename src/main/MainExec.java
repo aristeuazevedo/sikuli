@@ -2,12 +2,9 @@ package main;
 
 import java.io.File;
 
+import gui.TestSelection;
 import gui.Teste;
 import testes.*;
-import utilidades.ListaResult;
-import utilidades.ResultExec;
-import utilidades.TestsParameters;
-import utilidades.Utilidades;
 import utilidades.*;
 
 public class MainExec {
@@ -26,101 +23,33 @@ public class MainExec {
 				
 	
 		
-		Teste t = new Teste();
+		//Teste t = new Teste();
+		TestSelection window = new TestSelection();
 			
 		//chama a tela de seleção de idiomas
-		t.setVisible(true);
+		window.setVisible(true);
+		//t.setVisible(true);
 		//verifica se a tela de seleção ainda está ativa
-		while (t.isShowing() == true) {
-			testParam.setIdioma(t.selecao);
+		while (window.isShowing() == true) {
+			//testParam.setIdioma(t.selecao);
+			testParam = window.testParam;
 		}
 		
-		testParam.setMachineName("maquina 1");
+		//testParam.setMachineName("maquina 1");
 		testParam.setData(Utilidades.horaData());
-		testParam.setShortIdioma(escolheIdioma(testParam.getIdioma()));
+		//testParam.setShortIdioma(escolheIdioma(testParam.getIdioma()));
 		
 		//objeto que carrega as informações da execução
 		lista = new ListaResult(testParam.getMachineName(), testParam.getData(), testParam.getShortIdioma());
-						
+		lista.setNomeMaquina(testParam.getMachineName());				
 		lista.addResultado(initializeLSC(testParam.getShortIdioma()));
-		
-		//Executa o teste
-		testParam.setSystemSmoke(true);
-		testParam.setCheckupSmoke(true);
-		testParam.setSecuritySmoke(true);
-		testParam.setSupportSmoke(true);
-		
+				
 		selectSmokeTests();
 		
 		Utilidades.grava(lista);
 		
 	}
-
-	/**
-	 * Metodo para retornar a linguagem selecionada, a string retornada e usada para formar o caminho das imagens 
-	 */
-	public static String escolheIdioma(String s) {
-		
-		switch (s) {
-
-		case "Danish (da-DK)":
-			return "da_DK";
-			
-		case "Dutch (nl-NL)":
-			return "nl_NL";
-
-		case "English (en-US)":
-			return "en_US";
-
-		case "Finish (fi-FI)":
-			return "fi_FI";
-
-		case "French (fr-FR)":
-			return "fr_FR";
-
-		case "German (de-DE)":
-			return "de_DE";
-
-		case "Italian (it-IT)":
-			return "it_IT";
-		
-		case "Japanese (ja-JP)":
-			return "ja_JP";
-
-		case "Korean (ko-KR)":
-			return "ko_KR";
-
-		case "Norwegian (nb-NO)":
-			return "nb_NO";
-
-		case "Polish (pl-PL)":
-			return "pl_PL";
-			
-		case "Portuguese (pt-PT)":
-			return "pt_PT";
-
-		case "Portuguese (pt-BR)":
-			return "pt_BR";
-
-		case "Russian (ru-RU)":
-			return "ru_RU";
-
-		case "Simplified Chinese (zh-CN)":
-			return "zh_CN";
-
-		case "Spanish (es-ES)":
-			return "es_ES";
-
-		case "Swedish (sv-SE)":
-			return "sv_SE";
-
-		case "Traditional Chinese (zh-TW)":
-			return "zh_TW";
-		}
-
-		return "";
-	}
-
+	
 	/**
 	 * Chama o bat do LSC com o idioma previamente selecionado
 	 */
@@ -140,7 +69,6 @@ public class MainExec {
 
 	public static void selectSmokeTests()
 	{
-		
 		if (testParam.isSystemSmoke()) {
 			System_Smoke_Test SystemTest = new System_Smoke_Test(
 					testParam.getShortIdioma());
