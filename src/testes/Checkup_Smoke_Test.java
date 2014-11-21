@@ -107,16 +107,27 @@ public class Checkup_Smoke_Test {
 			s.wait(icone,10.0);
 			s.click(icone);
 							
-			if(icone == sys.icn_snapshot)
+			if(icone == sys.icn_snapshot){
 				s.wait(sys.icn_save,40.0);
+				s.click(sys.icn_save);
+				listaResultados.add(resultado);
+			}
 		
+			
+			else {
+				s.click(sys.LSC_Title);
+				s.wait(icone, 10.0);
+				s.click(icone);
+				resultado.addMensagens("Passed");
+			}
+			
 			resultado.addMensagens("Passed");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			resultado.addMensagens(e.toString());
 		}
-		listaResultados.add(resultado);
+		
 	}
 	
 	/**
