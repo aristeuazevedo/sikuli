@@ -1,5 +1,13 @@
 package utilidades;
 
+
+/**
+ * Classe que armazena os dados que o usuário selecionou previamente
+ * @param	idioma	Idioma selecionado para executar os testes
+ * @param	shortIdioma	Sigla do idioma selecionado
+ * @param	machineName	Nome da máquina, usado para Configurações 
+ * @author	Aristeu Azevedo
+ */
 public class TestsParameters {
 	public String idioma;
 	public String shortIdioma;

@@ -12,17 +12,17 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import javax.imageio.ImageIO;
+
 /**
  * Classe com metodos comuns a serem utilizados
+ * por qualquer classe
  *@author Aristeu Azevedo
  */
-
 public class Utilidades {
 	
 	private  static Robot rob;
 	
-	//chama o metodo de captura e salva a imagem como jpg
-	//REFATORAR
+	
 	public static void print(String str) throws IOException
 	{
 		try{
@@ -40,7 +40,7 @@ public class Utilidades {
 	
 
 	/**
-	 *Captura a tela atual, "Print Screen"
+	 *Captura a tela atual, como um "Print Screen"
 	 */
 	public static BufferedImage capture()
 	{
@@ -49,7 +49,6 @@ public class Utilidades {
 	
 	/**
 	 * Retorna a data atual da maquina
-	 *
 	 */
 	public static String horaData ()
 	{
@@ -61,7 +60,7 @@ public class Utilidades {
 	}
 	
 	/**
-	* Gera o arquivo HTML com os resultados dos testes executados
+	 * Gera o arquivo HTML com os resultados dos testes executados
 	 *@param	lista	possui os resultados de cada teste e suas respectivas mensagens	
 	 */
 	public static void grava(ListaResult lista){

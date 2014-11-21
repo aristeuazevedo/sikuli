@@ -1,5 +1,11 @@
 package utilidades;
 
+
+/**
+ * Classe que armazena os caminhos das imagens comuns
+ * Usadas por todas as outras telas
+ * @author	Aristeu Azevedo
+ */
 public class LSC_Main {
 
 	String idioma = "";

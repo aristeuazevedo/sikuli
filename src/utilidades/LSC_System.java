@@ -10,6 +10,7 @@ public class LSC_System extends LSC_Main {
 	public String icn_systemInfo = caminho + "icn_systemInfo.png";
 	public String icn_filePrinter = caminho + "icn_filePrinter.png";
 	public String usbDeviceIcon = caminho + "usbDeviceIcon.png";
+	public String icn_recoveryMedia = caminho + "icn_recoveryMedia.png";
 	
 	
 	

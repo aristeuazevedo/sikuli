@@ -6,6 +6,11 @@ import gui.TestSelection;
 import testes.*;
 import utilidades.*;
 
+/**
+ * Classe principal responsável por gerenciar quais telas serão testadas, 
+ * também possui métodos que fazem a chamada de classes.
+ *@author Aristeu Azevedo
+ */
 public class MainExec {
 	
 	static ResultExec resultado = new ResultExec("");
@@ -14,15 +19,13 @@ public class MainExec {
 	static Security_Smoke_Test SecurityTest ;
 	static Checkup_Smoke_Test CheckupTest ;
 	static Support_Smoke_Test SupportTest ;
-	
 	static ListaResult lista;
-	
-	
+		
 	public static void main(String[] args) {
 				
 	
 		
-		//Teste t = new Teste();
+
 		TestSelection window = new TestSelection();
 			
 		//chama a tela de seleção de idiomas
@@ -32,7 +35,6 @@ public class MainExec {
 			testParam = window.testParam;
 		}
 		
-		//testParam.setMachineName("maquina 1");
 		testParam.setData(Utilidades.horaData());
 		
 		//objeto que carrega as informações da execução
@@ -41,13 +43,12 @@ public class MainExec {
 		lista.addResultado(initializeLSC(testParam.getShortIdioma()));
 				
 		selectSmokeTests();
-		
 		Utilidades.grava(lista);
 		
 	}
 	
 	/**
-	 * Chama o bat do LSC com o idioma previamente selecionado
+	 * Chama o bat do LSC com a sigla do idioma previamente selecionado
 	 */
 	public static ResultExec initializeLSC(String idioma){
 			
@@ -63,6 +64,10 @@ public class MainExec {
 			
 		}	
 
+	/**
+	 * Método para chamada de testes de acordo com os valores 
+	 * setados na tela "testsSelection"
+	 */
 	public static void selectSmokeTests()
 	{
 		if (testParam.isSystemSmoke()) {

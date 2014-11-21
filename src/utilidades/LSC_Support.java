@@ -1,5 +1,11 @@
 package utilidades;
 
+
+/**
+ * Classe que armazena os caminhos das imagens usadas na
+ * tela de Support
+ * @author	Aristeu Azevedo
+ */
 public class LSC_Support extends LSC_Main {
 	
 	public String onlinesupportIcon = caminho + "onlinesupportIcon.png";

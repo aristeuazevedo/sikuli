@@ -1,5 +1,10 @@
 package utilidades;
 
+/**
+ * Classe que armazena os caminhos das imagens usadas na
+ * tela de Security
+ * @author	Aristeu Azevedo
+ */
 public class LSC_Security extends LSC_Main {
 
 	public String icn_virusProtection = caminho + "icn_virusProtection.png";

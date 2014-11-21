@@ -22,27 +22,27 @@ import utilidades.ResultExec;
 import utilidades.Utilidades;
 
 /**
- * Executa os testes da aba de Support
- * Entra em todas os icones disponiveis
- *@author	Aristeu Azevedo
- *@param 	sys 	Possui os caminhos para os arquivos e imagens
- *@param	idioma	Idioma selecionado para realizar os testes
- *@param	resultado	Mensagens e nomes dos testes executados
+ * Classe usada para executar os testes da aba de Support
+ * Entra em todos os icones disponíveis ()
+ * @author	Aristeu Azevedo
+ * @param 	sys 	Possui os caminhos para os arquivos e imagens
+ * @param	idioma	Idioma selecionado para realizar os testes
+ * @param	resultado	Mensagens e nomes dos testes executados
+ * @param	s		Parametro utilizado pelo Sikuli focar a tela a ser testada
  */
-
 public class Support_Smoke_Test {
-	String idioma = "";
-	
-	
+
 	LSC_Support sys;
-	private List<ResultExec> listaResultados = new ArrayList<ResultExec>();
+	String idioma = "";
 	ResultExec resultado = new ResultExec("Smoke Test Support");
-	
+	private List<ResultExec> listaResultados = new ArrayList<ResultExec>();
 	Screen s = new Screen();
 	
 	/**
-	 * Classe com metodos comuns 
+	 * Construtor para criar os testes com o idioma selecionado
 	 * @param	idioma	Idioma selecionado para realizar os testes
+	 * @param	sys		Instancia o LSC_Support que armazena os caminhos das
+	 * imagens que serão usadas nos testes.
 	 */
 	public Support_Smoke_Test( String idioma){
 		
@@ -50,7 +50,9 @@ public class Support_Smoke_Test {
 		sys = new LSC_Support(idioma);
 	}
 	
-	
+	/**
+	 * Metodo principal chamado para executar os testes de verificação dos icones
+	 */
 	public List<ResultExec> Smoke() {
 	
 			listaResultados.add(resultado);
@@ -76,10 +78,10 @@ public class Support_Smoke_Test {
 	}
 
 	/**
-	 * Metodo para verificar se o icone clicado corresponde a tela aberta pela aplicacao
+	 * Metodo para verificar se o icone clicado corresponde a tela aberta 
+	 * pela aplicacao. Adicionao resultado na variavel "resultado".
 	 * @param	icone	Icone que sera analisado	
 	 */
-
 	public void VerificaTela(String icone)
 	{
 		try {
@@ -179,6 +181,8 @@ public class Support_Smoke_Test {
 
 	/**
 	 * Metodo para verificar o titulo do LSC
+	 * O mouse encontra o título para que a janela continue sendo o foco,
+	 * assim nenhuma pop-up ou textos na tela irão atrapalhar a execução
 	 */
 	public void titleLSC(){
 			
@@ -195,7 +199,8 @@ public class Support_Smoke_Test {
 		}
 		
 	/**
-	 * Metodo para clicar na aba de Suporte (nao selecionada)
+	 * Metodo para clicar na aba de Support (nao selecionada)
+	 * Utilizado para dar foco na aba Support
 	 */
 	public void tabUnselected(){
 					try {
@@ -213,6 +218,7 @@ public class Support_Smoke_Test {
 		
 	/**
 	 * Metodo para clicar na aba de Suporte (selecionada)
+	 * Utilizado para dar foco na aba Support
 	 */
 	public void tabSelected(){
 			try {

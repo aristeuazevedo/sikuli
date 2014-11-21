@@ -9,6 +9,12 @@ public class ListaResult {
 	private String data;
 	private String idioma;
 	
+	/**
+	 * Classe que armazena os "resultado" para posteriormente 
+	 * montar o relatório.
+	 * Entra em todos os icones disponíveis ()
+	 * @author	Aristeu Azevedo
+	 */
 	public List<ResultExec> listaResultado = new ArrayList<ResultExec>();
 	
 	public ListaResult(String nomeMaquina, String data, String idioma) {

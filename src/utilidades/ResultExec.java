@@ -3,11 +3,13 @@ package utilidades;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que armazena o resultado do teste e sua respectiva mensagem
+ * @author	Aristeu Azevedo
+ */
 public class ResultExec {
 	
 	private String nomeMaquina;
-	
-	
 	private boolean result;
 	private List<String> mensagens = new ArrayList<String>();
 	private String nomeTeste;

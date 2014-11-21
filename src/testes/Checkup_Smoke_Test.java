@@ -20,25 +20,38 @@ import utilidades.ResultExec;
 import utilidades.Utilidades;
 
 
-
+/**
+ * Classe usada para executar os testes da aba de Checkup
+ * Entra em todos os icones disponíveis ()
+ * @author	Aristeu Azevedo
+ * @param 	sys 	Possui os caminhos para os arquivos e imagens
+ * @param	idioma	Idioma selecionado para realizar os testes
+ * @param	resultado	Mensagens e nomes dos testes executados
+ * @param	s		Parametro utilizado pelo Sikuli focar a tela a ser testada
+ */
 public class Checkup_Smoke_Test {
 	
+	LSC_CheckUP sys;
+	String idioma = "";
 	private List<ResultExec> listaResultados = new ArrayList<ResultExec>();
 	ResultExec resultado = new ResultExec("Smoke Test Check Up");
-	
-	String idioma = "";
-	
-	LSC_CheckUP sys;
-	
-	
 	Screen s = new Screen();
 	
+	/**
+	 * Construtor para criar os testes com o idioma selecionado
+	 * @param	idioma	Idioma selecionado para realizar os testes
+	 * @param	sys		Instancia o LSC_Checkup que armazena os caminhos das
+	 * imagens que serão usadas nos testes.
+	 */
 	public Checkup_Smoke_Test( String idioma){
 		
 		this.idioma = idioma;
 		sys = new LSC_CheckUP(idioma);
 	}
 	
+	/**
+	 * Metodo principal chamado para executar os testes de verificação dos icones
+	 */
 	public List<ResultExec> Smoke()
 	{	
 		
@@ -62,6 +75,11 @@ public class Checkup_Smoke_Test {
 		return listaResultados;
 	}
 	
+	/**
+	 * Metodo para verificar se o icone clicado corresponde a tela aberta 
+	 * pela aplicacao. Adicionao resultado na variavel "resultado".
+	 * @param	icone	Icone que sera analisado	
+	 */
 	public void titleLSC(){
 		
 		try {
@@ -76,6 +94,11 @@ public class Checkup_Smoke_Test {
 		listaResultados.add(resultado);
 }
 	
+	/**
+	 * Metodo para verificar o titulo do LSC
+	 * O mouse encontra o título para que a janela continue sendo o foco,
+	 * assim nenhuma pop-up ou textos na tela irão atrapalhar a execução
+	 */
 	public void VerificaTela(String icone)
 	{
 		try {
@@ -96,7 +119,10 @@ public class Checkup_Smoke_Test {
 		listaResultados.add(resultado);
 	}
 	
-	//TODO Verifica a aba System não selecionada
+	/**
+	 * Metodo para clicar na aba de Security (nao selecionada)
+	 * Utilizado para dar foco na aba Security
+	 */
 	public void tabUnselected(){
 				try {
 					resultado = new ResultExec("Tab Checkup Unselected");
@@ -111,7 +137,10 @@ public class Checkup_Smoke_Test {
 				listaResultados.add(resultado);
 	}
 	
-	//TODO Verifica a aba System selecionada
+	/**
+	 * Metodo para clicar na aba de Security (selecionada)
+	 * Utilizado para dar foco na aba Security
+	 */
 	public void tabSelected(){
 			try {
 				resultado = new ResultExec("Tab Checkup Selected");
