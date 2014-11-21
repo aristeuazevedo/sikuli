@@ -70,18 +70,27 @@ public class System_Smoke_Test {
 	public void VerificaTela(String icone)
 	{
 		try {
-			s.click(sys.LSC_Title);
 			resultado = new ResultExec(Utilidades.nomeIcone(icone));
+			s.click(sys.LSC_Title);
 			s.wait(icone,10.0);
 			s.click(icone);
 			
 			//verifica se a tela é a correta
-			if(icone == sys.icn_systemInfo )
-			s.wait(sys.icn_save,40.0);
-			
-			else if(icone == sys.icn_filePrinter)
-			s.wait(3.0);
-			
+			if(icone == sys.icn_systemInfo ){
+				
+				s.wait(sys.icn_save,60.0);
+				s.click(sys.icn_save);
+
+			}
+			else if(icone == sys.icn_filePrinter){
+				//s.wait(3.0);
+			}
+			else
+			{
+				s.click(sys.LSC_Title);
+				s.wait(icone, 10);
+				s.click(icone);
+			}
 			resultado.addMensagens("Passed");
 			
 		} catch (Exception e) {
@@ -92,22 +101,22 @@ public class System_Smoke_Test {
 		
 	}
 	
-	//TODO Verificação do Titulo do LSC
+
 	public void titleLSC(){
 		
 			try {
-				resultado = new ResultExec("LSC Title verification");		
+				//resultado = new ResultExec("LSC Title verification");		
 				s.wait(sys.LSC_Title,30.0);
 				s.click(sys.LSC_Title);
-				resultado.addMensagens("Passed");
+				//resultado.addMensagens("Passed");
 			} catch (FindFailed e) {
 				e.printStackTrace();
 				resultado.addMensagens(e.toString());
 			}
-			listaResultados.add(resultado);
+			//listaResultados.add(resultado);
 	}
 	
-	//TODO Verifica a aba System não selecionada
+
 	public void tabUnselected(){
 				try {
 					resultado = new ResultExec("Tab System Unselected");
@@ -122,7 +131,7 @@ public class System_Smoke_Test {
 				listaResultados.add(resultado);
 	}
 	
-	//TODO Verifica a aba System selecionada
+
 	public void tabSelected(){
 		try {
 			resultado = new ResultExec("Tab System Selected");

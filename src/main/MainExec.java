@@ -11,7 +11,7 @@ public class MainExec {
 	static ResultExec resultado = new ResultExec("");
 	static TestsParameters testParam = new TestsParameters();
 	static System_Smoke_Test SystemTest ;
-	static Security_Module_Test SecurityTest ;
+	static Security_Smoke_Test SecurityTest ;
 	static Checkup_Smoke_Test CheckupTest ;
 	static Support_Smoke_Test SupportTest ;
 	
@@ -74,7 +74,7 @@ public class MainExec {
 		}
 		
 		if (testParam.isSecuritySmoke()) {
-			Security_Module_Test SecurityTest = new Security_Module_Test(
+			Security_Smoke_Test SecurityTest = new Security_Smoke_Test(
 					testParam.getShortIdioma());
 			for (ResultExec result : SecurityTest.Smoke()) {
 				lista.addResultado(result);

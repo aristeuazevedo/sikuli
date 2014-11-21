@@ -21,7 +21,7 @@ import utilidades.ResultExec;
 import utilidades.Utilidades;
 
 @SuppressWarnings("unused")
-public class Security_Module_Test {
+public class Security_Smoke_Test {
 	
 	private List<ResultExec> listaResultados = new ArrayList<ResultExec>();
 	
@@ -33,7 +33,7 @@ public class Security_Module_Test {
 	
 	Screen s = new Screen();
 
-	public Security_Module_Test( String idioma){
+	public Security_Smoke_Test( String idioma){
 		
 		this.idioma = idioma;
 		sys = new LSC_Security(idioma);
@@ -71,6 +71,11 @@ public class Security_Module_Test {
 			resultado = new ResultExec(Utilidades.nomeIcone(icone));
 			s.wait(icone,10.0);
 			s.click(icone);
+			
+			s.click(sys.LSC_Title);
+			s.wait(icone, 10);
+			s.click(icone);
+			
 			resultado.addMensagens("Passed");
 			
 		} catch (Exception e) {
@@ -84,10 +89,10 @@ public class Security_Module_Test {
 	public void titleLSC(){
 		
 			try {
-				resultado = new ResultExec("LSC Title verification");		
+				//resultado = new ResultExec("LSC Title verification");		
 				s.wait(sys.LSC_Title,30.0);
 				s.click(sys.LSC_Title);
-				resultado.addMensagens("Passed");
+				//resultado.addMensagens("Passed");
 			} catch (FindFailed e) {
 				e.printStackTrace();
 				resultado.addMensagens(e.toString());

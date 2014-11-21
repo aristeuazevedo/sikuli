@@ -67,9 +67,10 @@ public class Support_Smoke_Test {
 			tabSelected();
 			VerificaTela(sys.icn_configHistory);
 			
-			tabSelected();
-			VerificaTela(sys.icn_ProductRegistration);
-			
+			if(idioma == "zh_CN" && idioma == "zh_TW"){
+				tabSelected();
+				VerificaTela(sys.icn_ProductRegistration);
+			}
 				
 		return listaResultados;
 	}
@@ -95,6 +96,7 @@ public class Support_Smoke_Test {
 				resultado.addMensagens("Passed");
 				//voltar para o lsc comum, pois no configHistory não possui abas laterais
 				s.click(sys.btn_back);
+				
 				
 			}
 			//Product Registragion
@@ -198,7 +200,7 @@ public class Support_Smoke_Test {
 	public void tabUnselected(){
 					try {
 						resultado = new ResultExec("Tab Support Unselected");
-						s.wait(2.0);
+						s.wait(3.0);
 						s.click(sys.SupportUns);
 						s.wait(2.0);
 						resultado.addMensagens("Passed");
