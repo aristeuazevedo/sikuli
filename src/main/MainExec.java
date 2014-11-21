@@ -1,6 +1,6 @@
 package main;
-import java.io.File;
 
+import java.io.File;
 import gui.Teste;
 import testes.*;
 import utilidades.ListaResult;
@@ -20,8 +20,7 @@ public class MainExec {
 		
 		String nomeMaquina;
 		String data;
-		
-		
+				
 		String s = ""; // recebe a linguagem selecionada na janela
 		String idioma = "";
 		
@@ -42,9 +41,7 @@ public class MainExec {
 		ListaResult lista = new ListaResult(nomeMaquina, data, s);
 						
 		lista.addResultado(initializeLSC(idioma));
-		
-		
-		
+				
 		//criando objeto dos testes
 		System_Smoke_Test SystemTest = new System_Smoke_Test(idioma);
 		Security_Module_Test SecurityTest = new Security_Module_Test(idioma);
@@ -66,11 +63,9 @@ public class MainExec {
 		}
 		
 		//SupportTest.Smoke();
-		
-		
+				
 		Utilidades.grava(lista);
 		
-
 	}
 
 	public static String escolheIdioma(String s) {
@@ -148,7 +143,6 @@ public class MainExec {
 		case "Traditional Chinese (zh-TW)":
 			idioma = "zh_TW";
 			break;
-
 		}
 
 		return idioma;
@@ -167,7 +161,5 @@ public class MainExec {
 		}
 			return resultado;
 			
-		}
-	
-	
+		}	
 }
