@@ -69,7 +69,7 @@ public class Support_Smoke_Test {
 			tabSelected();
 			VerificaTela(sys.icn_configHistory);
 			
-			if(idioma == "zh_CN" && idioma == "zh_TW"){
+			if(idioma != "zh_CN" && idioma != "zh_TW"){
 				tabSelected();
 				VerificaTela(sys.icn_ProductRegistration);
 			}

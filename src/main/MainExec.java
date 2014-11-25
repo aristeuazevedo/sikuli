@@ -20,6 +20,7 @@ public class MainExec {
 	static Checkup_Smoke_Test CheckupTest ;
 	static Support_Smoke_Test SupportTest ;
 	static ListaResult lista;
+	static Settings_Tests settings;
 		
 	public static void main(String[] args) {
 				
@@ -41,9 +42,20 @@ public class MainExec {
 		lista = new ListaResult(testParam.getMachineName(), testParam.getData(), testParam.getShortIdioma());
 		lista.setNomeMaquina(testParam.getMachineName());				
 		lista.addResultado(initializeLSC(testParam.getShortIdioma()));
-				
+		
+		
+		settings = new Settings_Tests(testParam.getShortIdioma());
+		
 		selectSmokeTests();
+		
+		//testes de settings
+		for (ResultExec result : settings.Select_allchecks()) {
+			lista.addResultado(result);
+		}
+		
 		Utilidades.grava(lista);
+		
+		
 		
 	}
 	

@@ -45,7 +45,10 @@ public class LSC_Main {
     public String icn_save = caminho + "icnSave.png";
     public String icn_info = caminho + "icnInfo.png";
     public String btn_back = caminho + "btnBackActive.png";
-    		
+    public String icn_errorBig = caminho + "icn_Error_big.png";
+    public String icn_OkBig = caminho + "icnOk_60x60.png";
+    public String icn_CancelBig = caminho + "icnCancel_60x60.png";
+    public String icn_warningBig = caminho + "icn_Warning_big.png";
     
     public String CheckupSel;
     public String CheckupUns;
@@ -58,8 +61,10 @@ public class LSC_Main {
     public String SystemSel;
     public String SystemUns;
     
+    public String ok_button;
     
 	String submit_service_request = caminho + "submit_service_request.png";
+	
 	
 	
 	public LSC_Main(String idioma) {
@@ -76,6 +81,7 @@ public class LSC_Main {
 	    SupportUns = "imgs/"+idioma+"/SupportTabUnselected.PNG";
 	    SystemSel = "imgs/"+idioma+"/SystemTabSelected.PNG";
 	    SystemUns = "imgs/"+idioma+"/SystemTabUnselected.PNG";
+	    ok_button = "imgs/"+idioma+"/ok_button.PNG";
 		}
 
 }
