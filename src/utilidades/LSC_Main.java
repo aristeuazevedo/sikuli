@@ -21,7 +21,9 @@ public class LSC_Main {
 	String icn_systemMonitor_title = caminho + "icn_systemMonitor_title.png";
 	String icn_systemMonitor = caminho + "icn_systemMonitor.png";
     public String LSC_Title = caminho + "LSC_appTitle.png";
-    
+    public String LSC_exit = caminho + "exitLSC.PNG";
+    public String LSC_welcomeScreen;
+    public String LSC_welcomeExit = caminho + "welcomeExit.PNG";
     
     
     //icones do Access Support Online
@@ -61,10 +63,13 @@ public class LSC_Main {
     public String SystemSel;
     public String SystemUns;
     
+	public String alwaysshowWlcomeScreen;
+    
     public String ok_button;
     
-	String submit_service_request = caminho + "submit_service_request.png";
+	public String submit_service_request = caminho + "submit_service_request.png";
 	
+	public String ImageError = "Image not Found";
 	
 	
 	public LSC_Main(String idioma) {
@@ -82,6 +87,8 @@ public class LSC_Main {
 	    SystemSel = "imgs/"+idioma+"/SystemTabSelected.PNG";
 	    SystemUns = "imgs/"+idioma+"/SystemTabUnselected.PNG";
 	    ok_button = "imgs/"+idioma+"/ok_button.PNG";
+	    alwaysshowWlcomeScreen = "imgs/"+idioma+"/alwaysShowWelcomeScreen.PNG";
+	    LSC_welcomeScreen = "imgs/"+idioma+"/welcomeScreen.PNG";
 		}
 
 }

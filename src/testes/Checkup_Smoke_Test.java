@@ -89,7 +89,7 @@ public class Checkup_Smoke_Test {
 			resultado.addMensagens("Passed");
 		} catch (FindFailed e) {
 			e.printStackTrace();
-			resultado.addMensagens(e.toString());
+			resultado.addMensagens(sys.ImageError);
 		}
 		listaResultados.add(resultado);
 }
@@ -125,7 +125,7 @@ public class Checkup_Smoke_Test {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			resultado.addMensagens(e.toString());
+			resultado.addMensagens(sys.ImageError);
 		}
 		
 	}
@@ -142,7 +142,7 @@ public class Checkup_Smoke_Test {
 					s.wait(2.0);
 					resultado.addMensagens("Passed");
 				} catch (FindFailed e) {
-					resultado.addMensagens(e.toString());
+					resultado.addMensagens(sys.ImageError);
 					e.printStackTrace();
 				}
 				listaResultados.add(resultado);
@@ -160,7 +160,7 @@ public class Checkup_Smoke_Test {
 				s.wait(2.0);
 				resultado.addMensagens("Passed");
 			} catch (FindFailed e) {
-				resultado.addMensagens(e.toString());
+				resultado.addMensagens(sys.ImageError);
 				e.printStackTrace();
 			}
 			listaResultados.add(resultado);

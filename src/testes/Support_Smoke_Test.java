@@ -93,14 +93,17 @@ public class Support_Smoke_Test {
 			
 			//Configuration History verifica se tem o icone azul de informação
 			if(icone == sys.icn_configHistory) {
-				s.wait(sys.icn_info, 20);
+				s.wait(sys.icn_info,20);
 				s.click(sys.icn_info);
+				//
+				s.wait(2.0);
+				s.click(sys.LSC_welcomeExit);
+				
 				resultado.addMensagens("Passed");
 				//voltar para o lsc comum, pois no configHistory não possui abas laterais
 				s.click(sys.btn_back);
-				
-				
 			}
+			
 			//Product Registragion
 			else if(icone == sys.icn_ProductRegistration) {
 				
@@ -115,7 +118,6 @@ public class Support_Smoke_Test {
 					resultado.addMensagens("Icon aborted (Passed)");
 				}
 				
-												
 				//voltar para o lsc comum, pois no configHistory não possui abas laterais
 				s.click(sys.btn_back);
 				
@@ -166,14 +168,14 @@ public class Support_Smoke_Test {
 			}
 			
 			else {
-				s.wait(icone,10.0);
+				s.wait(icone,10);
 				s.click(icone);
 				resultado.addMensagens("Passed");
 			}
 								
 		} catch (Exception e) {
 			e.printStackTrace();
-			resultado.addMensagens(e.toString());
+			resultado.addMensagens(sys.ImageError);
 		}
 		
 		listaResultados.add(resultado);
@@ -193,7 +195,7 @@ public class Support_Smoke_Test {
 					resultado.addMensagens("Passed");
 				} catch (FindFailed e) {
 					e.printStackTrace();
-					resultado.addMensagens(e.toString());
+					resultado.addMensagens(sys.ImageError);
 				}
 				listaResultados.add(resultado);
 		}
@@ -210,7 +212,7 @@ public class Support_Smoke_Test {
 						s.wait(2.0);
 						resultado.addMensagens("Passed");
 					} catch (FindFailed e) {
-						resultado.addMensagens(e.toString());
+						resultado.addMensagens(sys.ImageError);
 						e.printStackTrace();
 					}
 					listaResultados.add(resultado);
@@ -228,7 +230,7 @@ public class Support_Smoke_Test {
 				s.wait(2.0);
 				resultado.addMensagens("Passed");
 			} catch (FindFailed e) {
-				resultado.addMensagens(e.toString());
+				resultado.addMensagens(sys.ImageError);
 				e.printStackTrace();
 			}
 			listaResultados.add(resultado);

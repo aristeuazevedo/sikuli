@@ -94,13 +94,21 @@ public class Utilidades {
 					|| result.getNomeTeste().contains("Smoke Test Security")
 					|| result.getNomeTeste().contains("Smoke Test Check Up")
 					|| result.getNomeTeste().contains("Smoke Test Support")
+					|| result.getNomeTeste().contains("Settings test")
+					|| result.getNomeTeste().contains("(Settings) - Select all check options")
+					|| result.getNomeTeste().contains("(Settings) - Show LSC window")
 					)
 				{
 					fw.write("<td colspan='2' align=center ><b>"+result.getNomeTeste()+"</b></td>");
 				}
 				else{
 				fw.write("<td>"+result.getNomeTeste()+"</td>");
+				if (result.getMensagens().contains("Image not Found")){
+					fw.write("<td bgcolor = red><font color=white><b>"+result.getMensagens()+"</b></font></td>");
+				}
+				else
 				fw.write("<td>"+result.getMensagens()+"</td>");
+				
 				fw.write("</tr>");
 				}
 			}
@@ -129,7 +137,7 @@ public class Utilidades {
 		if(icone.contains("icn_softwareUpdate.png")){ return "Software Update Icon";}
 		if(icone.contains("icn_battery.png")){ return "Battery Icon";}
 		if(icone.contains("icn_filePrinter.png")){ return "File and Printers Icon";}
-		if(icone.contains("icn_filePrinter.png")){ return "File and Printers Icon";}
+		if(icone.contains("icn_recoveryMedia.png")){ return "Recovery Media Icon";}
 		
 		if(icone.contains("icn_virusProtection.png")){ return "Virus Protection Icon";}
 		if(icone.contains("icn_password.png")){ return "Password Icon";}

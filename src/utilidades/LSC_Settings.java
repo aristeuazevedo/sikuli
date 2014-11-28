@@ -21,6 +21,7 @@ public class LSC_Settings extends LSC_Main {
 	public String virusProtection_settings;
 	public String warranty_settings;
 	public String welcomeScreen_settings;
+
 	
 	
 	public String enable_alert_checked;
@@ -50,6 +51,8 @@ public class LSC_Settings extends LSC_Main {
 		
 		enable_alert_checked = "imgs/"+idioma+"/settings/enable_alert_checked.PNG";
 		enable_alert_unchecked = "imgs/"+idioma+"/settings/enabled_alert_unchecked.PNG";
+		
+		
 		
 	}
 	

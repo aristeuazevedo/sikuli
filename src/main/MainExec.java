@@ -26,7 +26,7 @@ public class MainExec {
 				
 	
 		
-
+		
 		TestSelection window = new TestSelection();
 			
 		//chama a tela de seleção de idiomas
@@ -48,14 +48,9 @@ public class MainExec {
 		
 		selectSmokeTests();
 		
-		//testes de settings
-		for (ResultExec result : settings.Select_allchecks()) {
-			lista.addResultado(result);
-		}
+		selectSettingTests();
 		
 		Utilidades.grava(lista);
-		
-		
 		
 	}
 	
@@ -118,5 +113,21 @@ public class MainExec {
 		
 	}
 	
-	
+	public static void selectSettingTests(){
+		//testes de settings
+			
+				for (ResultExec result : settings.Select_allchecks()) {
+					lista.addResultado(result);
+				}
+				
+				settings = new Settings_Tests(testParam.getShortIdioma());
+				for (ResultExec result : settings.notificationArea()) {
+					lista.addResultado(result);
+				}
+				
+				settings = new Settings_Tests(testParam.getShortIdioma());
+				for (ResultExec result : settings.welcomeScreen()) {
+					lista.addResultado(result);
+				}
+	}
 }
