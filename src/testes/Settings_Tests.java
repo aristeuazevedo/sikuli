@@ -168,8 +168,6 @@ public class Settings_Tests {
 	 */
 	public List<ResultExec> notificationArea(){
 		
-		listaResultados.add(resultado);
-		
 		resultado = new ResultExec("(Settings) - Show LSC window");
 		
 

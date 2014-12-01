@@ -9,6 +9,24 @@ package utilidades;
  * @author	Aristeu Azevedo
  */
 public class TestsParameters {
+	public boolean isSettings() {
+		return settings;
+	}
+	public void setSettings(boolean settings) {
+		this.settings = settings;
+	}
+	public boolean isAlerts() {
+		return alerts;
+	}
+	public void setAlerts(boolean alerts) {
+		this.alerts = alerts;
+	}
+	public boolean isDashboard() {
+		return dashboard;
+	}
+	public void setDashboard(boolean dashboard) {
+		this.dashboard = dashboard;
+	}
 	public String idioma;
 	public String shortIdioma;
 	public String machineName;
@@ -18,6 +36,10 @@ public class TestsParameters {
 	public boolean securitySmoke;
 	public boolean systemSmoke;
 	public boolean supportSmoke;
+	
+	public boolean settings;
+	public boolean alerts;
+	public boolean dashboard;
 	
 	
 	public String getIdioma() {

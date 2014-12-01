@@ -2,7 +2,7 @@ package main;
 
 import java.io.File;
 
-import gui.TestSelection;
+import gui.*;
 import testes.*;
 import utilidades.*;
 
@@ -27,7 +27,8 @@ public class MainExec {
 	
 		
 		
-		TestSelection window = new TestSelection();
+		//TestSelection window = new TestSelection();
+		TestSelect window = new TestSelect();
 			
 		//chama a tela de seleção de idiomas
 		window.setVisible(true);
