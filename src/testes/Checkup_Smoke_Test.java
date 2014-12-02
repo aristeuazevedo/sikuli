@@ -110,9 +110,20 @@ public class Checkup_Smoke_Test {
 			if(icone == sys.icn_snapshot){
 				s.wait(sys.icn_save,40.0);
 				s.click(sys.icn_save);
-				listaResultados.add(resultado);
+				
 			}
-		
+			else if(icone == sys.icn_deviceManager){
+				if(s.exists(sys.icn_warning) != null)
+				{
+					s.click(sys.icn_warning);
+					resultado.addMensagens("Icon warning (Passed)");
+				}
+				if(s.exists(sys.icn_aborted) != null)
+				{
+					s.click(sys.icn_aborted);
+					resultado.addMensagens("Icon aborted (Passed)");
+				}
+			}
 			
 			else {
 				s.click(sys.LSC_Title);
@@ -127,7 +138,7 @@ public class Checkup_Smoke_Test {
 			e.printStackTrace();
 			resultado.addMensagens(sys.ImageError);
 		}
-		
+		listaResultados.add(resultado);
 	}
 	
 	/**

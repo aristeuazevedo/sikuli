@@ -66,6 +66,7 @@ public class LSC_Main {
 	public String alwaysshowWlcomeScreen;
     
     public String ok_button;
+    public String alert_button;
     
 	public String submit_service_request = caminho + "submit_service_request.png";
 	
@@ -89,6 +90,7 @@ public class LSC_Main {
 	    ok_button = "imgs/"+idioma+"/ok_button.PNG";
 	    alwaysshowWlcomeScreen = "imgs/"+idioma+"/alwaysShowWelcomeScreen.PNG";
 	    LSC_welcomeScreen = "imgs/"+idioma+"/welcomeScreen.PNG";
+	    alert_button = "imgs/"+idioma+"/alertButton.PNG";
 		}
 
 }

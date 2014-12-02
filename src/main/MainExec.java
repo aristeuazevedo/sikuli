@@ -51,6 +51,15 @@ public class MainExec {
 		
 		selectSettingTests();
 		
+		//testes de Alerta
+		if (testParam.isAlerts()) {
+			AlertTests alertTest = new AlertTests(
+					testParam.getShortIdioma());
+			for (ResultExec result : alertTest.verify_Test()) {
+				lista.addResultado(result);
+			}
+		}
+		
 		Utilidades.grava(lista);
 		
 	}
@@ -116,7 +125,7 @@ public class MainExec {
 	
 	public static void selectSettingTests(){
 		//testes de settings
-			
+			if(testParam.settings){
 				for (ResultExec result : settings.Select_allchecks()) {
 					lista.addResultado(result);
 				}
@@ -130,5 +139,6 @@ public class MainExec {
 				for (ResultExec result : settings.welcomeScreen()) {
 					lista.addResultado(result);
 				}
+			}
 	}
 }

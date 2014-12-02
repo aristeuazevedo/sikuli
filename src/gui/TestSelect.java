@@ -313,6 +313,9 @@ public class TestSelect extends javax.swing.JFrame {
     		testParam.setDashboard(true);
     	}
     	
+    	testParam.setSettings(rdbtnSetting.isSelected());
+    	testParam.setDashboard(rdbtnDashboard.isSelected());
+    	testParam.setAlerts(rdbtnAlert.isSelected());
     	
     	testParam.setMachineName(jTextField1.getText());
     	testParam.setIdioma(jComboBox1.getSelectedItem().toString());
