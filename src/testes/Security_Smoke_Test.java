@@ -36,6 +36,8 @@ public class Security_Smoke_Test {
 	ResultExec resultado = new ResultExec("Smoke Test Security");
 	private List<ResultExec> listaResultados = new ArrayList<ResultExec>();
 	Screen s = new Screen();
+	Utilidades util = new Utilidades();
+	
 
 	/**
 	 * Construtor para criar os testes com o idioma selecionado
@@ -57,20 +59,20 @@ public class Security_Smoke_Test {
 		listaResultados.add(resultado);	
 		titleLSC();
 			
-		tabUnselected();
-			
+		/*tabUnselected();*/
+		listaResultados.add(util.SelectTab("Security", s, sys));
 		VerificaTela(sys.icn_virusProtection);
 			
-		tabSelected();
+		listaResultados.add(util.SelectTab("Security", s, sys));
 		VerificaTela(sys.icn_password);
 			
-		tabSelected();
+		listaResultados.add(util.SelectTab("Security", s, sys));
 		VerificaTela(sys.icn_firewall);
 			
-		tabSelected();
+		listaResultados.add(util.SelectTab("Security", s, sys));
 		VerificaTela(sys.icn_internet);
 			
-		tabSelected();
+		listaResultados.add(util.SelectTab("Security", s, sys));
 		VerificaTela(sys.icn_fingerprint);
 											
 					

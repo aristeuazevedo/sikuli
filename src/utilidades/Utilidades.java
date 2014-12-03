@@ -13,6 +13,9 @@ import java.util.GregorianCalendar;
 
 import javax.imageio.ImageIO;
 
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Screen;
+
 /**
  * Classe com metodos comuns a serem utilizados
  * por qualquer classe
@@ -155,6 +158,101 @@ public class Utilidades {
 		if(icone.contains("icn_ProductRegistration.png")){ return "Product Registration Icon";}
 		
 		return "Test Name Not Found";
+	}
+	
+	public ResultExec SelectTab(String tab, Screen s, LSC_Main sys)
+	{
+		ResultExec resultado = new ResultExec("");
+		tab = tab.toUpperCase();
+		
+		if (tab.equals("HOME")){
+			resultado.addMensagens("Home tab");
+			try{
+					s.click(sys.HomeSel, 200);
+					resultado.addMensagens("Tab Selected Passed");
+			} catch (FindFailed e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				
+				try{
+				s.click(sys.HomeUns, 200);
+				resultado.addMensagens("Tab Unselected Passed");
+				} catch (FindFailed e1) {
+					e1.printStackTrace();
+				}
+			}
+		} else
+			if (tab.equals("SYSTEM")){
+				resultado.addMensagens("System tab");
+				try{
+						s.click(sys.SystemSel, 200);
+						resultado.addMensagens("Tab Selected Passed");
+				} catch (FindFailed e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					
+					try{
+					s.click(sys.SystemUns, 200);
+					resultado.addMensagens("Tab Unselected Passed");
+					} catch (FindFailed e1) {
+						e1.printStackTrace();
+					}
+				}
+			} else
+				if (tab.equals("SECURITY")){
+					resultado.addMensagens("Security tab");
+					try{
+							s.click(sys.SecuritySel, 200);
+							resultado.addMensagens("Tab Selected Passed");
+					} catch (FindFailed e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						
+						try{
+						s.click(sys.SecurityUns, 200);
+						resultado.addMensagens("Tab Unselected Passed");
+						} catch (FindFailed e1) {
+							e1.printStackTrace();
+						}
+					}
+				} else
+					if (tab.equals("CHECK-UP")){
+						resultado.addMensagens("Check-up tab");
+						try{
+								s.click(sys.CheckupSel, 200);
+								resultado.addMensagens("Tab Selected Passed");
+						} catch (FindFailed e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+							
+							try{
+							s.click(sys.CheckupUns, 200);
+							resultado.addMensagens("Tab Unselected Passed");
+							} catch (FindFailed e1) {
+								e1.printStackTrace();
+							}
+						}
+					}  else
+						if (tab.equals("SUPPORT")){
+							resultado.addMensagens("Support tab");
+							try{
+									s.click(sys.SupportSel, 200);
+									resultado.addMensagens("Tab Selected Passed");
+							} catch (FindFailed e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+								
+								try{
+								s.click(sys.SupportUns, 200);
+								resultado.addMensagens("Tab Unselected Passed");
+								} catch (FindFailed e1) {
+									e1.printStackTrace();
+								}
+							}
+						} else
+							resultado.addMensagens("Inexistent Tab");
+		return resultado;
+		
 	}
 
 }
