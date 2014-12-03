@@ -32,21 +32,51 @@ public class AlertTests {
 			
 		SelectTabHome();
 				
-		AlertExist();
-		    		
-		try{	
-			resultado = new ResultExec("Button 'Settings'");				
-			s.wait(sys.btn_Settings, 50.0);
-				
-			s.click(sys.btn_Settings, 200);
-			resultado.addMensagens("Passed");
-			listaResultados.add(resultado);
-		
-		} catch (FindFailed e) {	
-			e.printStackTrace();
+		if(AlertExist()){
+			AlertDisable();
 		}
+		else{
+			AlertDisable();
+			AlertDisable();
+		}
+		    		
+		//fazer rotina de habiliar na settings e verificar alerta
+		s.wait(4.0);
+		if(AlertIconEnable(sys.memory_settings))
+			AlertDisable();
 		
+		if(AlertIconEnable(sys.storageDeveices_settings))
+			AlertDisable();
 		
+		if(AlertIconEnable(sys.hardwareScan_settings))
+			AlertDisable();		
+		
+		if(AlertIconEnable(sys.softwareUpdates_settings))
+			AlertDisable();
+		
+		if(AlertIconEnable(sys.battery_settings))
+			AlertDisable();
+		
+		if(AlertIconEnable(sys.recoveryMedia_settings))
+			AlertDisable();
+				
+		if(AlertIconEnable(sys.backup_settings))
+			AlertDisable();
+		
+		if(AlertIconEnable(sys.deviceManager_settings))
+			AlertDisable();
+				
+		if(AlertIconEnable(sys.warranty_settings))
+			AlertDisable();
+		
+		if(AlertIconEnable(sys.virusProtection_settings))
+			AlertDisable();
+		
+		if(AlertIconEnable(sys.firewall_settings))
+			AlertDisable();
+		
+		if(AlertIconEnable(sys.productRegistration_settings))
+			AlertDisable();
 		
 		return listaResultados;
 	}
@@ -104,7 +134,7 @@ public class AlertTests {
 			s.click(sys.icn_OkBig);
 			resultado.addMensagens("OK Alert");
 			listaResultados.add(resultado);
-			return true;
+			return false;
 			
 			} catch (FindFailed e) {	
 				
@@ -125,12 +155,64 @@ public class AlertTests {
 				}
 				
 				listaResultados.add(resultado);
-		}
+			}
 			
-	return false;
+	return true;
 		
 		
 		
 	}
+	
+	public void	AlertDisable(){
+		
+		try{	
+			//
+			resultado = new ResultExec("Button 'Settings'");				
+			s.wait(sys.btn_Settings, 50.0);
+				
+			s.click(sys.btn_Settings, 200);
+			
+			resultado.addMensagens("Passed");
+			listaResultados.add(resultado);
+			
+			//
+			s.wait(5.0);
+			resultado = new ResultExec("Disable settings");	
+			s.click(sys.enableAlerts_settings);
+			s.click(sys.save_settings);
+			s.click(sys.ok_button);
+			resultado.addMensagens("Passed");
+			listaResultados.add(resultado);
+			
+		} catch (FindFailed e) {	
+			e.printStackTrace();
+		}
+	}
+	
+	public Boolean AlertIconEnable(String icone){
+		try{	
+			resultado = new ResultExec("Verify "+icone+" Alert");				
+					
+			s.click(sys.btn_Settings, 700);
+			
+			s.click(icone);
+			
+			s.click(sys.save_settings);
+			
+			s.click(sys.ok_button);
+			
+			resultado.addMensagens("Passed");
+			listaResultados.add(resultado);
+			
+			AlertExist();
+			
+			return true;
+			
+		} catch (FindFailed e) {	
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 	
 }
