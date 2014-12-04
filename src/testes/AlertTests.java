@@ -8,14 +8,16 @@ import org.sikuli.script.Screen;
 
 import utilidades.LSC_Settings;
 import utilidades.ResultExec;
+import utilidades.Utilidades;
 
 public class AlertTests {
 	
 	LSC_Settings sys;
 	String idioma = "";
-	ResultExec resultado = new ResultExec("Alert test");
+	ResultExec resultado = new ResultExec("Alert tests");
 	private List<ResultExec> listaResultados = new ArrayList<ResultExec>();
 	Screen s = new Screen();
+	Utilidades utilidades = new Utilidades();
 	
 	public AlertTests(String idioma) {
 		super();
@@ -26,10 +28,13 @@ public class AlertTests {
 	
 	public List<ResultExec> verify_Test(){
 		
+		listaResultados.add(resultado);
 		resultado = new ResultExec("Button click Settings");
-					
+		
+		s.wait(10.0);
+		
 		titleLSC();
-			
+		
 		SelectTabHome();
 				
 		if(AlertExist()){
@@ -126,7 +131,7 @@ public class AlertTests {
 			
 	}
 
-	public Boolean AlertExist(){
+	public Boolean Alert_Exist(){
 			
 		resultado = new ResultExec("Alert Exist");				
 		s.wait(10.0);
@@ -156,11 +161,53 @@ public class AlertTests {
 				
 				listaResultados.add(resultado);
 			}
-			
 	return true;
+	}
+	
+	public Boolean AlertExist(){
 		
+		resultado = new ResultExec("Alert Exist");				
+		s.wait(10.0);
 		
-		
+		if(utilidades.ExistVerify(sys.icn_OkBig)){
+			resultado.addMensagens("OK Alert");
+			listaResultados.add(resultado);
+			return false;
+		} else if (utilidades.ExistVerify(sys.icn_errorBig)){
+			resultado.addMensagens("Error Alert");
+			listaResultados.add(resultado);
+		} else if (utilidades.ExistVerify(sys.icn_warningBig)){
+			resultado.addMensagens("Warning Alert");
+			listaResultados.add(resultado);
+		}
+		return true;
+		/*
+		try{
+			s.click(sys.icn_OkBig);
+			
+			return false;
+			
+			} catch (FindFailed e) {	
+				
+				e.printStackTrace();
+				
+				try{
+					s.click(sys.icn_errorBig);
+					resultado.addMensagens("Error Alert");
+				}catch (FindFailed e1) {	
+					e1.printStackTrace();
+				}
+				
+				try{
+					s.click(sys.icn_warningBig);
+					resultado.addMensagens("Warning Alert");
+				}catch (FindFailed e1) {	
+					e1.printStackTrace();
+				}
+				
+				listaResultados.add(resultado);
+			}
+	return true;*/
 	}
 	
 	public void	AlertDisable(){

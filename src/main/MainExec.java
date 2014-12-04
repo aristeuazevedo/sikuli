@@ -45,7 +45,10 @@ public class MainExec {
 		lista.addResultado(initializeLSC(testParam.getShortIdioma()));
 		
 		
+		
 		settings = new Settings_Tests(testParam.getShortIdioma());
+		
+		
 		
 		selectSmokeTests();
 		

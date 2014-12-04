@@ -8,8 +8,10 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 
@@ -100,9 +102,10 @@ public class Utilidades {
 					|| result.getNomeTeste().contains("Settings test")
 					|| result.getNomeTeste().contains("(Settings) - Select all check options")
 					|| result.getNomeTeste().contains("(Settings) - Show LSC window")
+					|| result.getNomeTeste().contains("Alert tests")
 					)
 				{
-					fw.write("<td colspan='2' align=center ><b>"+result.getNomeTeste()+"</b></td>");
+					fw.write("<td bgcolor = green colspan='2' align=center ><font color=white><b>"+result.getNomeTeste()+"</b></font></td>");
 				}
 				else{
 				fw.write("<td>"+result.getNomeTeste()+"</td>");
@@ -253,6 +256,20 @@ public class Utilidades {
 							resultado.addMensagens("Inexistent Tab");
 		return resultado;
 		
+	}
+	
+	public Boolean ExistVerify(String imagem){
+
+		Screen s = new Screen();
+		
+		try{
+			s.find(imagem);
+			} catch (FindFailed e) {	
+				e.printStackTrace();
+				return false;
+			}
+		
+		return true;
 	}
 
 }
