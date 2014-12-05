@@ -21,6 +21,7 @@ public class MainExec {
 	static Support_Smoke_Test SupportTest ;
 	static ListaResult lista;
 	static Settings_Tests settings;
+	static Dashboard_Tests dashboard;
 		
 	public static void main(String[] args) {
 				
@@ -62,6 +63,8 @@ public class MainExec {
 				lista.addResultado(result);
 			}
 		}
+		
+		selectDashboardTests();
 		
 		Utilidades.grava(lista);
 		
@@ -142,6 +145,19 @@ public class MainExec {
 				for (ResultExec result : settings.welcomeScreen()) {
 					lista.addResultado(result);
 				}
+			}
+	}
+	
+	public static void selectDashboardTests(){
+		//testes de settings
+		dashboard = new Dashboard_Tests(testParam.getShortIdioma());
+			if(testParam.dashboard){
+					
+				settings = new Settings_Tests(testParam.getShortIdioma());
+				for (ResultExec result : dashboard.verify_Test()) {
+					lista.addResultado(result);
+				}
+				
 			}
 	}
 }

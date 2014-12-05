@@ -103,6 +103,7 @@ public class Utilidades {
 					|| result.getNomeTeste().contains("(Settings) - Select all check options")
 					|| result.getNomeTeste().contains("(Settings) - Show LSC window")
 					|| result.getNomeTeste().contains("Alert tests")
+					|| result.getNomeTeste().contains("Dashboard Tests")
 					)
 				{
 					fw.write("<td bgcolor = green colspan='2' align=center ><font color=white><b>"+result.getNomeTeste()+"</b></font></td>");
@@ -271,5 +272,57 @@ public class Utilidades {
 		
 		return true;
 	}
-
+	
+	public String redefineNomeIcone(String caminho){
+		
+		if(caminho.contains("memory_settings")){
+			return "Memory Settings Evaluate";
+		}
+		
+		else if(caminho.contains("storageDevices_settings")){
+			return "Storage Device Settigns Evaluate";
+		}
+		
+		else if(caminho.contains("hardwareScan_settings")){
+			return "Hardware Scan Settigns Evaluate";
+		}
+		
+		else if(caminho.contains("softwareUpdates_settings")){
+			return "Software Updates Settigns Evaluate ";
+		}
+		
+		else if(caminho.contains("battery_settings")){
+			return "Battery Settigns Evaluate ";
+		}
+		
+		else if(caminho.contains("recoveryMedia_settings")){
+			return "Recovery Media Settigns Evaluate ";
+		}
+		
+		else if(caminho.contains("backup_settings")){
+			return "Backup Settigns Evaluate ";
+		}
+		
+		else if(caminho.contains("deviceManager_settings")){
+			return "Device Manager Settigns Evaluate ";
+		}
+		
+		else if(caminho.contains("warranty_settings")){
+			return "Warranty Settigns Evaluate ";
+		}
+		
+		else if(caminho.contains("virusProtection_settings")){
+			return "Virus Protection Settigns Evaluate ";
+		}
+		
+		else if(caminho.contains("firewall_settings")){
+			return "Firewall Settigns Evaluate ";
+		}
+		
+		else if(caminho.contains("productRegistration_settings")){
+			return "Product Registration Settigns Evaluate ";
+		}
+		
+		return "";
+	}
 }

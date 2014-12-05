@@ -24,7 +24,7 @@ public class LSC_Main {
     public String LSC_exit = caminho + "exitLSC.PNG";
     public String LSC_welcomeScreen;
     public String LSC_welcomeExit = caminho + "welcomeExit.PNG";
-    
+    public String verifyScroll = caminho + "verifyScroll.PNG";
     
     //icones do Access Support Online
     public String virtualAgente = caminho + "lenovoVirtualAgentIcon.png";

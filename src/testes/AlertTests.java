@@ -237,8 +237,12 @@ public class AlertTests {
 	}
 	
 	public Boolean AlertIconEnable(String icone){
+		String nome_icone;
+		
+		nome_icone = utilidades.redefineNomeIcone(icone);
+		
 		try{	
-			resultado = new ResultExec("Verify "+icone+" Alert");				
+			resultado = new ResultExec("Verify "+nome_icone+" Alert");				
 					
 			s.click(sys.btn_Settings, 700);
 			
@@ -260,6 +264,7 @@ public class AlertTests {
 		}
 		return false;
 	}
+	
 
 	
 }

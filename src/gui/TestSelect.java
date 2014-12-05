@@ -59,7 +59,7 @@ public class TestSelect extends javax.swing.JFrame {
                 jComboBox1ActionPerformed(evt);
                 if(jComboBox1.getSelectedItem().toString() == "English (en-US)"){
                 	
-                	textField.setText("Deu Certoooooo!!!");
+                	//textField.setText("Deu Certoooooo!!!");
                 	rdbtnAlert.setEnabled(true);
                 	rdbtnDashboard.setEnabled(true);
                 	rdbtnSetting.setEnabled(true);
