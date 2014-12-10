@@ -11,6 +11,7 @@ public class LSC_Main {
 	String idioma = "";
 
 	String caminho = "imgs/module_icons/";
+	String caminho_alert = "imgs/alerts/";
 	
 	String check_repair_status = caminho + "check_repair_status.png";
 	String icn_DefaultExe_LE = caminho + "icn_DefaultExe_LE.png";
@@ -39,7 +40,7 @@ public class LSC_Main {
     public String lenovoRobot = caminho + "icn_LenovoRobot.png";
     public String icn_AskLenovo = caminho + "icn_AskLenovo.png";
     
-    //alertas
+    //icones
     public String icn_warning = caminho + "icn_accordionWarning.png";
     public String icn_error = caminho + "icn_accordionError.png";
     public String icn_aborted = caminho + "icn_accordionAborted.png";
@@ -52,6 +53,22 @@ public class LSC_Main {
     public String icn_CancelBig = caminho + "icnCancel_60x60.png";
     public String icn_warningBig = caminho + "icn_Warning_big.png";
     
+    //alertas
+    public String alert_Backup = caminho_alert + "home_Backup.png";
+    public String alert_Battery = caminho_alert + "home_Battery.png";
+    public String alert_Device = caminho_alert + "home_DeviceManager.png";
+    public String alert_Firewall = caminho_alert + "home_Firewall.png";
+    public String alert_HWScan = caminho_alert + "home_HWScan.png";
+    public String alert_Memory = caminho_alert + "home_Memory.png";
+    public String alert_Predictive = caminho_alert + "home_Predictive.png";
+    public String alert_premiumSupport = caminho_alert + "home_premiumSupport.png";
+    public String alert_ProductRegistration = caminho_alert + "home_ProductRegistration.png";
+    public String alert_RecoveryMedia = caminho_alert + "home_RecoveryMedia.png";
+    public String alert_SoftwareUpdates = caminho_alert + "home_SoftwareUpdates.png";
+    public String alert_StorageDevices = caminho_alert + "home_StorageDevices.png";
+    public String alert_VirusProtection = caminho_alert + "home_VirusProtection.png";
+    public String alert_Warranty = caminho_alert + "home_Warranty.png";
+    public String icnCheckup = caminho_alert + "icnCheckup.png";
     public String CheckupSel;
     public String CheckupUns;
     public String HomeSel;

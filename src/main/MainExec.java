@@ -148,6 +148,7 @@ public class MainExec {
 			}
 	}
 	
+	
 	public static void selectDashboardTests(){
 		//testes de settings
 		dashboard = new Dashboard_Tests(testParam.getShortIdioma());

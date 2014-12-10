@@ -21,6 +21,7 @@ public class Dashboard_Tests {
 	LSC_Security security;
 	LSC_Support support;
 	LSC_CheckUP checkup;
+	
 	String idioma = "";
 	ResultExec resultado = new ResultExec("Dashboard Tests");
 	private List<ResultExec> listaResultados = new ArrayList<ResultExec>();
@@ -44,10 +45,11 @@ public List<ResultExec> verify_Test(){
 		
 		titleLSC();
 		
-		openDashScreen();
+		//openDashScreen();
 		
-		allIconClicks();
+		//allIconClicks();
 					
+		editDashboard();
 		return listaResultados;
 	}
 
@@ -125,11 +127,21 @@ public void allIconClicks(){
 		s.click(sys.dashboard_button, 1000);
 		s.doubleClick(sys.LSC_Title);
 		
-		//s.click(system.icn_hardDrive);
-		s.click(system.icn_memory);			
-					
-		resultado.addMensagens("Passed");
-		listaResultados.add(resultado);
+		s.wait(2.0);
+		
+		executionClick(sys.cpu_dashboard);
+		executionClick(sys.memory_dashboard);
+		executionClick(sys.backup_dashboard);
+		executionClick(sys.device_dashboard);
+		executionClick(sys.firewall_dashboard);
+		executionClick(sys.virtualAgente);
+		
+		executionClick(sys.storage_dashboard);
+		executionClick(sys.updates_dashboard);
+		executionClick(sys.network_dashboard);
+		executionClick(sys.hardware_dashboard);
+		
+		
 		
 	} catch (FindFailed e) {	
 		e.printStackTrace();
@@ -148,6 +160,8 @@ public void verifyButton(){
 		
 		s.click(sys.checkup_dashboard, 700);
 		
+		
+		
 		resultado.addMensagens("Passed");
 		listaResultados.add(resultado);
 		
@@ -155,8 +169,150 @@ public void verifyButton(){
 		e.printStackTrace();
 	}
 }
-	
 
+public void executionClick(String icone){
+	String nome = nomeIcone(icone);
+	
+	
+	if(icone.equals(sys.storage_dashboard) ||
+		icone.equals(sys.updates_dashboard) ||
+		icone.equals(sys.network_dashboard) ||
+		icone.equals(sys.hardware_dashboard)) {
+		try{	
+			resultado = new ResultExec(nome+" Dashboard exist");
+			
+			titleLSC();
+			s.click(icone,1000);
+			s.wait(2.0);
+			s.click(sys.LSC_welcomeExit);
+			resultado.addMensagens("Passed");
+			listaResultados.add(resultado);
+		}catch (FindFailed e) {	
+			e.printStackTrace();
+		}
+	}
+	else {
+		try{
+		resultado = new ResultExec(nome+" Dashboard exist");
+		titleLSC();
+		s.click(icone,1000);
+		resultado.addMensagens("Passed");
+		listaResultados.add(resultado);
+		}catch (FindFailed e) {	
+			e.printStackTrace();
+		}
+	}
+	
+}
+
+public String nomeIcone(String icone){
+	String nomeicone="";
+	
+	if(icone.contains("memory")){
+		return "Memory";
+	}
+	
+	if(icone.contains("Hardware")){
+		return "Hardware Scan";
+	}
+	
+	if(icone.contains("cpu")){
+		return "CPU";
+	}
+	
+	if(icone.contains("network")){
+		return "Network";
+	}
+
+	if(icone.contains("storage")){
+		return "Storage Devices";
+	}
+	
+	if(icone.contains("updates")){
+		return "Updates";
+	}
+	
+	if(icone.contains("backup")){
+		return "Backup";
+	}
+	
+	if(icone.contains("device")){
+		return "Device Manager";
+	}
+
+	if(icone.contains("firewall")){
+		return "Firewall";
+	}
+	
+	if(icone.contains("virus")){
+		return "Virus Protection";
+	}
+
+	if(icone.contains("battery")){
+		return "Battery";
+	}
+		
+	return nomeicone;
+}
+
+public void editDashboard(){
+	try{	
+		resultado = new ResultExec("Edit Dashboard");				
+				
+		s.click(sys.dashboard_button, 700);
+		s.click(sys.edit_dash, 700);
+	
+		dashboardClick(sys.storage_dashboard);
+		
+		dashboardClick(sys.memory_dashboard);
+		
+		dashboardClick(sys.cpu_dashboard);
+		
+		dashboardClick(sys.network_dashboard);
+		
+		dashboardClick(sys.hardware_dashboard);
+		
+		dashboardClick(sys.updates_dashboard);
+		
+		dashboardClick(sys.backup_dashboard);
+				
+		dashboardClick(sys.firewall_dashboard);
+
+		/*
+		s.wait(2.0);
+		s.drag(sys.device_dashboard);
+		s.dropAt(s.find(sys.editMessage_dash).below());
+		
+		s.wait(2.0);
+		s.drag(sys.virus_dashboard);
+		s.dropAt(s.find(sys.editMessage_dash).below());
+		*/
+
+		
+		resultado.addMensagens("Passed");
+		listaResultados.add(resultado);
+		
+	} catch (FindFailed e) {	
+		e.printStackTrace();
+	}
+	
+}
+
+public void dashboardClick(String icone){
+	String nome = nomeIcone(icone);
+	
+	try{
+	resultado = new ResultExec(nome+" Dashboard edit");
+	s.wait(2.0);
+	s.drag(icone);
+	s.dropAt(s.find(sys.editMessage_dash).below());
+	resultado.addMensagens("Passed");
+	listaResultados.add(resultado);
+	}	catch (FindFailed e) {	
+		e.printStackTrace();
+	}
+	
+}
 
 }
 
