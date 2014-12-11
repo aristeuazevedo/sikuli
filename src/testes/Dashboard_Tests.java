@@ -45,9 +45,9 @@ public List<ResultExec> verify_Test(){
 		
 		titleLSC();
 		
-		//openDashScreen();
+		openDashScreen();
 		
-		//allIconClicks();
+		allIconClicks();
 					
 		editDashboard();
 		return listaResultados;
@@ -183,7 +183,7 @@ public void executionClick(String icone){
 			
 			titleLSC();
 			s.click(icone,1000);
-			s.wait(2.0);
+			s.wait(4.0);
 			s.click(sys.LSC_welcomeExit);
 			resultado.addMensagens("Passed");
 			listaResultados.add(resultado);

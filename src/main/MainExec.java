@@ -1,6 +1,13 @@
 package main;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.print.attribute.standard.Finishings;
+
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Screen;
 
 import gui.*;
 import testes.*;
@@ -65,6 +72,8 @@ public class MainExec {
 		}
 		
 		selectDashboardTests();
+		
+		finish();
 		
 		Utilidades.grava(lista);
 		
@@ -161,4 +170,20 @@ public class MainExec {
 				
 			}
 	}
+	
+	public static void finish(){
+		
+		LSC_Settings sys = new LSC_Settings(testParam.getIdioma());
+		String idioma = "";
+		ResultExec resultado = new ResultExec("Alert tests");
+		Screen s = new Screen();
+		
+		try {
+			s.click(sys.Exit);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 }

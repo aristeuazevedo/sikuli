@@ -89,6 +89,8 @@ public class LSC_Main {
 	
 	public String ImageError = "Image not Found";
 	
+	public String Exit = caminho + "Exit_LSC.PNG";
+	
 	
 	public LSC_Main(String idioma) {
 		
