@@ -73,6 +73,8 @@ public class MainExec {
 		
 		selectDashboardTests();
 		
+		Utilidades.closeApp(testParam.idioma);
+		
 		Utilidades.grava(lista);
 				
 	}

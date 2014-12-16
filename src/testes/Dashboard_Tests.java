@@ -45,7 +45,6 @@ public List<ResultExec> verify_Test(){
 		
 		listaResultados.add(resultado);
 		
-		
 		titleLSC();
 		
 		openDashScreen();

@@ -27,6 +27,10 @@ public class Utilidades {
 	
 	private  static Robot rob;
 	
+
+	static Screen s = new Screen();
+
+	public static LSC_Main main;
 	
 	public static void print(String str) throws IOException
 	{
@@ -324,5 +328,16 @@ public class Utilidades {
 		}
 		
 		return "";
+	}
+	
+	public static void closeApp(String idioma){
+		main = new LSC_Main(idioma);
+		s.wait(4.0);
+		try {
+			s.click(main.Exit);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
