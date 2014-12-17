@@ -83,6 +83,7 @@ public class LSC_Main {
 	public String alwaysshowWlcomeScreen;
     
     public String ok_button;
+    public String ok;
     public String alert_button;
     
 	public String submit_service_request = caminho + "submit_service_request.png";
@@ -107,6 +108,7 @@ public class LSC_Main {
 	    SystemSel = "imgs/"+idioma+"/SystemTabSelected.PNG";
 	    SystemUns = "imgs/"+idioma+"/SystemTabUnselected.PNG";
 	    ok_button = "imgs/"+idioma+"/ok_button.PNG";
+	    ok = "imgs/"+idioma+"/ok.PNG";
 	    alwaysshowWlcomeScreen = "imgs/"+idioma+"/alwaysShowWelcomeScreen.PNG";
 	    LSC_welcomeScreen = "imgs/"+idioma+"/welcomeScreen.PNG";
 	    alert_button = "imgs/"+idioma+"/alertButton.PNG";

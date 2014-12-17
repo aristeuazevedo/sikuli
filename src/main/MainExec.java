@@ -29,6 +29,7 @@ public class MainExec {
 	static ListaResult lista;
 	static Settings_Tests settings;
 	static Dashboard_Tests dashboard;
+	static HardwareScan_Test hardwarescan;
 		
 	public static void main(String[] args) {
 				
@@ -65,7 +66,7 @@ public class MainExec {
 		//testes de Alerta
 		if (testParam.isAlerts()) {
 			AlertTests alertTest = new AlertTests(
-					testParam.getShortIdioma());
+					testParam.getShortIdioma());       
 			for (ResultExec result : alertTest.verify_Test()) {
 				lista.addResultado(result);
 			}
@@ -73,10 +74,11 @@ public class MainExec {
 		
 		selectDashboardTests();
 		
+		hardwareScan_test();
+		
 		Utilidades.closeApp(testParam.idioma);
 		
 		Utilidades.grava(lista);
-				
 	}
 	
 	/**
@@ -172,7 +174,10 @@ public class MainExec {
 			}
 	}
 	
-
+	public static void hardwareScan_test(){
+		hardwarescan = new HardwareScan_Test(testParam.getShortIdioma());
+		hardwarescan.HardwareScan_Quick();
+	}
 	
 	
 }
