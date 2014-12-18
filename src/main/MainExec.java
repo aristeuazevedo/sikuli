@@ -33,9 +33,6 @@ public class MainExec {
 		
 	public static void main(String[] args) {
 				
-	
-		
-		
 		//TestSelection window = new TestSelection();
 		TestSelect window = new TestSelect();
 			
@@ -53,11 +50,7 @@ public class MainExec {
 		lista.setNomeMaquina(testParam.getMachineName());				
 		lista.addResultado(initializeLSC(testParam.getShortIdioma()));
 		
-		
-		
 		settings = new Settings_Tests(testParam.getShortIdioma());
-		
-		
 		
 		selectSmokeTests();
 		
@@ -137,8 +130,6 @@ public class MainExec {
 				lista.addResultado(result);
 			}
 		}
-		
-		
 	}
 	
 	public static void selectSettingTests(){

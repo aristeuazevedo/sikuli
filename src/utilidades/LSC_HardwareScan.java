@@ -10,6 +10,9 @@ public class LSC_HardwareScan extends LSC_Main  {
 	public String runScan_btn  =  "imgs/"+idioma+"/HardwareScan_Figures/RunScan_button.PNG";
 	public String scrolltab  =  "imgs/"+idioma+"/HardwareScan_Figures/ScrollTab.PNG";
 	public String settings_hw  =  "imgs/"+idioma+"/HardwareScan_Figures/Settings_HW.PNG";
+	public String inprogress = "imgs/"+idioma+"/HardwareScan_Figures/inprogress.PNG";
+	public String processor_hw = "imgs/"+idioma+"/HardwareScan_Figures/processor.PNG";
+	public String selectAll = "imgs/"+idioma+"/HardwareScan_Figures/selectAll.PNG";
 	
 	public LSC_HardwareScan(String idioma) {
 		super(idioma);

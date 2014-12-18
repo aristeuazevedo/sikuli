@@ -8,7 +8,6 @@ import org.sikuli.script.Screen;
 
 import utilidades.LSC_CheckUP;
 import utilidades.LSC_HardwareScan;
-import utilidades.LSC_Main;
 import utilidades.ResultExec;
 import utilidades.Utilidades;
 
@@ -53,6 +52,10 @@ public class HardwareScan_Test  {
 			
 			s.wait(sys.settings_hw,180.0);
 			
+			//s.click(sys.selectAll);
+			
+			//s.click(sys.processor_hw);
+			
 			s.wheel(sys.scrolltab, 1, 2);
 			
 			s.click(sys.launch_btn,1000);
@@ -61,7 +64,11 @@ public class HardwareScan_Test  {
 			
 			titleLSC();
 			
-			s.wait(sys.complete, 1000);
+			s.click(sys.inprogress);
+						
+			s.wait(sys.complete,25000);
+			
+			s.click(sys.complete);
 			
 		} catch (FindFailed e) {
 			// TODO Auto-generated catch block
