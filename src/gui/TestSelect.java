@@ -58,25 +58,23 @@ public class TestSelect extends javax.swing.JFrame {
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
-                if(jComboBox1.getSelectedItem().toString() == "English (en-US)"
-                ||	jComboBox1.getSelectedItem().toString() == "Danish (da-DK)"	){
+                
+                if(jComboBox1.getSelectedItem().toString() == "English (en-US)"){
                 	
                 	//textField.setText("Deu Certoooooo!!!");
                 	rdbtnAlert.setEnabled(true);
                 	rdbtnDashboard.setEnabled(true);
-                	rdbtnSetting.setEnabled(true);
-                }
-                // Retirado o bloqueio para desativar os botoes caso nao seja a linguagem correta
-               /* if(jComboBox1.getSelectedItem().toString() != "English (en-US)"
-                		&&	jComboBox1.getSelectedItem().toString() != "Danish (da-DK)"	
-                		){
-
-
-                	rdbtnAlert.setEnabled(false);
-                	rdbtnDashboard.setEnabled(false);
-                	rdbtnSetting.setEnabled(false);
+                	rdbtnHardwareScan.setEnabled(true);
+                	//rdbtnSetting.setEnabled(true);
                 	
-                }*/
+                }
+               
+               if(jComboBox1.getSelectedItem().toString() != "English (en-US)"	){
+            	   	rdbtnAlert.setEnabled(false);
+            	   	rdbtnDashboard.setEnabled(false);
+               		rdbtnHardwareScan.setEnabled(false);
+                	
+                }
                 
                 
             }
@@ -146,13 +144,13 @@ public class TestSelect extends javax.swing.JFrame {
         rdbtnAlert.setEnabled(false);
         
         rdbtnSetting = new JRadioButton("Setting");
-        rdbtnSetting.setEnabled(false);
+        rdbtnSetting.setEnabled(true);
         
         rdbtnDashboard = new JRadioButton("Dashboard");
         rdbtnDashboard.setEnabled(false);
         
-        JRadioButton rdbtnHardwareScan = new JRadioButton("Hardware Scan");
-        
+        rdbtnHardwareScan = new JRadioButton("Hardware Scan");
+        rdbtnHardwareScan.setEnabled(false);
         
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -162,8 +160,6 @@ public class TestSelect extends javax.swing.JFrame {
         			.addContainerGap()
         			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
         				.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING, false)
-        					.addComponent(jCheckBox5)
-        					.addComponent(jCheckBox4)
         					.addComponent(jCheckBox3)
         					.addComponent(jCheckBox2)
         					.addComponent(jLabel1)
@@ -172,21 +168,18 @@ public class TestSelect extends javax.swing.JFrame {
         					.addComponent(jComboBox1, 0, 194, Short.MAX_VALUE)
         					.addComponent(jLabel3)
         					.addComponent(jTextField1))
-        				.addComponent(jToggleButton1))
+        				.addComponent(jToggleButton1)
+        				.addComponent(jCheckBox4)
+        				.addComponent(jCheckBox5))
+        			.addGap(44)
         			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        				.addGroup(jPanel1Layout.createSequentialGroup()
-        					.addPreferredGap(ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-        					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 254, GroupLayout.PREFERRED_SIZE)
-        					.addContainerGap())
-        				.addGroup(jPanel1Layout.createSequentialGroup()
-        					.addGap(44)
-        					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        						.addComponent(rdbtnSetting, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
-        						.addComponent(lblTests)
-        						.addComponent(rdbtnAlert)
-        						.addComponent(rdbtnDashboard)
-        						.addComponent(rdbtnHardwareScan))
-        					.addGap(179))))
+        				.addComponent(rdbtnSetting, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(lblTests)
+        				.addComponent(rdbtnAlert)
+        				.addComponent(rdbtnDashboard)
+        				.addComponent(textField, GroupLayout.PREFERRED_SIZE, 254, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(rdbtnHardwareScan))
+        			.addGap(34))
         );
         jPanel1Layout.setVerticalGroup(
         	jPanel1Layout.createParallelGroup(Alignment.LEADING)
@@ -200,20 +193,8 @@ public class TestSelect extends javax.swing.JFrame {
         					.addGap(11)
         					.addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         					.addGap(30)
-        					.addComponent(jLabel1))
-        				.addGroup(jPanel1Layout.createSequentialGroup()
-        					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addComponent(rdbtnSetting)
-        					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addComponent(rdbtnAlert)
-        					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addComponent(rdbtnDashboard)
-        					.addPreferredGap(ComponentPlacement.UNRELATED)
-        					.addComponent(rdbtnHardwareScan)))
-        			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
-        				.addGroup(Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(jLabel1)
+        					.addGap(24)
         					.addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         					.addGap(16)
         					.addComponent(jLabel2)
@@ -222,14 +203,25 @@ public class TestSelect extends javax.swing.JFrame {
         					.addPreferredGap(ComponentPlacement.RELATED)
         					.addComponent(jCheckBox2)
         					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addComponent(jCheckBox3)
+        					.addComponent(jCheckBox3))
+        				.addGroup(jPanel1Layout.createSequentialGroup()
         					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(rdbtnSetting)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(rdbtnAlert)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(rdbtnDashboard)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(rdbtnHardwareScan)))
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        				.addComponent(textField, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
+        				.addGroup(jPanel1Layout.createSequentialGroup()
         					.addComponent(jCheckBox4)
         					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addComponent(jCheckBox5)
-        					.addGap(67)
-        					.addComponent(jToggleButton1))
-        				.addComponent(textField, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE))
+        					.addComponent(jCheckBox5)))
+        			.addGap(92)
+        			.addComponent(jToggleButton1)
         			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1.setLayout(jPanel1Layout);
@@ -469,4 +461,5 @@ public class TestSelect extends javax.swing.JFrame {
     private JRadioButton rdbtnAlert;
     private JRadioButton rdbtnSetting;
     private JRadioButton rdbtnDashboard;
+    private JRadioButton rdbtnHardwareScan;
 }
