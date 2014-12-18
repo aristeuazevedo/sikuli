@@ -315,6 +315,10 @@ public class TestSelect extends javax.swing.JFrame {
     		testParam.setDashboard(true);
     	}
     	
+    	if(rdbtnHardwareScan.isSelected()){
+    		testParam.setHardwarescan(true);
+    	}
+    	
     	testParam.setSettings(rdbtnSetting.isSelected());
     	testParam.setDashboard(rdbtnDashboard.isSelected());
     	testParam.setAlerts(rdbtnAlert.isSelected());

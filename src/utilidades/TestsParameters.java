@@ -40,6 +40,7 @@ public class TestsParameters {
 	public boolean settings;
 	public boolean alerts;
 	public boolean dashboard;
+	private boolean hardwarescan;
 	
 	
 	public String getIdioma() {
@@ -89,6 +90,12 @@ public class TestsParameters {
 	}
 	public void setShortIdioma(String shortIdioma) {
 		this.shortIdioma = shortIdioma;
+	}
+	public boolean isHardwarescan() {
+		return hardwarescan;
+	}
+	public void setHardwarescan(boolean hardwarescan) {
+		this.hardwarescan = hardwarescan;
 	}
 	
 }
