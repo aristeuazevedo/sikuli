@@ -30,7 +30,10 @@ public class HardwareScan_Test  {
 	
 	
 	public List<ResultExec> hw_test(){
+		listaResultados.add(resultado);
+		
 		HardwareScan_Quick();
+		
 		return listaResultados;
 	}
 	
@@ -40,8 +43,8 @@ public class HardwareScan_Test  {
 		titleLSC();
 		s.wait(10.0);
 		resultado = new ResultExec("Quick test execution");
-	
 		try {
+			
 			if(utilities.ExistVerify(sys_checkup.CheckupUns)){
 			s.click(sys_checkup.CheckupUns);
 			}
@@ -56,21 +59,17 @@ public class HardwareScan_Test  {
 			
 			s.click(sys.runScan_btn,300);
 			
-			titleLSC();
-			
 			s.wait(sys.settings_hw,180.0);
 			
-			//s.click(sys.selectAll);
+			s.click(sys.selectAll);
 			
-			//s.click(sys.processor_hw);
+			s.click(sys.processor_hw);
 			
 			s.wheel(sys.scrolltab, 1, 2);
 			
 			s.click(sys.launch_btn,1000);
 			
 			s.click(sys.ok,300);
-			
-			titleLSC();
 			
 			s.click(sys.inprogress);
 						
@@ -79,10 +78,11 @@ public class HardwareScan_Test  {
 			s.click(sys.complete);
 			
 			resultado.addMensagens("Passed");
-			
+
 		} catch (FindFailed e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			resultado.addMensagens(sys.ImageError);
 		}
 		listaResultados.add(resultado);
 	}

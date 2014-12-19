@@ -116,7 +116,8 @@ public class Utilidades {
 						|| result.getNomeTeste().contains(
 								"(Settings) - Show LSC window")
 						|| result.getNomeTeste().contains("Alert tests")
-						|| result.getNomeTeste().contains("Dashboard Tests")) {
+						|| result.getNomeTeste().contains("Dashboard Tests")
+						|| result.getNomeTeste().contains("Hardware Scan Test")){
 					fw.write("<td bgcolor = green colspan='2' align=center ><font color=white><b>"
 							+ result.getNomeTeste() + "</b></font></td>");
 				} else {
