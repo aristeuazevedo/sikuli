@@ -17,7 +17,7 @@ public class HardwareScan_Test  {
 	LSC_CheckUP sys_checkup;
 	String idioma = "";
 	private List<ResultExec> listaResultados = new ArrayList<ResultExec>();
-	ResultExec resultado = new ResultExec("Smoke Test Check Up");
+	ResultExec resultado = new ResultExec("Hardware Scan Test");
 	Screen s = new Screen();
 	Utilidades utilities = new Utilidades();
 	
@@ -28,11 +28,19 @@ public class HardwareScan_Test  {
 		sys_checkup = new LSC_CheckUP(idioma);
 	}
 	
+	
+	public List<ResultExec> hw_test(){
+		HardwareScan_Quick();
+		return listaResultados;
+	}
+	
+	
 	public void HardwareScan_Quick(){
 		
 		titleLSC();
 		s.wait(10.0);
-		
+		resultado = new ResultExec("Quick test execution");
+	
 		try {
 			if(utilities.ExistVerify(sys_checkup.CheckupUns)){
 			s.click(sys_checkup.CheckupUns);
@@ -70,10 +78,13 @@ public class HardwareScan_Test  {
 			
 			s.click(sys.complete);
 			
+			resultado.addMensagens("Passed");
+			
 		} catch (FindFailed e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		listaResultados.add(resultado);
 	}
 	
 	public void titleLSC(){

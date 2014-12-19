@@ -18,6 +18,8 @@ import javax.imageio.ImageIO;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Screen;
 
+import testes.HardwareScan_Test;
+
 /**
  * Classe com metodos comuns a serem utilizados por qualquer classe
  *
@@ -397,4 +399,18 @@ public class Utilidades {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void titleLSC(){
+		LSC_Main sys = new LSC_Main("en_US");
+		try {
+				
+			s.wait(sys.LSC_Title,50.0);
+			s.doubleClick(sys.LSC_Title);
+		
+		} catch (FindFailed e) {
+			e.printStackTrace();
+			
+		}
+		
+}
 }

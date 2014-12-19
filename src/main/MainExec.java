@@ -65,6 +65,8 @@ public class MainExec {
 			}
 		}
 		
+		Utilidades.titleLSC();
+		
 		selectDashboardTests();
 		
 		hardwareScan_test();
@@ -161,13 +163,17 @@ public class MainExec {
 				for (ResultExec result : dashboard.verify_Test()) {
 					lista.addResultado(result);
 				}
-				
 			}
 	}
 	
 	public static void hardwareScan_test(){
 		hardwarescan = new HardwareScan_Test(testParam.getShortIdioma());
-		hardwarescan.HardwareScan_Quick();
+		
+		if(testParam.hardwarescan){
+			for (ResultExec result : hardwarescan.hw_test()) {
+				lista.addResultado(result);
+			}
+		}
 	}
 	
 	

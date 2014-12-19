@@ -40,7 +40,7 @@ public class TestsParameters {
 	public boolean settings;
 	public boolean alerts;
 	public boolean dashboard;
-	private boolean hardwarescan;
+	public boolean hardwarescan;
 	
 	
 	public String getIdioma() {
