@@ -57,6 +57,7 @@ public class Security_Smoke_Test {
 	public List<ResultExec> Smoke() {
 		
 		listaResultados.add(resultado);	
+		
 		titleLSC();
 			
 		/*tabUnselected();*/
@@ -119,9 +120,9 @@ public class Security_Smoke_Test {
 				//resultado.addMensagens("Passed");
 			} catch (FindFailed e) {
 				e.printStackTrace();
-				resultado.addMensagens(sys.ImageError);
+				//resultado.addMensagens(sys.ImageError);
 			}
-			listaResultados.add(resultado);
+			//listaResultados.add(resultado);
 	}
 	
 	/**

@@ -32,9 +32,62 @@ public class HardwareScan_Test  {
 	public List<ResultExec> hw_test(){
 		listaResultados.add(resultado);
 		
-		HardwareScan_Quick();
+		HardwareScan_Cancel();
+		
+		//HardwareScan_Quick();
 		
 		return listaResultados;
+	}
+	
+	public void HardwareScan_Cancel(){
+		
+		titleLSC();
+		s.wait(10.0);
+		resultado = new ResultExec("Quick test cancel");
+		try {
+			
+			if(utilities.ExistVerify(sys_checkup.CheckupUns)){
+			s.click(sys_checkup.CheckupUns);
+			}
+			
+			else{
+				s.click(sys_checkup.CheckupSel);
+			}
+			
+			s.click(sys_checkup.icn_hwScan,300);
+			
+			s.click(sys.hw_link,300);
+			
+			s.click(sys.runScan_btn,300);
+			
+			s.wait(sys.settings_hw,180.0);
+			
+			s.wheel(sys.scrolltab, 1, 2);
+			
+			s.click(sys.launch_btn,1000);
+			
+			s.click(sys.ok,300);
+			
+			s.click(sys.inprogress);
+						
+			s.click(sys.cancel);
+			
+			s.click(sys.yes_btn);
+			
+			s.wait(sys.canceled_status,25000);
+			
+			s.click(sys.canceled_status);
+			
+			resultado.addMensagens("Passed");
+
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			resultado.addMensagens(sys.ImageError);
+		}
+		listaResultados.add(resultado);
+		
+		
 	}
 	
 	
@@ -61,9 +114,9 @@ public class HardwareScan_Test  {
 			
 			s.wait(sys.settings_hw,180.0);
 			
-			s.click(sys.selectAll);
+			//s.click(sys.selectAll);
 			
-			s.click(sys.processor_hw);
+			//s.click(sys.processor_hw);
 			
 			s.wheel(sys.scrolltab, 1, 2);
 			
@@ -86,6 +139,9 @@ public class HardwareScan_Test  {
 		}
 		listaResultados.add(resultado);
 	}
+	
+	//public void HardwareScan_
+	
 	
 	public void titleLSC(){
 		
