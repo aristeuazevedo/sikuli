@@ -14,6 +14,7 @@ import org.sikuli.api.Target;
 import org.sikuli.script.*;
 
 import utilidades.LSC_Main;
+import utilidades.LSC_Settings;
 import utilidades.LSC_System;
 import utilidades.ResultExec;
 import utilidades.Utilidades;
@@ -195,4 +196,19 @@ public class System_Smoke_Test {
 		listaResultados.add(resultado);
 	}
 	
+	public void finish(){
+		LSC_Main sys;
+		Screen s = new Screen();
+		
+		s.wait(2.0);
+		sys = new LSC_Main(idioma);
+		try {
+			s.click(sys.Exit);
+		} catch (FindFailed e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
+	
+
 }

@@ -57,7 +57,8 @@ public class TestSelect extends javax.swing.JFrame {
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
-                if(jComboBox1.getSelectedItem().toString() == "English (en-US)"){
+                if(jComboBox1.getSelectedItem().toString() == "English (en-US)"
+                ||	jComboBox1.getSelectedItem().toString() == "Danish (da-DK)"	){
                 	
                 	//textField.setText("Deu Certoooooo!!!");
                 	rdbtnAlert.setEnabled(true);
@@ -65,7 +66,9 @@ public class TestSelect extends javax.swing.JFrame {
                 	rdbtnSetting.setEnabled(true);
                 }
                 
-                if(jComboBox1.getSelectedItem().toString() != "English (en-US)"){
+                if(jComboBox1.getSelectedItem().toString() != "English (en-US)"
+                		&&	jComboBox1.getSelectedItem().toString() != "Danish (da-DK)"	
+                		){
 
                 	rdbtnAlert.setEnabled(false);
                 	rdbtnDashboard.setEnabled(false);

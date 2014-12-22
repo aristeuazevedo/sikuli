@@ -3,8 +3,11 @@ package testes;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.sikuli.core.search.RegionMatch;
 import org.sikuli.script.FindFailed;
+import org.sikuli.script.Region;
 import org.sikuli.script.Screen;
+import org.stringtemplate.v4.ST.RegionType;
 
 import utilidades.LSC_CheckUP;
 import utilidades.LSC_Dashboard;
@@ -125,7 +128,7 @@ public void allIconClicks(){
 		resultado = new ResultExec("All Icons Verify");				
 				
 		s.click(sys.dashboard_button, 1000);
-		s.doubleClick(sys.LSC_Title);
+		//s.doubleClick(sys.LSC_Title);
 		
 		s.wait(2.0);
 		
@@ -287,7 +290,6 @@ public void editDashboard(){
 		s.drag(sys.virus_dashboard);
 		s.dropAt(s.find(sys.editMessage_dash).below());
 		*/
-
 		
 		resultado.addMensagens("Passed");
 		listaResultados.add(resultado);
@@ -305,14 +307,16 @@ public void dashboardClick(String icone){
 	resultado = new ResultExec(nome+" Dashboard edit");
 	s.wait(2.0);
 	s.drag(icone);
-	s.dropAt(s.find(sys.editMessage_dash).below());
+	Region i = s.find(sys.editMessage_dash).below();
+	s.dropAt(i);
 	resultado.addMensagens("Passed");
 	listaResultados.add(resultado);
 	}	catch (FindFailed e) {	
 		e.printStackTrace();
 	}
-	
 }
+
+
 
 }
 

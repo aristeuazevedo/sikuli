@@ -73,10 +73,8 @@ public class MainExec {
 		
 		selectDashboardTests();
 		
-		finish();
-		
 		Utilidades.grava(lista);
-		
+				
 	}
 	
 	/**
@@ -136,6 +134,7 @@ public class MainExec {
 			}
 		}
 		
+		
 	}
 	
 	public static void selectSettingTests(){
@@ -171,19 +170,7 @@ public class MainExec {
 			}
 	}
 	
-	public static void finish(){
-		
-		LSC_Settings sys = new LSC_Settings(testParam.getIdioma());
-		String idioma = "";
-		ResultExec resultado = new ResultExec("Alert tests");
-		Screen s = new Screen();
-		
-		try {
-			s.click(sys.Exit);
-		} catch (FindFailed e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+
+	
 	
 }
