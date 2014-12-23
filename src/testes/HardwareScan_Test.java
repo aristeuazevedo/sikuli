@@ -27,14 +27,13 @@ public class HardwareScan_Test  {
 		sys = new LSC_HardwareScan(idioma);
 		sys_checkup = new LSC_CheckUP(idioma);
 	}
-	
-	
+		
 	public List<ResultExec> hw_test(){
 		listaResultados.add(resultado);
 		
 		HardwareScan_Cancel();
 		
-		//HardwareScan_Quick();
+		HardwareScan_Quick();
 		
 		return listaResultados;
 	}
@@ -89,8 +88,7 @@ public class HardwareScan_Test  {
 		
 		
 	}
-	
-	
+		
 	public void HardwareScan_Quick(){
 		
 		titleLSC();
@@ -139,9 +137,6 @@ public class HardwareScan_Test  {
 		}
 		listaResultados.add(resultado);
 	}
-	
-	//public void HardwareScan_
-	
 	
 	public void titleLSC(){
 		

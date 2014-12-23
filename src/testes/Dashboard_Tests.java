@@ -1,5 +1,6 @@
 package testes;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,7 +84,6 @@ public void SelectTabHome()
 		e.printStackTrace();
 	}
 	listaResultados.add(resultado);
-		
 }
 
 public void titleLSC(){
@@ -132,7 +132,11 @@ public void allIconClicks(){
 		s.wait(2.0);
 		
 		executionClick(sys.cpu_dashboard);
+		s.wait(3.0);
+		exitWindow();
 		executionClick(sys.memory_dashboard);
+		s.wait(3.0);
+		exitWindow();
 		executionClick(sys.backup_dashboard);
 		executionClick(sys.device_dashboard);
 		executionClick(sys.firewall_dashboard);
@@ -279,7 +283,8 @@ public void editDashboard(){
 		dashboardClick(sys.backup_dashboard);
 				
 		dashboardClick(sys.firewall_dashboard);
-
+		
+		dashboardClick(sys.cancel_dash);
 		/*
 		s.wait(2.0);
 		s.drag(sys.device_dashboard);
@@ -315,7 +320,19 @@ public void dashboardClick(String icone){
 	}
 }
 
-
+public void exitWindow(){
+	//ResultExec resultado = new ResultExec("Reopening LSC - Settings test"); 
+	
+	try {
+		//resultado = new ResultExec("LSC initialization");							
+		Runtime.getRuntime().exec("taskkill.exe /IM taskmgr.exe"); 
+		//resultado.addMensagens("Passed");
+	}catch (Exception e) {
+		e.printStackTrace();
+		//resultado.addMensagens(sys.ImageError);
+	}
+	//listaResultados.add(resultado);
+	}
 
 }
 
