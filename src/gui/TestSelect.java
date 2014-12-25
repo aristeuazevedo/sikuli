@@ -65,8 +65,8 @@ public class TestSelect extends javax.swing.JFrame {
                 	rdbtnDashboard.setEnabled(true);
                 	rdbtnSetting.setEnabled(true);
                 }
-                
-                if(jComboBox1.getSelectedItem().toString() != "English (en-US)"
+                // Retirado o bloqueio para desativar os botoes caso nao seja a linguagem correta
+               /* if(jComboBox1.getSelectedItem().toString() != "English (en-US)"
                 		&&	jComboBox1.getSelectedItem().toString() != "Danish (da-DK)"	
                 		){
 
@@ -74,7 +74,7 @@ public class TestSelect extends javax.swing.JFrame {
                 	rdbtnDashboard.setEnabled(false);
                 	rdbtnSetting.setEnabled(false);
                 	
-                }
+                }*/
                 
                 
             }

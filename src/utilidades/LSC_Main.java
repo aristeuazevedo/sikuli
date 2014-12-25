@@ -23,6 +23,9 @@ public class LSC_Main {
 	String icn_systemMonitor = caminho + "icn_systemMonitor.png";
     public String LSC_Title = caminho + "LSC_appTitle.png";
     public String LSC_exit = caminho + "exitLSC.PNG";
+    
+    public String maximizeLSC = caminho + "maximizeLSC.PNG";
+    
     public String LSC_welcomeScreen;
     public String LSC_welcomeExit = caminho + "welcomeExit.PNG";
     public String verifyScroll = caminho + "verifyScroll.PNG";
@@ -110,6 +113,7 @@ public class LSC_Main {
 	    alwaysshowWlcomeScreen = "imgs/"+idioma+"/alwaysShowWelcomeScreen.PNG";
 	    LSC_welcomeScreen = "imgs/"+idioma+"/welcomeScreen.PNG";
 	    alert_button = "imgs/"+idioma+"/alertButton.PNG";
+	
 		}
 
 }
