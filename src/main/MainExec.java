@@ -30,10 +30,20 @@ public class MainExec {
 	static ListaResult lista;
 	static Settings_Tests settings;
 	static Dashboard_Tests dashboard;
+<<<<<<< HEAD
 
+=======
+	static HardwareScan_Test hardwarescan;
+		
+>>>>>>> branch 'master' of https://github.com/danilozagatto/sikuli
 	public static void main(String[] args) {
+<<<<<<< HEAD
 
 		// TestSelection window = new TestSelection();
+=======
+				
+		//TestSelection window = new TestSelection();
+>>>>>>> branch 'master' of https://github.com/danilozagatto/sikuli
 		TestSelect window = new TestSelect();
 
 		// chama a tela de seleção de idiomas
@@ -50,27 +60,49 @@ public class MainExec {
 				testParam.getData(), testParam.getShortIdioma());
 		lista.setNomeMaquina(testParam.getMachineName());
 		lista.addResultado(initializeLSC(testParam.getShortIdioma()));
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> branch 'master' of https://github.com/danilozagatto/sikuli
 		settings = new Settings_Tests(testParam.getShortIdioma());
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> branch 'master' of https://github.com/danilozagatto/sikuli
 		selectSmokeTests();
 
 		selectSettingTests();
 
 		// testes de Alerta
 		if (testParam.isAlerts()) {
+<<<<<<< HEAD
 			AlertTests alertTest = new AlertTests(testParam.getShortIdioma());
+=======
+			AlertTests alertTest = new AlertTests(
+					testParam.getShortIdioma());       
+>>>>>>> branch 'master' of https://github.com/danilozagatto/sikuli
 			for (ResultExec result : alertTest.verify_Test()) {
 				lista.addResultado(result);
 			}
 		}
 
 		selectDashboardTests();
+<<<<<<< HEAD
 
+=======
+		
+		hardwareScan_test();
+		
+>>>>>>> branch 'master' of https://github.com/danilozagatto/sikuli
 		Utilidades.closeApp(testParam.idioma);
 
 		Utilidades.grava(lista);
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/danilozagatto/sikuli
 	}
 
 	/**
@@ -131,6 +163,7 @@ public class MainExec {
 				lista.addResultado(result);
 			}
 		}
+<<<<<<< HEAD
 
 	}
 
@@ -166,4 +199,47 @@ public class MainExec {
 		}
 	}
 
+=======
+	}
+	
+	public static void selectSettingTests(){
+		//testes de settings
+			if(testParam.settings){
+				for (ResultExec result : settings.Select_allchecks()) {
+					lista.addResultado(result);
+				}
+				
+				settings = new Settings_Tests(testParam.getShortIdioma());
+				for (ResultExec result : settings.notificationArea()) {
+					lista.addResultado(result);
+				}
+				
+				settings = new Settings_Tests(testParam.getShortIdioma());
+				for (ResultExec result : settings.welcomeScreen()) {
+					lista.addResultado(result);
+				}
+			}
+	}
+	
+	
+	public static void selectDashboardTests(){
+		//testes de settings
+		dashboard = new Dashboard_Tests(testParam.getShortIdioma());
+			if(testParam.dashboard){
+					
+				settings = new Settings_Tests(testParam.getShortIdioma());
+				for (ResultExec result : dashboard.verify_Test()) {
+					lista.addResultado(result);
+				}
+				
+			}
+	}
+	
+	public static void hardwareScan_test(){
+		hardwarescan = new HardwareScan_Test(testParam.getShortIdioma());
+		hardwarescan.HardwareScan_Quick();
+	}
+	
+	
+>>>>>>> branch 'master' of https://github.com/danilozagatto/sikuli
 }

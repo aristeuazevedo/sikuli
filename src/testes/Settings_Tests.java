@@ -94,9 +94,6 @@ public class Settings_Tests {
 		
 		
 		try {
-			
-		
-			
 			s.wait(1.0);
 			s.click(sys.save_settings);
 	
@@ -169,8 +166,7 @@ public class Settings_Tests {
 	public List<ResultExec> notificationArea(){
 		
 		resultado = new ResultExec("(Settings) - Show LSC window");
-		
-
+	
 		try {
 			
 			s.wait(sys.btn_Settings, 50.0);
@@ -207,8 +203,6 @@ public class Settings_Tests {
 	public List<ResultExec> welcomeScreen(){
 		
 		resultado = new ResultExec("(Settings) - Welcome Screen");
-		
-
 		try {
 			
 			s.wait(sys.btn_Settings, 50.0);
@@ -230,7 +224,6 @@ public class Settings_Tests {
 			
 			s.wait(25.0);
 			initializeLSC(idioma);
-			
 			
 			s.wait(sys.alwaysshowWlcomeScreen,20.0);
 			s.click(sys.alwaysshowWlcomeScreen,200);
