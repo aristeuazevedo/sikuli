@@ -70,6 +70,7 @@ public class TestSelect extends javax.swing.JFrame {
                 		&&	jComboBox1.getSelectedItem().toString() != "Danish (da-DK)"	
                 		){
 
+
                 	rdbtnAlert.setEnabled(false);
                 	rdbtnDashboard.setEnabled(false);
                 	rdbtnSetting.setEnabled(false);
