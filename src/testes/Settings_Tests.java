@@ -51,6 +51,8 @@ public class Settings_Tests {
 		resultado = new ResultExec("(Settings) - Select all check options");
 		listaResultados.add(resultado);
 		
+		s.wait(3.0);
+		
 		try {
 			resultado = new ResultExec("Button click Settings");
 			s.wait(sys.btn_Settings, 50.0);
@@ -67,6 +69,8 @@ public class Settings_Tests {
 			e.printStackTrace();
 		}
 		listaResultados.add(resultado);
+		
+		s.wait(5.0);
 		
 		evaluateTest(sys.memory_settings,"Memory");
 		
