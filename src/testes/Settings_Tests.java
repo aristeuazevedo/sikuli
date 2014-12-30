@@ -70,6 +70,8 @@ public class Settings_Tests {
 		}
 		listaResultados.add(resultado);
 		
+		titleLSC();
+		
 		s.wait(5.0);
 		
 		evaluateTest(sys.memory_settings,"Memory");
