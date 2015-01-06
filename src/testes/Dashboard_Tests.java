@@ -332,7 +332,7 @@ public void exitWindow(){
 		//resultado.addMensagens(sys.ImageError);
 	}
 	//listaResultados.add(resultado);
-	}
+}
 
 }
 

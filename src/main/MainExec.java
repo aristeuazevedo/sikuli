@@ -31,6 +31,7 @@ public class MainExec {
 	static Settings_Tests settings;
 	static Dashboard_Tests dashboard;
 	static HardwareScan_Test hardwarescan;
+	static DeviceManager_Test deviceManager;
 		
 	public static void main(String[] args) {
 				
@@ -71,6 +72,8 @@ public class MainExec {
 		selectDashboardTests();
 		
 		hardwareScan_test();
+		
+		deviceManager_test();
 		
 		Utilidades.closeApp(testParam.idioma);
 		
@@ -177,5 +180,13 @@ public class MainExec {
 		}
 	}
 	
-	
+	public static void deviceManager_test(){
+		deviceManager = new DeviceManager_Test(testParam.getShortIdioma());
+		
+		if(true){
+			for (ResultExec result : deviceManager.deviceManager_test()) {
+				lista.addResultado(result);
+			}
+		}
+	}
 }
