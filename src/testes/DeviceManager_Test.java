@@ -43,20 +43,18 @@ public class DeviceManager_Test {
 			else{
 				s.click(sys_checkup.CheckupSel);
 			}
-			
+						
 			s.click(sys_checkup.icn_deviceManager);
 			
 			s.click(sys.link_deviceManager);
-			
-			s.click(sys.productIcon);
-			
+						
 			s.click(sys.btn_deviceManager);
 			
 			titleLSC();
+		
+			s.wait(3.0);
 			
-			
-						
-			//s.wait(3.0);
+			exitDeviceManagerWin();
 			
 			//s.click(sys_checkup.WindowsExit);
 			
@@ -84,7 +82,7 @@ public class DeviceManager_Test {
 		
 		try {
 				
-			//Runtime.getRuntime().exec("runAs /user:administrator taskkill.exe /IM mmc.exe /u administrator"); 
+			Runtime.getRuntime().exec("tskill mmc"); 
 			
 		}catch (Exception e) {
 			e.printStackTrace();
