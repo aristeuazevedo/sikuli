@@ -3,6 +3,8 @@ package testes;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.sikuli.api.robot.Key;
+import org.sikuli.api.robot.KeyModifier;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Screen;
 
@@ -48,9 +50,16 @@ public class DeviceManager_Test {
 			
 			s.click(sys.btn_deviceManager);
 			
-			s.wait(10.0);
+			s.wait(3.0);
 			
-			exitDeviceManagerWin();
+			s.click(sys_checkup.WindowsExit);
+			
+			
+			//s.type (Key.TAB,KeyModifier.ALT);
+			
+			
+	
+			exitDevMan();
 			resultado.addMensagens("Passed");
 			listaResultados.add(resultado);
 			
@@ -64,18 +73,40 @@ public class DeviceManager_Test {
 		return listaResultados;
 	}
 	
-	
-	
 	public void exitDeviceManagerWin(){
 		
 		try {
-					
-			Runtime.getRuntime().exec("taskkill.exe /IM mmc.exe"); 
-
+				
+			//Runtime.getRuntime().exec("runAs /user:administrator taskkill.exe /IM mmc.exe /u administrator"); 
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 	
 	}
 	
+	public void exitDevMan(){
+		
+		try {
+			s.type( KeyModifier.ALT+ Key.F4);
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void titleLSC(){
+		
+		try {
+			//resultado = new ResultExec("LSC Title verification");		
+			s.wait(sys.LSC_Title,30.0);
+			s.click(sys.LSC_Title);
+			//resultado.addMensagens("Passed");
+		} catch (FindFailed e) {
+			e.printStackTrace();
+			resultado.addMensagens(sys.ImageError);
+		}
+		//listaResultados.add(resultado);
+	}
 }
