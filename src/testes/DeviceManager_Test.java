@@ -55,16 +55,7 @@ public class DeviceManager_Test {
 			s.wait(3.0);
 			
 			exitDeviceManagerWin();
-			
-			//s.click(sys_checkup.WindowsExit);
-			
-			
-			
-			//s.type (Key.TAB,KeyModifier.ALT);
-			
-			
-	
-			//exitDevMan();
+						
 			resultado.addMensagens("Passed");
 			listaResultados.add(resultado);
 			

@@ -183,7 +183,7 @@ public class MainExec {
 	public static void deviceManager_test(){
 		deviceManager = new DeviceManager_Test(testParam.getShortIdioma());
 		
-		if(true){
+		if(testParam.isDeviceManager()){
 			for (ResultExec result : deviceManager.deviceManager_test()) {
 				lista.addResultado(result);
 			}

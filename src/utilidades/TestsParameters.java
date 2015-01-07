@@ -42,7 +42,8 @@ public class TestsParameters {
 	public boolean dashboard;
 	public boolean hardwarescan;
 	
-	
+	private boolean deviceManager;
+		
 	public String getIdioma() {
 		return idioma;
 	}
@@ -96,6 +97,12 @@ public class TestsParameters {
 	}
 	public void setHardwarescan(boolean hardwarescan) {
 		this.hardwarescan = hardwarescan;
+	}
+	public boolean isDeviceManager() {
+		return deviceManager;
+	}
+	public void setDeviceManager(boolean deviceManager) {
+		this.deviceManager = deviceManager;
 	}
 	
 }

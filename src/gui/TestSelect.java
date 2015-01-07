@@ -65,6 +65,7 @@ public class TestSelect extends javax.swing.JFrame {
                 	rdbtnAlert.setEnabled(true);
                 	rdbtnDashboard.setEnabled(true);
                 	rdbtnHardwareScan.setEnabled(true);
+                	rdbtnDeviceManager.setEnabled(true);
                 	//rdbtnSetting.setEnabled(true);
                 	
                 }
@@ -73,6 +74,7 @@ public class TestSelect extends javax.swing.JFrame {
             	   	rdbtnAlert.setEnabled(false);
             	   	rdbtnDashboard.setEnabled(false);
                		rdbtnHardwareScan.setEnabled(false);
+               		rdbtnDeviceManager.setEnabled(false);
                 	
                 }
                 
@@ -152,6 +154,8 @@ public class TestSelect extends javax.swing.JFrame {
         rdbtnHardwareScan = new JRadioButton("Hardware Scan");
         rdbtnHardwareScan.setEnabled(false);
         
+        rdbtnDeviceManager = new JRadioButton("Device Manager");
+        rdbtnDeviceManager.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1Layout.setHorizontalGroup(
@@ -178,7 +182,8 @@ public class TestSelect extends javax.swing.JFrame {
         				.addComponent(rdbtnAlert)
         				.addComponent(rdbtnDashboard)
         				.addComponent(textField, GroupLayout.PREFERRED_SIZE, 254, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(rdbtnHardwareScan))
+        				.addComponent(rdbtnHardwareScan)
+        				.addComponent(rdbtnDeviceManager))
         			.addGap(34))
         );
         jPanel1Layout.setVerticalGroup(
@@ -212,7 +217,9 @@ public class TestSelect extends javax.swing.JFrame {
         					.addPreferredGap(ComponentPlacement.RELATED)
         					.addComponent(rdbtnDashboard)
         					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addComponent(rdbtnHardwareScan)))
+        					.addComponent(rdbtnHardwareScan)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(rdbtnDeviceManager)))
         			.addPreferredGap(ComponentPlacement.RELATED)
         			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
         				.addComponent(textField, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
@@ -317,6 +324,10 @@ public class TestSelect extends javax.swing.JFrame {
     	
     	if(rdbtnHardwareScan.isSelected()){
     		testParam.setHardwarescan(true);
+    	}
+    	
+    	if(rdbtnDeviceManager.isSelected()){
+    		testParam.setDeviceManager(true);
     	}
     	
     	testParam.setSettings(rdbtnSetting.isSelected());
@@ -466,4 +477,5 @@ public class TestSelect extends javax.swing.JFrame {
     private JRadioButton rdbtnSetting;
     private JRadioButton rdbtnDashboard;
     private JRadioButton rdbtnHardwareScan;
+    private JRadioButton rdbtnDeviceManager;
 }
