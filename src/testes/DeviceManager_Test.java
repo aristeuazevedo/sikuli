@@ -48,18 +48,25 @@ public class DeviceManager_Test {
 			
 			s.click(sys.link_deviceManager);
 			
+			s.click(sys.productIcon);
+			
 			s.click(sys.btn_deviceManager);
 			
-			s.wait(3.0);
+			titleLSC();
 			
-			s.click(sys_checkup.WindowsExit);
+			
+						
+			//s.wait(3.0);
+			
+			//s.click(sys_checkup.WindowsExit);
+			
 			
 			
 			//s.type (Key.TAB,KeyModifier.ALT);
 			
 			
 	
-			exitDevMan();
+			//exitDevMan();
 			resultado.addMensagens("Passed");
 			listaResultados.add(resultado);
 			
@@ -72,7 +79,7 @@ public class DeviceManager_Test {
 		
 		return listaResultados;
 	}
-	
+	//DO NOT WORKS
 	public void exitDeviceManagerWin(){
 		
 		try {
@@ -84,7 +91,7 @@ public class DeviceManager_Test {
 		}
 	
 	}
-	
+	//DO NOT WORKS
 	public void exitDevMan(){
 		
 		try {

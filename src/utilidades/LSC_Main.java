@@ -88,14 +88,16 @@ public class LSC_Main {
     public String ok_button;
     public String ok;
     public String alert_button;
-    public String WindowsExit;
+
     
 	public String submit_service_request = caminho + "submit_service_request.png";
+	
+	public String productIcon = caminho + "productIcon.PNG";
 	
 	public String ImageError = "Image not Found";
 	
 	public String Exit = caminho + "Exit_LSC.PNG";
-	
+	public String WindowsExit = caminho + "WindowsExit.PNG";
 	
 	public LSC_Main(String idioma) {
 		
@@ -116,7 +118,7 @@ public class LSC_Main {
 	    alwaysshowWlcomeScreen = "imgs/"+idioma+"/alwaysShowWelcomeScreen.PNG";
 	    LSC_welcomeScreen = "imgs/"+idioma+"/welcomeScreen.PNG";
 	    alert_button = "imgs/"+idioma+"/alertButton.PNG";
-	    WindowsExit = "imgs/"+idioma+"/WindowsExit.PNG";
+	    
 	
 		}
 
