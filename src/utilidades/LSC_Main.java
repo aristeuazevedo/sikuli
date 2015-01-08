@@ -88,6 +88,7 @@ public class LSC_Main {
     public String ok_button;
     public String ok;
     public String alert_button;
+    public String btn_yes = caminho + "btn_yes.png";
 
     
 	public String submit_service_request = caminho + "submit_service_request.png";

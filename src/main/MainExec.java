@@ -1,6 +1,7 @@
 package main;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,7 +75,7 @@ public class MainExec {
 		hardwareScan_test();
 		
 		deviceManager_test();
-		
+			
 		Utilidades.closeApp(testParam.idioma);
 		
 		Utilidades.grava(lista);
@@ -189,4 +190,17 @@ public class MainExec {
 			}
 		}
 	}
+	
+	public static void storageDevice_test(){
+		deviceManager = new DeviceManager_Test(testParam.getShortIdioma());
+		
+		if(testParam.isDeviceManager()){
+			for (ResultExec result : deviceManager.deviceManager_test()) {
+				lista.addResultado(result);
+			}
+		}
+	}
+	
+	
+	
 }

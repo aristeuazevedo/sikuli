@@ -66,6 +66,7 @@ public class TestSelect extends javax.swing.JFrame {
                 	rdbtnDashboard.setEnabled(true);
                 	rdbtnHardwareScan.setEnabled(true);
                 	rdbtnDeviceManager.setEnabled(true);
+                	rdbtnStorageDevice.setEnabled(true);
                 	//rdbtnSetting.setEnabled(true);
                 	
                 }
@@ -75,6 +76,7 @@ public class TestSelect extends javax.swing.JFrame {
             	   	rdbtnDashboard.setEnabled(false);
                		rdbtnHardwareScan.setEnabled(false);
                		rdbtnDeviceManager.setEnabled(false);
+               		rdbtnStorageDevice.setEnabled(false);
                 	
                 }
                 
@@ -156,7 +158,10 @@ public class TestSelect extends javax.swing.JFrame {
         
         rdbtnDeviceManager = new JRadioButton("Device Manager");
         rdbtnDeviceManager.setEnabled(false);
-
+        
+        rdbtnStorageDevice = new JRadioButton("Storage Device");
+        rdbtnStorageDevice.setEnabled(false);
+        
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1Layout.setHorizontalGroup(
         	jPanel1Layout.createParallelGroup(Alignment.LEADING)
@@ -183,7 +188,8 @@ public class TestSelect extends javax.swing.JFrame {
         				.addComponent(rdbtnDashboard)
         				.addComponent(textField, GroupLayout.PREFERRED_SIZE, 254, GroupLayout.PREFERRED_SIZE)
         				.addComponent(rdbtnHardwareScan)
-        				.addComponent(rdbtnDeviceManager))
+        				.addComponent(rdbtnDeviceManager)
+        				.addComponent(rdbtnStorageDevice))
         			.addGap(34))
         );
         jPanel1Layout.setVerticalGroup(
@@ -219,7 +225,9 @@ public class TestSelect extends javax.swing.JFrame {
         					.addPreferredGap(ComponentPlacement.RELATED)
         					.addComponent(rdbtnHardwareScan)
         					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addComponent(rdbtnDeviceManager)))
+        					.addComponent(rdbtnDeviceManager)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(rdbtnStorageDevice)))
         			.addPreferredGap(ComponentPlacement.RELATED)
         			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
         				.addComponent(textField, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
@@ -478,4 +486,5 @@ public class TestSelect extends javax.swing.JFrame {
     private JRadioButton rdbtnDashboard;
     private JRadioButton rdbtnHardwareScan;
     private JRadioButton rdbtnDeviceManager;
+    private JRadioButton rdbtnStorageDevice;
 }

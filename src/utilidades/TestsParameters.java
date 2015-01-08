@@ -43,7 +43,8 @@ public class TestsParameters {
 	public boolean hardwarescan;
 	
 	private boolean deviceManager;
-		
+	private boolean storageDevices;
+	
 	public String getIdioma() {
 		return idioma;
 	}
@@ -103,6 +104,12 @@ public class TestsParameters {
 	}
 	public void setDeviceManager(boolean deviceManager) {
 		this.deviceManager = deviceManager;
+	}
+	private boolean isStorageDevices() {
+		return storageDevices;
+	}
+	private void setStorageDevices(boolean storageDevices) {
+		this.storageDevices = storageDevices;
 	}
 	
 }

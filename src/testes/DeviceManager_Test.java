@@ -1,5 +1,6 @@
 package testes;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,8 +55,8 @@ public class DeviceManager_Test {
 		
 			s.wait(3.0);
 			
-			exitDeviceManagerWin();
-						
+			close_DeviceManager();
+					
 			resultado.addMensagens("Passed");
 			listaResultados.add(resultado);
 			
@@ -73,25 +74,14 @@ public class DeviceManager_Test {
 		
 		try {
 				
-			Runtime.getRuntime().exec("tskill mmc"); 
+			Runtime.getRuntime().exec("taskkill /IM mmc.exe /F"); 
 			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 	
 	}
-	//DO NOT WORKS
-	public void exitDevMan(){
-		
-		try {
-			s.type( KeyModifier.ALT+ Key.F4);
-			
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-	}
-	
+
 	public void titleLSC(){
 		
 		try {
@@ -104,5 +94,15 @@ public class DeviceManager_Test {
 			resultado.addMensagens(sys.ImageError);
 		}
 		//listaResultados.add(resultado);
+	}
+	
+	public static void close_DeviceManager(){
+		Runtime rt = Runtime.getRuntime();
+		try {
+			rt.exec("cmd /c start \"\" \"cmds/deviceManager.lnk");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
