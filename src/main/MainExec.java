@@ -33,6 +33,7 @@ public class MainExec {
 	static Dashboard_Tests dashboard;
 	static HardwareScan_Test hardwarescan;
 	static DeviceManager_Test deviceManager;
+	static Storage_Devices_Test storageDevice;
 		
 	public static void main(String[] args) {
 				
@@ -75,10 +76,14 @@ public class MainExec {
 		hardwareScan_test();
 		
 		deviceManager_test();
-			
+		
+		storageDevice_test();
+		
 		Utilidades.closeApp(testParam.idioma);
 		
 		Utilidades.grava(lista);
+		
+		
 	}
 	
 	/**
@@ -192,14 +197,16 @@ public class MainExec {
 	}
 	
 	public static void storageDevice_test(){
-		deviceManager = new DeviceManager_Test(testParam.getShortIdioma());
+		storageDevice = new Storage_Devices_Test(testParam.getShortIdioma());
 		
-		if(testParam.isDeviceManager()){
-			for (ResultExec result : deviceManager.deviceManager_test()) {
+		if(testParam.isStorageDevices()){
+			for (ResultExec result : storageDevice.storageDevice_test()) {
 				lista.addResultado(result);
 			}
 		}
 	}
+	
+	
 	
 	
 	

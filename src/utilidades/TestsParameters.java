@@ -105,10 +105,10 @@ public class TestsParameters {
 	public void setDeviceManager(boolean deviceManager) {
 		this.deviceManager = deviceManager;
 	}
-	private boolean isStorageDevices() {
+	public boolean isStorageDevices() {
 		return storageDevices;
 	}
-	private void setStorageDevices(boolean storageDevices) {
+	public void setStorageDevices(boolean storageDevices) {
 		this.storageDevices = storageDevices;
 	}
 	

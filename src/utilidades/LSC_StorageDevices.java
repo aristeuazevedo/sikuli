@@ -14,4 +14,6 @@ public class LSC_StorageDevices extends LSC_Main {
 		super(idioma);
 	}
 	
+	
+	
 }
