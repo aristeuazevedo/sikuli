@@ -89,7 +89,7 @@ public void SelectTabHome()
 public void titleLSC(){
 	
 	try {
-		//resultado = new ResultExec("LSC Title verification");		
+			
 		s.wait(sys.LSC_Title,30.0);
 		s.click(sys.LSC_Title);
 		//resultado.addMensagens("Passed");

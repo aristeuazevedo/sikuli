@@ -35,6 +35,7 @@ public class DeviceManager_Test {
 	public List<ResultExec> deviceManager_test(){
 		listaResultados.add(resultado);
 		
+		resultado = new ResultExec("Device Manager Link");
 		try {
 			
 			if(utilities.ExistVerify(sys_checkup.CheckupUns)){

@@ -73,7 +73,7 @@ public class HardwareScan_Test  {
 			
 			s.click(sys.yes_btn);
 			
-			s.wait(sys.canceled_status,25000);
+			s.wait(sys.canceled_status,28000);
 			
 			s.click(sys.canceled_status);
 			

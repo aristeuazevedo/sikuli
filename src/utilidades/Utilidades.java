@@ -117,7 +117,10 @@ public class Utilidades {
 								"(Settings) - Show LSC window")
 						|| result.getNomeTeste().contains("Alert tests")
 						|| result.getNomeTeste().contains("Dashboard Tests")
-						|| result.getNomeTeste().contains("Hardware Scan Test")){
+						|| result.getNomeTeste().contains("Hardware Scan Test")
+						|| result.getNomeTeste().contains("Storage Devices Test")
+						|| result.getNomeTeste().contains("Hardware Scan Test")
+						|| result.getNomeTeste().contains("Device Manager Test")){
 					fw.write("<td bgcolor = green colspan='2' align=center ><font color=white><b>"
 							+ result.getNomeTeste() + "</b></font></td>");
 				} else {
