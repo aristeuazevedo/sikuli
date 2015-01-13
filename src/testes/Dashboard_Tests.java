@@ -114,12 +114,12 @@ public void openDashScreen(){
 		s.click(sys.checkup_dashboard, 700);
 		
 		resultado.addMensagens("Passed");
-		listaResultados.add(resultado);
 		
 	} catch (FindFailed e) {	
 		e.printStackTrace();
+		resultado.addMensagens(sys.ImageError);
 	}
-	
+	listaResultados.add(resultado);
 }
 
 public void allIconClicks(){
@@ -130,7 +130,6 @@ public void allIconClicks(){
 		//s.doubleClick(sys.LSC_Title);
 		
 		s.wait(2.0);
-		
 		executionClick(sys.cpu_dashboard);
 		s.wait(3.0);
 		exitWindow();
@@ -151,6 +150,7 @@ public void allIconClicks(){
 		
 	} catch (FindFailed e) {	
 		e.printStackTrace();
+		resultado.addMensagens(sys.ImageError);
 	}
 }
 
@@ -169,11 +169,13 @@ public void verifyButton(){
 		
 		
 		resultado.addMensagens("Passed");
-		listaResultados.add(resultado);
+		
 		
 	} catch (FindFailed e) {	
 		e.printStackTrace();
+		resultado.addMensagens(sys.ImageError);
 	}
+	listaResultados.add(resultado);
 }
 
 public void executionClick(String icone){
@@ -192,9 +194,10 @@ public void executionClick(String icone){
 			s.wait(4.0);
 			s.click(sys.LSC_welcomeExit);
 			resultado.addMensagens("Passed");
-			listaResultados.add(resultado);
+			
 		}catch (FindFailed e) {	
 			e.printStackTrace();
+			resultado.addMensagens(sys.ImageError);
 		}
 	}
 	else {
@@ -203,11 +206,13 @@ public void executionClick(String icone){
 		titleLSC();
 		s.click(icone,1000);
 		resultado.addMensagens("Passed");
-		listaResultados.add(resultado);
+	
 		}catch (FindFailed e) {	
 			e.printStackTrace();
+			resultado.addMensagens(sys.ImageError);
 		}
 	}
+	listaResultados.add(resultado);
 	
 }
 
@@ -296,7 +301,7 @@ public void editDashboard(){
 		*/
 		
 		resultado.addMensagens("Passed");
-		listaResultados.add(resultado);
+		//listaResultados.add(resultado);
 		
 	} catch (FindFailed e) {	
 		e.printStackTrace();
@@ -314,10 +319,12 @@ public void dashboardClick(String icone){
 	Region i = s.find(sys.editMessage_dash).below();
 	s.dropAt(i);
 	resultado.addMensagens("Passed");
-	listaResultados.add(resultado);
+	
 	}	catch (FindFailed e) {	
 		e.printStackTrace();
+		resultado.addMensagens(sys.ImageError);
 	}
+	listaResultados.add(resultado);
 }
 
 public void exitWindow(){

@@ -70,9 +70,7 @@ public class Storage_Devices_Test {
 						
 			exitCleanMangWindow();
 			
-			
 			resultado.addMensagens("Passed");
-			listaResultados.add(resultado);
 			
 		}catch (FindFailed e) {
 			// TODO Auto-generated catch block

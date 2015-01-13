@@ -100,6 +100,7 @@ public class Settings_Tests {
 		
 		
 		try {
+			resultado = new ResultExec("Alerts Enabled");
 			s.wait(1.0);
 			s.click(sys.save_settings);
 	
