@@ -99,6 +99,7 @@ public class LSC_Main {
 	
 	public String Exit = caminho + "Exit_LSC.PNG";
 	public String WindowsExit = caminho + "WindowsExit.PNG";
+	public String WindowExitw8 = caminho + "WindowExitw8.PNG";
 	
 	public LSC_Main(String idioma) {
 		

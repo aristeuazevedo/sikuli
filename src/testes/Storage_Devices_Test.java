@@ -34,8 +34,12 @@ public class Storage_Devices_Test {
 		listaResultados.add(resultado);
 		
 		optimizeSpace();
+		
+		s.wait(3.0);
 
 		moreStorage();
+		
+		s.wait(3.0);
 		
 		optimizePerformance();
 		
@@ -152,14 +156,34 @@ public class Storage_Devices_Test {
 		//listaResultados.add(resultado);
 	}
 	
-	//close the browser opened by LSC
+	//close the browser opened by LSC (internet explorer)
 	public void exitMoreStorage(){
-		
+		/*
 		try {
 			s.click(sys.WindowsExit);
+			
+			if(utilities.ExistVerify(sys.WindowsExit)){
+				resultado.addMensagens("Windows 7 Browser");
+				listaResultados.add(resultado);
+			} else if (utilities.ExistVerify(sys.WindowExitw8)){
+				resultado.addMensagens("Windows 8 Browser");
+				listaResultados.add(resultado);
+			}
 		} catch (FindFailed e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			resultado.addMensagens(sys.ImageError);
+		}
+		*/
+		
+		
+		try {
+			//resultado = new ResultExec("LSC initialization");							
+			Runtime.getRuntime().exec("taskkill.exe /IM iexplore.exe /F"); 
+			//resultado.addMensagens("Passed");
+		}catch (Exception e) {
+			e.printStackTrace();
+			//resultado.addMensagens(sys.ImageError);
 		}
 	}
 	

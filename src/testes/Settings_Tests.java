@@ -109,7 +109,7 @@ public class Settings_Tests {
 			
 			s.wait(2.0);		
 					
-			if(s.exists(sys.icn_errorBig) != null){
+			if(s.exists(sys.icn_errorBig) != null){ 
 				s.click(sys.icn_errorBig);
 				resultado.addMensagens("Has Error status");
 			}
@@ -126,7 +126,7 @@ public class Settings_Tests {
 			
 		}
 		listaResultados.add(resultado);
-		return listaResultados;
+		return listaResultados; 
 	}
 	
 	/**
