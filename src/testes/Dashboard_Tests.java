@@ -134,9 +134,11 @@ public void allIconClicks(){
 		executionClick(sys.cpu_dashboard);
 		s.wait(3.0);
 		exitWindow();
+		s.wait(3.0);
 		executionClick(sys.memory_dashboard);
 		s.wait(3.0);
 		exitWindow();
+		s.wait(3.0);
 		executionClick(sys.backup_dashboard);
 		executionClick(sys.device_dashboard);
 		executionClick(sys.firewall_dashboard);
@@ -270,7 +272,8 @@ public String nomeIcone(String icone){
 public void editDashboard(){
 	try{	
 		resultado = new ResultExec("Edit Dashboard");				
-				
+		listaResultados.add(resultado);
+		
 		s.click(sys.dashboard_button, 700);
 		s.click(sys.edit_dash, 700);
 	
@@ -302,7 +305,7 @@ public void editDashboard(){
 		s.dropAt(s.find(sys.editMessage_dash).below());
 		*/
 		
-		resultado.addMensagens("Passed");
+		
 		//listaResultados.add(resultado);
 		
 	} catch (FindFailed e) {	

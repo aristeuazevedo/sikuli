@@ -51,13 +51,11 @@ public class Settings_Tests {
 		resultado = new ResultExec("(Settings) - Select all check options");
 		listaResultados.add(resultado);
 						
-		
-		
 		try {
 			resultado = new ResultExec("Button click Settings");
-			s.wait(sys.btn_Settings, 50.0);
-			
-			s.wait(5.0);			
+			//s.wait(sys.btn_Settings, 150.0);
+			titleLSC();
+			s.wait(10.0);			
 			
 			s.click(sys.btn_Settings);
 			titleLSC();
@@ -101,7 +99,6 @@ public class Settings_Tests {
 		evaluateTest(sys.firewall_settings,"Firewall");
 		
 		evaluateTest(sys.productRegistration_settings,"Product Registration");
-		
 		
 		try {
 			resultado = new ResultExec("Alerts Enabled");
