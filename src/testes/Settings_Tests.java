@@ -50,19 +50,23 @@ public class Settings_Tests {
 		listaResultados.add(resultado);
 		resultado = new ResultExec("(Settings) - Select all check options");
 		listaResultados.add(resultado);
+						
 		
-		s.wait(3.0);
 		
 		try {
 			resultado = new ResultExec("Button click Settings");
 			s.wait(sys.btn_Settings, 50.0);
-						
-			s.click(sys.btn_Settings);
 			
+			s.wait(5.0);			
+			
+			s.click(sys.btn_Settings);
+			titleLSC();
+			s.wait(5.0);
 			s.click(sys.enableAlerts_settings);
 									
 			s.wait(3.0);
 				
+			resultado.addMensagens("Passed");
 			
 		} catch (FindFailed e) {
 			resultado.addMensagens(sys.ImageError);
@@ -119,6 +123,9 @@ public class Settings_Tests {
 				resultado.addMensagens("Has Warning status");
 				s.click(sys.icn_warningBig);		
 				}
+			else{
+				resultado.addMensagens("Passed");
+			}
 		
 		} catch (FindFailed e) {
 			resultado.addMensagens(sys.ImageError);

@@ -1,6 +1,7 @@
 package testes;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -125,7 +126,7 @@ public void openDashScreen(){
 public void allIconClicks(){
 	try{	
 		resultado = new ResultExec("All Icons Verify");				
-				
+		listaResultados.add(resultado);
 		s.click(sys.dashboard_button, 1000);
 		//s.doubleClick(sys.LSC_Title);
 		
@@ -139,7 +140,7 @@ public void allIconClicks(){
 		executionClick(sys.backup_dashboard);
 		executionClick(sys.device_dashboard);
 		executionClick(sys.firewall_dashboard);
-		executionClick(sys.virtualAgente);
+		executionClick(sys.virus_dashboard);
 		
 		executionClick(sys.storage_dashboard);
 		executionClick(sys.updates_dashboard);
@@ -289,7 +290,8 @@ public void editDashboard(){
 				
 		dashboardClick(sys.firewall_dashboard);
 		
-		dashboardClick(sys.cancel_dash);
+		s.click(sys.cancel_dash);
+		
 		/*
 		s.wait(2.0);
 		s.drag(sys.device_dashboard);
@@ -329,17 +331,25 @@ public void dashboardClick(String icone){
 
 public void exitWindow(){
 	//ResultExec resultado = new ResultExec("Reopening LSC - Settings test"); 
-	
+	/*
 	try {
 		//resultado = new ResultExec("LSC initialization");							
-		Runtime.getRuntime().exec("taskkill.exe /IM taskmgr.exe"); 
+		Runtime.getRuntime().exec("taskkill /IM taskmgr.exe /F"); 
 		//resultado.addMensagens("Passed");
 	}catch (Exception e) {
 		e.printStackTrace();
 		//resultado.addMensagens(sys.ImageError);
+		
+		*/
+		Runtime rt = Runtime.getRuntime();
+		try {
+			rt.exec("cmd /c start \"\" \"cmds/taskManager.lnk");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	//listaResultados.add(resultado);
-}
 
 }
 

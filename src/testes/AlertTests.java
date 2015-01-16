@@ -123,9 +123,10 @@ public class AlertTests {
 			resultado = new ResultExec("Alert Button");
 			s.click(sys.alert_button);
 			resultado.addMensagens("Passed");
-			listaResultados.add(resultado);
+			
 		}catch (FindFailed e) {	
 			e.printStackTrace();
+			resultado.addMensagens(sys.ImageError);
 		}
 		listaResultados.add(resultado);
 			
@@ -214,13 +215,13 @@ public class AlertTests {
 		
 		try{	
 			//
-			resultado = new ResultExec("Button 'Settings'");				
+			//resultado = new ResultExec("Button 'Settings'");				
 			s.wait(sys.btn_Settings, 50.0);
 				
 			s.click(sys.btn_Settings, 200);
 			
-			resultado.addMensagens("Passed");
-			listaResultados.add(resultado);
+			//resultado.addMensagens("Passed");
+			//listaResultados.add(resultado);
 			
 			//
 			s.wait(5.0);
