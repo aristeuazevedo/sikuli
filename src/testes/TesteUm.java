@@ -28,7 +28,7 @@ public class TesteUm {
 						
 			//java.awt.Desktop.getDesktop().open(new File("C:/Program Files/Lenovo/Lenovo Solution Center/LSC.exe"));
 			
-			java.awt.Desktop.getDesktop().open(new File(idioma+".bat"));
+			java.awt.Desktop.getDesktop().open(new File("Linguagens/"+idioma+".bat"));
 			
 			//caminhos das imagens
 			String tituloLSC = "imgs/"+idioma+"/LSC_appTitle.PNG";
