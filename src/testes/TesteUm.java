@@ -36,7 +36,7 @@ public class TesteUm {
 			String quickBar = "imgs/"+idioma+"/Quickbar.PNG";
 			
 			//Tempo de espera para encontrar a imagem esperada
-			s.wait(tituloLSC,15.0);
+			s.wait(tituloLSC,30.0);
 			
 			s.click(quickBar);
 					
