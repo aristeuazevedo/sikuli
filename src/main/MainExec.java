@@ -27,7 +27,7 @@ public class MainExec {
 		System.out.print(idioma);
 		SystemSmoke SystemTeste = new SystemSmoke(idioma);
 
-		//resultado = t1.teste(idioma);
+		// resultado = t1.teste(idioma);
 		resultado = SystemTeste.Smoke();
 		System.out.print(resultado.getNomeTeste());
 
