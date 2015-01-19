@@ -13,6 +13,7 @@ import org.sikuli.script.*;
 
 import utilidades.ResultExec;
 
+
 @SuppressWarnings("unused")
 public class SystemSmoke {
 	
@@ -27,6 +28,8 @@ public class SystemSmoke {
 	String SysTabUns = " ";
 	String SysTabSel = " ";
 	String idioma = " ";
+	
+	ResultExec resultado = new ResultExec("Smoke Test");
 	
 	Screen s = new Screen();
 			
@@ -49,7 +52,7 @@ public class SystemSmoke {
 	{
 		
 		
-		ResultExec resultado = new ResultExec("Smoke Test");
+		
 		
 
 		try {

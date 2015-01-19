@@ -1,15 +1,18 @@
 package utilidades;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ResultExec {
 
 	private boolean result;
-	private String mensagem;
+	
+	private List<String> mensagens = new ArrayList<String>();
 	private String nomeTeste;
 
 	public ResultExec(String nomeTeste) {
 		super();
 		this.nomeTeste = nomeTeste;
-		this.mensagem = "";
 		this.result = false;
 	}
 
@@ -21,13 +24,6 @@ public class ResultExec {
 		this.result = result;
 	}
 
-	public String getMensagem() {
-		return mensagem;
-	}
-
-	public void setMensagem(String mensagem) {
-		this.mensagem = mensagem;
-	}
 
 	public String getNomeTeste() {
 		return nomeTeste;
@@ -35,6 +31,14 @@ public class ResultExec {
 
 	public void setNomeTeste(String nomeTeste) {
 		this.nomeTeste = nomeTeste;
+	}
+
+	public List<String> getMensagens() {
+		return mensagens;
+	}
+
+	public void setMensagens(List<String> mensagens) {
+		this.mensagens = mensagens;
 	}
 
 	// Encapsulamentos
