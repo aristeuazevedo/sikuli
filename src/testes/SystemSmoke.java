@@ -62,7 +62,7 @@ public class SystemSmoke {
 			s.click(SysTabUns);
 			StorageDevice();
 			
-			//
+			///
 			s.click(SysTabSel);
 			Memory();
 			
