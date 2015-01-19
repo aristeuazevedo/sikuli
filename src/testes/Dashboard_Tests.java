@@ -283,7 +283,8 @@ public void editDashboard(){
 		
 		dashboardClick(sys.cpu_dashboard);
 		
-		dashboardClick(sys.network_dashboard);
+		//
+		//dashboardClick(sys.network_dashboard);
 		
 		dashboardClick(sys.hardware_dashboard);
 		
