@@ -78,7 +78,6 @@ public class TestSelect extends javax.swing.JFrame {
                 	rdbtnDeviceManager.setEnabled(true);
                 	rdbtnStorageDevice.setEnabled(true);
                 	//rdbtnSetting.setEnabled(true);
-                	
                 }
                
                if(jComboBox1.getSelectedItem().toString() != "English (en-US)"	){
