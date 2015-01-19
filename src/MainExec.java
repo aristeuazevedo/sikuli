@@ -9,6 +9,7 @@ public class MainExec {
 
 		// TODO Auto-generated method stub
 		TesteUm t1 = new TesteUm();
+		SystemSmoke SystemTeste = new SystemSmoke();
 		Teste t = new Teste();
 		String s = ""; // recebe a linguagem selecionada na janela
 		String idioma = "";
@@ -23,7 +24,8 @@ public class MainExec {
 		idioma = escolheIdioma(s);
 		System.out.print(idioma);
 
-		resultado = t1.teste(idioma);
+		//resultado = t1.teste(idioma);
+		resultado = SystemTeste.Smoke(idioma);
 		System.out.print(resultado.getNomeTeste());
 
 	}
