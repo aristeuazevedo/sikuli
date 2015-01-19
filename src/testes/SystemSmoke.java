@@ -38,9 +38,13 @@ public class SystemSmoke {
 	public SystemSmoke( String idioma){
 		//caminhos das imagens
 		
+		
+		this.idioma = idioma;
+		
 		SysTabUns = "imgs/"+idioma+"/SystemTabUnselected.PNG";
 		SysTabSel = "imgs/"+idioma+"/SystemTabSelected.PNG";
-		this.idioma = idioma;
+		LSCtitle = "imgs/"+idioma+"/LSC_appTitle.PNG";
+
 		
 		sys = new LSC_System(idioma);
 	}
@@ -55,8 +59,16 @@ public class SystemSmoke {
 			
 					
 			//s.wait(LSCtitle,30.0);
+			System.out.print(LSCtitle);
+			
+			s.wait(LSCtitle,30.0);
 			s.click(LSCtitle);
+			
+			s.click(SysTabUns);
+			Memory();
+			
 			//
+			/*
 			s.click(SysTabUns);
 			StorageDevice();
 			
@@ -83,7 +95,7 @@ public class SystemSmoke {
 			//
 			s.click(SysTabSel);
 			FilePrinters();
-
+*/
 			
 									
 		} catch (IOException e) {
@@ -108,7 +120,7 @@ public class SystemSmoke {
 			s.click(sys.icn_hardDrive);
 			
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 			resultado.addMensagens(e.toString());
 		}
 		
@@ -118,12 +130,14 @@ public class SystemSmoke {
 	{
 		try {
 			
-			s.click(LSCtitle);
-			s.wait(sys.icn_hardDrive,10.0);
+			//s.click(LSCtitle);
+			//s.wait(sys.icn_memory,10.0);
 			s.click(sys.icn_memory);
+			System.out.print(sys.icn_memory);
 			
 		} catch (Exception e) {
 			resultado.addMensagens(e.toString());
+			e.printStackTrace();
 		}
 		
 	}
