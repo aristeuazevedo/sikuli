@@ -64,15 +64,8 @@ public class SystemSmoke {
 			s.wait(LSCtitle,30.0);
 			s.click(LSCtitle);
 			
-			s.click(SysTabUns);
-			s.click(sys.icn_battery);
-			System.out.print(sys.icn_battery+"\n");		
-			
-			s.click(SysTabSel);
-			s.click(sys.icn_memory);
-			System.out.print(sys.icn_memory+"\n");	
 			//
-			/*
+			
 			s.click(SysTabUns);
 			StorageDevice();
 			
@@ -99,7 +92,7 @@ public class SystemSmoke {
 			//
 			s.click(SysTabSel);
 			FilePrinters();
-*/
+
 			
 									
 		} catch (IOException e) {
@@ -134,8 +127,8 @@ public class SystemSmoke {
 	{
 		try {
 			
-			//s.click(LSCtitle);
-			//s.wait(sys.icn_memory,10.0);
+			s.click(LSCtitle);
+			s.wait(sys.icn_memory,10.0);
 			s.click(sys.icn_memory);
 			System.out.print(sys.icn_memory);
 			
@@ -151,7 +144,7 @@ public class SystemSmoke {
 		try {
 			
 			s.click(LSCtitle);
-			s.wait(sys.icn_hardDrive,10.0);
+			s.wait(sys.icn_backup,10.0);
 			s.click(sys.icn_backup);
 			
 		} catch (Exception e) {
@@ -165,7 +158,7 @@ public class SystemSmoke {
 		try {
 			
 			s.click(LSCtitle);
-			s.wait(sys.icn_hardDrive,10.0);
+			s.wait(sys.icn_softwareUpdate,10.0);
 			s.click(sys.icn_softwareUpdate);
 			
 		} catch (Exception e) {
@@ -179,7 +172,7 @@ public class SystemSmoke {
 		try {
 			
 			s.click(LSCtitle);
-			s.wait(sys.icn_hardDrive,10.0);
+			s.wait(sys.icn_battery,10.0);
 			s.click(sys.icn_battery);
 			
 		} catch (Exception e) {
@@ -193,7 +186,7 @@ public class SystemSmoke {
 		try {
 			
 			s.click(LSCtitle);
-			s.wait(sys.icn_hardDrive,10.0);
+			s.wait(sys.icn_systemInfo,10.0);
 			s.click(sys.icn_systemInfo);
 			
 		} catch (Exception e) {
@@ -207,7 +200,7 @@ public class SystemSmoke {
 		try {
 			
 			s.click(LSCtitle);
-			s.wait(sys.icn_hardDrive,10.0);
+			s.wait(sys.icn_filePrinter,10.0);
 			s.click(sys.icn_filePrinter);
 			
 		} catch (Exception e) {
