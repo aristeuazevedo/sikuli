@@ -4,12 +4,14 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.io.File;
 import java.io.IOException;
+
 import org.sikuli.api.DesktopScreenRegion;
 import org.sikuli.api.ImageTarget;
 import org.sikuli.api.ScreenRegion;
 import org.sikuli.api.Target;
 import org.sikuli.script.*;
 
+import utilidades.LSC_System;
 import utilidades.ResultExec;
 
 
@@ -27,6 +29,7 @@ public class SystemSmoke {
 	String SysTabUns = " ";
 	String SysTabSel = " ";
 	String idioma = " ";
+	LSC_System sys;
 	
 	ResultExec resultado = new ResultExec("Smoke Test");
 	
@@ -34,33 +37,25 @@ public class SystemSmoke {
 			
 	public SystemSmoke( String idioma){
 		//caminhos das imagens
-		LSCtitle = "imgs/"+idioma+"/LSC_appTitle.PNG";
-		BackupIcon = "imgs/"+idioma+"/BackupIcon.PNG";
-		BatteryIcon = "imgs/"+idioma+"/BatteryIcon.PNG";
-		FilePrintersIcon = "imgs/"+idioma+"/FilePrintersIcon.PNG";
-		MemoryIcon = "imgs/"+idioma+"/MemoryIcon.PNG";
-		SoftwareUpdateIcon = "imgs/"+idioma+"/SoftwareUpdateIcon.PNG";
-		StorageDeviceIcon = "imgs/"+idioma+"/StorageDeviceIcon.PNG";
-		SysInfoIcon = "imgs/"+idioma+"/SystemInformationIcon.PNG";
+		
 		SysTabUns = "imgs/"+idioma+"/SystemTabUnselected.PNG";
 		SysTabSel = "imgs/"+idioma+"/SystemTabSelected.PNG";
 		this.idioma = idioma;
+		
+		sys = new LSC_System(idioma);
 	}
 	
 	public ResultExec Smoke()
 	{
 		
-		
-		
-		
-
 		try {
 										
 			java.awt.Desktop.getDesktop().open(new File("Linguagens/"+idioma+".bat"));
 					
-					
-			s.wait(LSCtitle,30.0);
 			
+					
+			//s.wait(LSCtitle,30.0);
+			s.click(LSCtitle);
 			//
 			s.click(SysTabUns);
 			StorageDevice();
@@ -93,7 +88,7 @@ public class SystemSmoke {
 									
 		} catch (IOException e) {
 					
-			//System.out.println("Imagem não encontrada");
+			System.out.println("Imagem não encontrada");
 			e.printStackTrace();
 		}catch (Exception e) {
 			// TODO: handle exception
@@ -109,8 +104,8 @@ public class SystemSmoke {
 		try {
 			
 			s.click(LSCtitle);
-			s.wait(StorageDeviceIcon,10.0);
-			s.click(StorageDeviceIcon);
+			s.wait(sys.icn_hardDrive,10.0);
+			s.click(sys.icn_hardDrive);
 			
 		} catch (Exception e) {
 			
@@ -124,8 +119,8 @@ public class SystemSmoke {
 		try {
 			
 			s.click(LSCtitle);
-			s.wait(StorageDeviceIcon,10.0);
-			s.click(MemoryIcon);
+			s.wait(sys.icn_hardDrive,10.0);
+			s.click(sys.icn_memory);
 			
 		} catch (Exception e) {
 			resultado.addMensagens(e.toString());
@@ -138,8 +133,8 @@ public class SystemSmoke {
 		try {
 			
 			s.click(LSCtitle);
-			s.wait(StorageDeviceIcon,10.0);
-			s.click(BackupIcon);
+			s.wait(sys.icn_hardDrive,10.0);
+			s.click(sys.icn_backup);
 			
 		} catch (Exception e) {
 			resultado.addMensagens(e.toString());
@@ -152,8 +147,8 @@ public class SystemSmoke {
 		try {
 			
 			s.click(LSCtitle);
-			s.wait(StorageDeviceIcon,10.0);
-			s.click(SoftwareUpdateIcon);
+			s.wait(sys.icn_hardDrive,10.0);
+			s.click(sys.icn_softwareUpdate);
 			
 		} catch (Exception e) {
 			resultado.addMensagens(e.toString());
@@ -166,8 +161,8 @@ public class SystemSmoke {
 		try {
 			
 			s.click(LSCtitle);
-			s.wait(StorageDeviceIcon,10.0);
-			s.click(BatteryIcon);
+			s.wait(sys.icn_hardDrive,10.0);
+			s.click(sys.icn_battery);
 			
 		} catch (Exception e) {
 			resultado.addMensagens(e.toString());
@@ -180,8 +175,8 @@ public class SystemSmoke {
 		try {
 			
 			s.click(LSCtitle);
-			s.wait(StorageDeviceIcon,10.0);
-			s.click(SysInfoIcon);
+			s.wait(sys.icn_hardDrive,10.0);
+			s.click(sys.icn_systemInfo);
 			
 		} catch (Exception e) {
 			resultado.addMensagens(e.toString());
@@ -194,8 +189,8 @@ public class SystemSmoke {
 		try {
 			
 			s.click(LSCtitle);
-			s.wait(StorageDeviceIcon,10.0);
-			s.click(FilePrintersIcon);
+			s.wait(sys.icn_hardDrive,10.0);
+			s.click(sys.icn_filePrinter);
 			
 		} catch (Exception e) {
 			resultado.addMensagens(e.toString());
