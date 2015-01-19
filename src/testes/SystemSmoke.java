@@ -65,8 +65,12 @@ public class SystemSmoke {
 			s.click(LSCtitle);
 			
 			s.click(SysTabUns);
-			Memory();
+			s.click(sys.icn_battery);
+			System.out.print(sys.icn_battery+"\n");		
 			
+			s.click(SysTabSel);
+			s.click(sys.icn_memory);
+			System.out.print(sys.icn_memory+"\n");	
 			//
 			/*
 			s.click(SysTabUns);
