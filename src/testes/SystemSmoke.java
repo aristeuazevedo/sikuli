@@ -114,7 +114,8 @@ public class SystemSmoke {
 			s.click(StorageDeviceIcon);
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			
+			resultado.addMensagens(e.toString());
 		}
 		
 	}
@@ -128,7 +129,7 @@ public class SystemSmoke {
 			s.click(MemoryIcon);
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			resultado.addMensagens(e.toString());
 		}
 		
 	}
@@ -142,7 +143,7 @@ public class SystemSmoke {
 			s.click(BackupIcon);
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			resultado.addMensagens(e.toString());
 		}
 		
 	}
@@ -156,7 +157,7 @@ public class SystemSmoke {
 			s.click(SoftwareUpdateIcon);
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			resultado.addMensagens(e.toString());
 		}
 		
 	}
@@ -170,7 +171,7 @@ public class SystemSmoke {
 			s.click(BatteryIcon);
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			resultado.addMensagens(e.toString());
 		}
 		
 	}
@@ -184,7 +185,7 @@ public class SystemSmoke {
 			s.click(SysInfoIcon);
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			resultado.addMensagens(e.toString());
 		}
 		
 	}
@@ -198,7 +199,7 @@ public class SystemSmoke {
 			s.click(FilePrintersIcon);
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			resultado.addMensagens(e.toString());
 		}
 		
 	}

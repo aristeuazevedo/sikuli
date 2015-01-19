@@ -37,8 +37,8 @@ public class ResultExec {
 		return mensagens;
 	}
 
-	public void setMensagens(List<String> mensagens) {
-		this.mensagens = mensagens;
+	public void addMensagens(String mensagens) {
+		this.mensagens.add(mensagens);
 	}
 
 	// Encapsulamentos
