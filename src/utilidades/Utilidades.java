@@ -1,6 +1,5 @@
 package utilidades;
 
-
 import java.awt.AWTException;
 import java.awt.Rectangle;
 import java.awt.Robot;
@@ -13,12 +12,11 @@ import java.util.GregorianCalendar;
 
 import javax.imageio.ImageIO;
 
-
 public class Utilidades {
 	
 	private  static Robot rob;
 	
-	//chama o método de captura e salva a imagem como jpg
+	//chama o metodo de captura e salva a imagem como jpg
 	public static void print(String str) throws IOException
 	{
 		try{
@@ -35,13 +33,13 @@ public class Utilidades {
 		
 	}
 	
-	//captura tela da máquina, qualquer dimensão
+	//captura tela da maquina, qualquer dimensao
 	public static BufferedImage capture()
 	{
 		return rob.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
 	}
 	
-	//retorna a data atual da máquina
+	//retorna a data atual da maquina
 	public static void horaData ()
 	{
 		GregorianCalendar gc = new GregorianCalendar();

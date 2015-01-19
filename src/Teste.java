@@ -6,13 +6,15 @@
 
 
 import java.util.Enumeration;
+
 import javax.swing.AbstractButton;
-import javax.swing.JRadioButton;
 
 /**
  *
  * @author saoaazev
  */
+
+@SuppressWarnings("serial")
 public class Teste extends javax.swing.JFrame {
 	String selecao = new String();
     /**
