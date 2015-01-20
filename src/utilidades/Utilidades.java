@@ -120,7 +120,8 @@ public class Utilidades {
 						|| result.getNomeTeste().contains("Hardware Scan Test")
 						|| result.getNomeTeste().contains("Storage Devices Test")
 						|| result.getNomeTeste().contains("Hardware Scan Test")
-						|| result.getNomeTeste().contains("Device Manager Test")){
+						|| result.getNomeTeste().contains("Device Manager Test")
+						|| result.getNomeTeste().contains("Memory Test")){
 					fw.write("<td bgcolor = green colspan='2' align=center ><font color=white><b>"
 							+ result.getNomeTeste() + "</b></font></td>");
 				} else {

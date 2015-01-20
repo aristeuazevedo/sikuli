@@ -17,6 +17,7 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollBar;
 import javax.swing.SwingConstants;
 import javax.swing.JPanel;
+import java.awt.Dimension;
 
 
 /**
@@ -31,6 +32,8 @@ public class TestSelect extends javax.swing.JFrame {
 	public TestsParameters testParam = new TestsParameters();
 	public Messages message =  new Messages();
     public TestSelect() {
+    	getContentPane().setMinimumSize(new Dimension(700, 700));
+    	getContentPane().setSize(new Dimension(500, 500));
         initComponents();
     }
 
@@ -45,6 +48,7 @@ public class TestSelect extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel1.setMinimumSize(new Dimension(400, 400));
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
         jCheckBox1 = new javax.swing.JCheckBox();
@@ -77,6 +81,7 @@ public class TestSelect extends javax.swing.JFrame {
                 	rdbtnHardwareScan.setEnabled(true);
                 	rdbtnDeviceManager.setEnabled(true);
                 	rdbtnStorageDevice.setEnabled(true);
+                	rdbtnMemory.setEnabled(true);
                 	//rdbtnSetting.setEnabled(true);
                 }
                
@@ -86,6 +91,7 @@ public class TestSelect extends javax.swing.JFrame {
                		rdbtnHardwareScan.setEnabled(false);
                		rdbtnDeviceManager.setEnabled(false);
                		rdbtnStorageDevice.setEnabled(false);
+                	rdbtnMemory.setEnabled(false);
                 	
                 }
                 
@@ -171,7 +177,8 @@ public class TestSelect extends javax.swing.JFrame {
         rdbtnStorageDevice = new JRadioButton("Storage Device");
         rdbtnStorageDevice.setEnabled(false);
         
-        
+        rdbtnMemory = new JRadioButton("Memory");
+        rdbtnMemory.setEnabled(false);
         
         //Listener
         rdbtnDeviceManager.addChangeListener(new ChangeListener() {
@@ -189,6 +196,8 @@ public class TestSelect extends javax.swing.JFrame {
         });
         
         JLabel lblMessages = new JLabel("Messages");
+        
+        
         
         
         
@@ -212,31 +221,33 @@ public class TestSelect extends javax.swing.JFrame {
         				.addComponent(jToggleButton1)
         				.addComponent(jCheckBox4)
         				.addComponent(jCheckBox5))
-        			.addGap(44)
         			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        				.addComponent(rdbtnSetting, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(lblTests)
-        				.addComponent(rdbtnAlert)
-        				.addComponent(rdbtnDashboard)
-        				.addComponent(rdbtnHardwareScan)
-        				.addComponent(rdbtnDeviceManager)
-        				.addComponent(rdbtnStorageDevice)
-        				.addComponent(lblMessages)
         				.addGroup(jPanel1Layout.createSequentialGroup()
-        					.addComponent(textArea_1, GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
-        					.addPreferredGap(ComponentPlacement.RELATED)))
-        			.addGap(10))
+        					.addGap(26)
+        					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        						.addComponent(rdbtnSetting, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(lblTests)
+        						.addComponent(rdbtnAlert)
+        						.addComponent(rdbtnDashboard)
+        						.addComponent(rdbtnHardwareScan)
+        						.addComponent(rdbtnDeviceManager)
+        						.addComponent(rdbtnStorageDevice)
+        						.addComponent(rdbtnMemory)))
+        				.addGroup(jPanel1Layout.createSequentialGroup()
+        					.addGap(18)
+        					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        						.addComponent(textArea_1, GroupLayout.PREFERRED_SIZE, 287, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(lblMessages))))
+        			.addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
         	jPanel1Layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(jPanel1Layout.createSequentialGroup()
         			.addContainerGap()
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel3)
-        				.addComponent(lblTests))
+        			.addComponent(jLabel3)
+        			.addGap(11)
         			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
         				.addGroup(jPanel1Layout.createSequentialGroup()
-        					.addGap(11)
         					.addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         					.addGap(30)
         					.addComponent(jLabel1)
@@ -245,10 +256,11 @@ public class TestSelect extends javax.swing.JFrame {
         					.addGap(16)
         					.addComponent(jLabel2)
         					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
-        						.addComponent(jCheckBox1)
-        						.addComponent(lblMessages)))
+        					.addComponent(jCheckBox1)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(jCheckBox2))
         				.addGroup(jPanel1Layout.createSequentialGroup()
+        					.addComponent(lblTests)
         					.addPreferredGap(ComponentPlacement.RELATED)
         					.addComponent(rdbtnSetting)
         					.addPreferredGap(ComponentPlacement.RELATED)
@@ -260,12 +272,12 @@ public class TestSelect extends javax.swing.JFrame {
         					.addPreferredGap(ComponentPlacement.RELATED)
         					.addComponent(rdbtnDeviceManager)
         					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addComponent(rdbtnStorageDevice)))
-        			.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(rdbtnStorageDevice)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(rdbtnMemory)))
+        			.addGap(18)
         			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
         				.addGroup(jPanel1Layout.createSequentialGroup()
-        					.addComponent(jCheckBox2)
-        					.addPreferredGap(ComponentPlacement.RELATED)
         					.addComponent(jCheckBox3)
         					.addPreferredGap(ComponentPlacement.RELATED)
         					.addComponent(jCheckBox4)
@@ -273,7 +285,10 @@ public class TestSelect extends javax.swing.JFrame {
         					.addComponent(jCheckBox5)
         					.addGap(166)
         					.addComponent(jToggleButton1))
-        				.addComponent(textArea_1, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE))
+        				.addGroup(jPanel1Layout.createSequentialGroup()
+        					.addComponent(lblMessages)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(textArea_1, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)))
         			.addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel1.setLayout(jPanel1Layout);
@@ -284,14 +299,14 @@ public class TestSelect extends javax.swing.JFrame {
         		.addGroup(layout.createSequentialGroup()
         			.addContainerGap()
         			.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 579, GroupLayout.PREFERRED_SIZE)
-        			.addContainerGap(88, Short.MAX_VALUE))
+        			.addContainerGap(142, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
         	layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(layout.createSequentialGroup()
         			.addContainerGap()
         			.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        			.addContainerGap(57, Short.MAX_VALUE))
+        			.addContainerGap(153, Short.MAX_VALUE))
         );
         getContentPane().setLayout(layout);
 
@@ -381,6 +396,10 @@ public class TestSelect extends javax.swing.JFrame {
     	
     	if(rdbtnStorageDevice.isSelected()){
     		testParam.setStorageDevices(true);
+    	}
+    	
+    	if(rdbtnMemory.isSelected()){
+    		testParam.setMemory(true);
     	}
     	
     	testParam.setSettings(rdbtnSetting.isSelected());
@@ -533,5 +552,6 @@ public class TestSelect extends javax.swing.JFrame {
     private JRadioButton rdbtnHardwareScan;
     private JRadioButton rdbtnDeviceManager;
     private JRadioButton rdbtnStorageDevice;
+    private JRadioButton rdbtnMemory;
     private JTextArea textArea_1;
 }

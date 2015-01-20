@@ -34,6 +34,7 @@ public class MainExec {
 	static HardwareScan_Test hardwarescan;
 	static DeviceManager_Test deviceManager;
 	static Storage_Devices_Test storageDevice;
+	static Memory_Test memoryTest;
 		
 	public static void main(String[] args) {
 				
@@ -78,6 +79,8 @@ public class MainExec {
 		deviceManager_test();
 		
 		storageDevice_test();
+		
+		memory_test();
 		
 		Utilidades.closeApp(testParam.idioma);
 		
@@ -207,7 +210,15 @@ public class MainExec {
 	}
 	
 	
-	
+	public static void memory_test(){
+		memoryTest = new Memory_Test(testParam.getShortIdioma());
+		
+		if(testParam.isMemory()){
+			for (ResultExec result : memoryTest.memory_test()) {
+				lista.addResultado(result);
+			}
+		}
+	}
 	
 	
 }

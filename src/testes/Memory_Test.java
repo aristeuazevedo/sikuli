@@ -31,10 +31,20 @@ public List<ResultExec> memory_test(){
 	titleLSC();
 	s.wait(3.0);
 	
+	 memory_verify();
 
+	 optimize_performance();
+	
+	
+	return listaResultados;
+}
+
+public void memory_verify(){
+	resultado = new ResultExec("Memory Verify");
 	try {
 		if(utilities.ExistVerify(sys.SystemUns)){
 			s.click(sys.SystemUns);
+			
 		}
 			
 		else{
@@ -45,24 +55,47 @@ public List<ResultExec> memory_test(){
 		
 		s.click(sys.icn_memory);
 		
-		resultado.addMensagens("Passed");
+		
+		
+		
+		if(utilities.ExistVerify(sys.memorySmall)){
+			s.click(sys.memorySmall);
+			resultado.addMensagens("Has removable memory");
+		}
+			
+		else if(utilities.ExistVerify(sys.memorySmallLock)){
+			s.click(sys.memorySmallLock);
+			resultado.addMensagens("Has not removable memory");
+		}
+
+		listaResultados.add(resultado);
 		
 	}catch (FindFailed e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		resultado.addMensagens(sys.ImageError);
 	}
-	
-	
-	return listaResultados;
+
+
 }
 
-public void test(){
-titleLSC();
-
-
-
-
+public void optimize_performance(){
+	resultado = new ResultExec("Optimize performance");
+	
+	try {
+		s.click(sys.Optimize_performance);
+		s.click(sys.Lenovo_tips);
+		
+		
+		
+		resultado.addMensagens("Passed");
+	}catch (FindFailed e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		resultado.addMensagens(sys.ImageError);
+	}
+	
+	listaResultados.add(resultado);
 }
 
 

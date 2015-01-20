@@ -108,7 +108,6 @@ public class Storage_Devices_Test {
 			resultado.addMensagens(sys.ImageError);
 		}
 		
-		
 		listaResultados.add(resultado);
 	}
 	
