@@ -18,10 +18,10 @@ import utilidades.ResultExec;
 @SuppressWarnings("unused")
 public class SystemSmoke {
 	
-	String LSCtitle = " ";
 	String SysTabUns = " ";
 	String SysTabSel = " ";
 	String idioma = " ";
+	
 	LSC_System sys;
 	
 	ResultExec resultado = new ResultExec("Smoke Test");
@@ -34,9 +34,6 @@ public class SystemSmoke {
 		
 		SysTabUns = "imgs/"+idioma+"/SystemTabUnselected.PNG";
 		SysTabSel = "imgs/"+idioma+"/SystemTabSelected.PNG";
-		LSCtitle = "imgs/"+idioma+"/LSC_appTitle.PNG";
-
-		
 		sys = new LSC_System(idioma);
 	}
 	
@@ -47,10 +44,10 @@ public class SystemSmoke {
 										
 			java.awt.Desktop.getDesktop().open(new File("Linguagens/"+idioma+".bat"));
 					
-			System.out.print(LSCtitle);
+			System.out.print(sys.LSC_Title);
 			
-			s.wait(LSCtitle,30.0);
-			s.click(LSCtitle);
+			s.wait(sys.LSC_Title,30.0);
+			s.click(sys.LSC_Title);
 			
 			
 			s.click(SysTabUns);
@@ -91,10 +88,16 @@ public class SystemSmoke {
 	public void VerificaTela(String icone)
 	{
 		try {
-			s.click(LSCtitle);
+			s.click(sys.LSC_Title);
 			s.wait(icone,10.0);
 			s.click(icone);
 			
+			//verifica se a tela é a correta
+			if(icone != sys.icn_systemInfo && icone != sys.icn_filePrinter)
+			s.wait(icone,3.0);
+			else
+			s.wait(10.0);
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 			resultado.addMensagens(e.toString());

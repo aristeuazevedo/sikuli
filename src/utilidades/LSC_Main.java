@@ -14,7 +14,9 @@ public class LSC_Main {
 	String icn_recoveryMedia = caminho + "icn_recoveryMedia.png ";
 	String icn_systemMonitor_title = caminho + "icn_systemMonitor_title.png";
 	String icn_systemMonitor = caminho + "icn_systemMonitor.png";
+    public String LSC_Title = caminho + "LSC_appTitle.png";
 	String submit_service_request = caminho + "submit_service_request.png";
+	
 	
 	public LSC_Main(String idioma) {
 		super();
