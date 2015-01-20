@@ -82,6 +82,7 @@ public class TestSelect extends javax.swing.JFrame {
                 	rdbtnDeviceManager.setEnabled(true);
                 	rdbtnStorageDevice.setEnabled(true);
                 	rdbtnMemory.setEnabled(true);
+                	rdbtnBackup.setEnabled(true);
                 	//rdbtnSetting.setEnabled(true);
                 }
                
@@ -92,6 +93,7 @@ public class TestSelect extends javax.swing.JFrame {
                		rdbtnDeviceManager.setEnabled(false);
                		rdbtnStorageDevice.setEnabled(false);
                 	rdbtnMemory.setEnabled(false);
+                	rdbtnBackup.setEnabled(false);
                 	
                 }
                 
@@ -180,6 +182,9 @@ public class TestSelect extends javax.swing.JFrame {
         rdbtnMemory = new JRadioButton("Memory");
         rdbtnMemory.setEnabled(false);
         
+        rdbtnBackup = new JRadioButton("Backup");
+        rdbtnBackup.setEnabled(false);
+        
         //Listener
         rdbtnDeviceManager.addChangeListener(new ChangeListener() {
         	public void stateChanged(ChangeEvent arg0) {
@@ -196,6 +201,8 @@ public class TestSelect extends javax.swing.JFrame {
         });
         
         JLabel lblMessages = new JLabel("Messages");
+        
+        
         
         
         
@@ -232,7 +239,8 @@ public class TestSelect extends javax.swing.JFrame {
         						.addComponent(rdbtnHardwareScan)
         						.addComponent(rdbtnDeviceManager)
         						.addComponent(rdbtnStorageDevice)
-        						.addComponent(rdbtnMemory)))
+        						.addComponent(rdbtnMemory)
+        						.addComponent(rdbtnBackup)))
         				.addGroup(jPanel1Layout.createSequentialGroup()
         					.addGap(18)
         					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
@@ -274,8 +282,10 @@ public class TestSelect extends javax.swing.JFrame {
         					.addPreferredGap(ComponentPlacement.RELATED)
         					.addComponent(rdbtnStorageDevice)
         					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addComponent(rdbtnMemory)))
-        			.addGap(18)
+        					.addComponent(rdbtnMemory)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(rdbtnBackup)))
+        			.addGap(4)
         			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
         				.addGroup(jPanel1Layout.createSequentialGroup()
         					.addComponent(jCheckBox3)
@@ -400,6 +410,10 @@ public class TestSelect extends javax.swing.JFrame {
     	
     	if(rdbtnMemory.isSelected()){
     		testParam.setMemory(true);
+    	}
+    	
+    	if(rdbtnBackup.isSelected()){
+    		testParam.setBackup(true);
     	}
     	
     	testParam.setSettings(rdbtnSetting.isSelected());
@@ -553,5 +567,6 @@ public class TestSelect extends javax.swing.JFrame {
     private JRadioButton rdbtnDeviceManager;
     private JRadioButton rdbtnStorageDevice;
     private JRadioButton rdbtnMemory;
+    private JRadioButton rdbtnBackup;
     private JTextArea textArea_1;
 }

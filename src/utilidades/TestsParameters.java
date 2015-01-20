@@ -45,6 +45,7 @@ public class TestsParameters {
 	private boolean deviceManager;
 	private boolean storageDevices;
 	private boolean memory;
+	private boolean backup;
 	
 	public String getIdioma() {
 		return idioma;
@@ -117,6 +118,12 @@ public class TestsParameters {
 	}
 	public void setMemory(boolean memory) {
 		this.memory = memory;
+	}
+	public boolean isBackup() {
+		return backup;
+	}
+	public void setBackup(boolean backup) {
+		this.backup = backup;
 	}
 	
 }

@@ -35,6 +35,7 @@ public class MainExec {
 	static DeviceManager_Test deviceManager;
 	static Storage_Devices_Test storageDevice;
 	static Memory_Test memoryTest;
+	static Backup_Test backupTest;
 		
 	public static void main(String[] args) {
 				
@@ -81,6 +82,8 @@ public class MainExec {
 		storageDevice_test();
 		
 		memory_test();
+		
+		backup_test();
 		
 		Utilidades.closeApp(testParam.idioma);
 		
@@ -220,5 +223,14 @@ public class MainExec {
 		}
 	}
 	
+	public static void backup_test(){
+		backupTest = new Backup_Test(testParam.getShortIdioma());
+		
+		if(testParam.isBackup()){
+			for (ResultExec result : backupTest.backup_test()) {
+				lista.addResultado(result);
+			}
+		}
+	}
 	
 }
