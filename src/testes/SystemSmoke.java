@@ -19,13 +19,6 @@ import utilidades.ResultExec;
 public class SystemSmoke {
 	
 	String LSCtitle = " ";
-	String BackupIcon = " ";
-	String BatteryIcon = " ";
-	String FilePrintersIcon = " ";
-	String MemoryIcon = " ";
-	String SoftwareUpdateIcon = " ";
-	String StorageDeviceIcon = " ";
-	String SysInfoIcon = " ";
 	String SysTabUns = " ";
 	String SysTabSel = " ";
 	String idioma = " ";
@@ -36,8 +29,6 @@ public class SystemSmoke {
 	Screen s = new Screen();
 			
 	public SystemSmoke( String idioma){
-		//caminhos das imagens
-		
 		
 		this.idioma = idioma;
 		
@@ -56,43 +47,32 @@ public class SystemSmoke {
 										
 			java.awt.Desktop.getDesktop().open(new File("Linguagens/"+idioma+".bat"));
 					
-			
-					
-			//s.wait(LSCtitle,30.0);
 			System.out.print(LSCtitle);
 			
 			s.wait(LSCtitle,30.0);
 			s.click(LSCtitle);
 			
-			//
 			
 			s.click(SysTabUns);
-			StorageDevice();
-			
-			///
+			VerificaTela(sys.icn_hardDrive);
+		
 			s.click(SysTabSel);
-			Memory();
+			VerificaTela(sys.icn_memory);
 			
-			//
 			s.click(SysTabSel);
-			Backup();
+			VerificaTela(sys.icn_backup);
 			
-			//
 			s.click(SysTabSel);
-			SoftwareUpdate();
+			VerificaTela(sys.icn_softwareUpdate);
 			
-			//
 			s.click(SysTabSel);
-			Battery();
+			VerificaTela(sys.icn_battery);
+		
+			s.click(SysTabSel);
+			VerificaTela(sys.icn_systemInfo);
 			
-			//
-			s.click(SysTabSel);
-			SysInfo();
-			
-			//
-			s.click(SysTabSel);
-			FilePrinters();
-
+			s.click(SysTabSel);			
+			VerificaTela(sys.icn_filePrinter);
 			
 									
 		} catch (IOException e) {
@@ -102,19 +82,18 @@ public class SystemSmoke {
 		}catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
+			resultado.addMensagens(e.toString());
 		}
 		
 		return resultado;
 	}
 	
-	
-	public void StorageDevice()
+	public void VerificaTela(String icone)
 	{
 		try {
-			
 			s.click(LSCtitle);
-			s.wait(sys.icn_hardDrive,10.0);
-			s.click(sys.icn_hardDrive);
+			s.wait(icone,10.0);
+			s.click(icone);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -123,90 +102,8 @@ public class SystemSmoke {
 		
 	}
 	
-	public void Memory()
-	{
-		try {
-			
-			s.click(LSCtitle);
-			s.wait(sys.icn_memory,10.0);
-			s.click(sys.icn_memory);
-			System.out.print(sys.icn_memory);
-			
-		} catch (Exception e) {
-			resultado.addMensagens(e.toString());
-			e.printStackTrace();
-		}
-		
-	}
 
-	public void Backup()
-	{
-		try {
-			
-			s.click(LSCtitle);
-			s.wait(sys.icn_backup,10.0);
-			s.click(sys.icn_backup);
-			
-		} catch (Exception e) {
-			resultado.addMensagens(e.toString());
-		}
-		
-	}
 
-	public void SoftwareUpdate()
-	{
-		try {
-			
-			s.click(LSCtitle);
-			s.wait(sys.icn_softwareUpdate,10.0);
-			s.click(sys.icn_softwareUpdate);
-			
-		} catch (Exception e) {
-			resultado.addMensagens(e.toString());
-		}
-		
-	}
 
-	public void Battery()
-	{
-		try {
-			
-			s.click(LSCtitle);
-			s.wait(sys.icn_battery,10.0);
-			s.click(sys.icn_battery);
-			
-		} catch (Exception e) {
-			resultado.addMensagens(e.toString());
-		}
-		
-	}
-
-	public void SysInfo()
-	{
-		try {
-			
-			s.click(LSCtitle);
-			s.wait(sys.icn_systemInfo,10.0);
-			s.click(sys.icn_systemInfo);
-			
-		} catch (Exception e) {
-			resultado.addMensagens(e.toString());
-		}
-		
-	}
-
-	public void FilePrinters()
-	{
-		try {
-			
-			s.click(LSCtitle);
-			s.wait(sys.icn_filePrinter,10.0);
-			s.click(sys.icn_filePrinter);
-			
-		} catch (Exception e) {
-			resultado.addMensagens(e.toString());
-		}
-		
-	}
 
 }
