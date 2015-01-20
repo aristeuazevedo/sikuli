@@ -15,12 +15,36 @@ public class LSC_Main {
 	String icn_systemMonitor_title = caminho + "icn_systemMonitor_title.png";
 	String icn_systemMonitor = caminho + "icn_systemMonitor.png";
     public String LSC_Title = caminho + "LSC_appTitle.png";
+    
+    public String CheckupSel;
+    public String CheckupUns;
+    public String HomeSel;
+    public String HomeUns;
+    public String SecuritySel;
+    public String SecurityUns;
+    public String SupportSel;
+    public String SupportUns;
+    public String SystemSel;
+    public String SystemUns;
+    
+    
 	String submit_service_request = caminho + "submit_service_request.png";
 	
 	
 	public LSC_Main(String idioma) {
-		super();
+		
 		this.idioma = idioma;
-	}
+		
+		CheckupSel = "imgs/"+idioma+"/CheckupTabSelected.PNG";
+	    CheckupUns = "imgs/"+idioma+"/CheckupTabUnselected.PNG";
+	    HomeSel = "imgs/"+idioma+"/HomeTabSelected.PNG";
+	    HomeUns = "imgs/"+idioma+"/HomeTabUnselected.PNG";
+	    SecuritySel = "imgs/"+idioma+"/SecurityTabSelected.PNG";
+	    SecurityUns = "imgs/"+idioma+"/SecurityTabUnselected.PNG";
+	    SupportSel = "imgs/"+idioma+"/SupportTabSelected.PNG";
+	    SupportUns = "imgs/"+idioma+"/SupportTabUnselected.PNG";
+	    SystemSel = "imgs/"+idioma+"/SystemTabSelected.PNG";
+	    SystemUns = "imgs/"+idioma+"/SystemTabUnselected.PNG";
+		}
 
 }

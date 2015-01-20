@@ -11,6 +11,7 @@ import org.sikuli.api.ScreenRegion;
 import org.sikuli.api.Target;
 import org.sikuli.script.*;
 
+import utilidades.LSC_Main;
 import utilidades.LSC_System;
 import utilidades.ResultExec;
 
@@ -18,8 +19,8 @@ import utilidades.ResultExec;
 @SuppressWarnings("unused")
 public class SystemSmoke {
 	
-	String SysTabUns = " ";
-	String SysTabSel = " ";
+	//String SysTabUns = " ";
+	//String SysTabSel = " ";
 	String idioma = " ";
 	
 	LSC_System sys;
@@ -32,8 +33,8 @@ public class SystemSmoke {
 		
 		this.idioma = idioma;
 		
-		SysTabUns = "imgs/"+idioma+"/SystemTabUnselected.PNG";
-		SysTabSel = "imgs/"+idioma+"/SystemTabSelected.PNG";
+		//SysTabUns = "imgs/"+idioma+"/SystemTabUnselected.PNG";
+		//SysTabSel = "imgs/"+idioma+"/SystemTabSelected.PNG";
 		sys = new LSC_System(idioma);
 	}
 	
@@ -49,26 +50,25 @@ public class SystemSmoke {
 			s.wait(sys.LSC_Title,30.0);
 			s.click(sys.LSC_Title);
 			
-			
-			s.click(SysTabUns);
+			s.click(sys.SystemUns);
 			VerificaTela(sys.icn_hardDrive);
 		
-			s.click(SysTabSel);
+			s.click(sys.SystemSel);
 			VerificaTela(sys.icn_memory);
 			
-			s.click(SysTabSel);
+			s.click(sys.SystemSel);
 			VerificaTela(sys.icn_backup);
 			
-			s.click(SysTabSel);
+			s.click(sys.SystemSel);
 			VerificaTela(sys.icn_softwareUpdate);
 			
-			s.click(SysTabSel);
+			s.click(sys.SystemSel);
 			VerificaTela(sys.icn_battery);
 		
-			s.click(SysTabSel);
+			s.click(sys.SystemSel);
 			VerificaTela(sys.icn_systemInfo);
 			
-			s.click(SysTabSel);			
+			s.click(sys.SystemSel);			
 			VerificaTela(sys.icn_filePrinter);
 			
 									
