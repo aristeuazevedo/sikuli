@@ -11,6 +11,8 @@ public class LSC_System extends LSC_Main {
 	public String icn_filePrinter = caminho + "icn_filePrinter.png";
 	public String usbDeviceIcon = caminho + "usbDeviceIcon.png";
 	
+	public String icn_save = caminho + "icnSave.png";
+	
 	public LSC_System(String idioma) {
 		super(idioma);
 		

@@ -26,7 +26,7 @@ public class MainExec {
 
 		idioma = escolheIdioma(s);
 		System.out.print(idioma);
-		SystemSmoke SystemTeste = new SystemSmoke(idioma);
+		System_Smoke_Test SystemTeste = new System_Smoke_Test(idioma);
 
 		// resultado = t1.teste(idioma);
 		resultado = SystemTeste.Smoke();

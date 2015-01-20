@@ -17,7 +17,7 @@ import utilidades.ResultExec;
 
 
 @SuppressWarnings("unused")
-public class SystemSmoke {
+public class System_Smoke_Test {
 	
 	String idioma = "";
 	
@@ -27,7 +27,7 @@ public class SystemSmoke {
 	
 	Screen s = new Screen();
 			
-	public SystemSmoke( String idioma){
+	public System_Smoke_Test( String idioma){
 		
 		this.idioma = idioma;
 		sys = new LSC_System(idioma);
@@ -45,24 +45,31 @@ public class SystemSmoke {
 			s.wait(sys.LSC_Title,30.0);
 			s.click(sys.LSC_Title);
 			
+			s.wait(2.0);
 			s.click(sys.SystemUns);
 			VerificaTela(sys.icn_hardDrive);
 		
+			s.wait(2.0);
 			s.click(sys.SystemSel);
 			VerificaTela(sys.icn_memory);
 			
+			s.wait(2.0);
 			s.click(sys.SystemSel);
 			VerificaTela(sys.icn_backup);
 			
+			s.wait(2.0);
 			s.click(sys.SystemSel);
 			VerificaTela(sys.icn_softwareUpdate);
 			
+			s.wait(2.0);
 			s.click(sys.SystemSel);
 			VerificaTela(sys.icn_battery);
 		
+			s.wait(2.0);
 			s.click(sys.SystemSel);
 			VerificaTela(sys.icn_systemInfo);
 			
+			s.wait(2.0);
 			s.click(sys.SystemSel);			
 			VerificaTela(sys.icn_filePrinter);
 			
@@ -88,9 +95,10 @@ public class SystemSmoke {
 			s.click(icone);
 			
 			//verifica se a tela é a correta
-			if(icone != sys.icn_systemInfo && icone != sys.icn_filePrinter)
-			s.wait(icone,3.0);
-			else
+			if(icone == sys.icn_systemInfo )
+			s.wait(sys.icn_save,40.0);
+			
+			else if(icone == sys.icn_filePrinter)
 			s.wait(10.0);
 		
 		} catch (Exception e) {
