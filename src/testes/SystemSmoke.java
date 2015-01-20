@@ -19,9 +19,7 @@ import utilidades.ResultExec;
 @SuppressWarnings("unused")
 public class SystemSmoke {
 	
-	//String SysTabUns = " ";
-	//String SysTabSel = " ";
-	String idioma = " ";
+	String idioma = "";
 	
 	LSC_System sys;
 	
@@ -32,9 +30,6 @@ public class SystemSmoke {
 	public SystemSmoke( String idioma){
 		
 		this.idioma = idioma;
-		
-		//SysTabUns = "imgs/"+idioma+"/SystemTabUnselected.PNG";
-		//SysTabSel = "imgs/"+idioma+"/SystemTabSelected.PNG";
 		sys = new LSC_System(idioma);
 	}
 	
@@ -77,7 +72,7 @@ public class SystemSmoke {
 			System.out.println("Imagem não encontrada");
 			e.printStackTrace();
 		}catch (Exception e) {
-			// TODO: handle exception
+			
 			e.printStackTrace();
 			resultado.addMensagens(e.toString());
 		}
