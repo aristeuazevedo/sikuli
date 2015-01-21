@@ -34,28 +34,22 @@ public class Backup_Test {
 		
 		titleLSC();
 		
-		try {
-			s.click(sys.CheckupUns);
-		} catch (FindFailed e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		getStorage();
 		
 		anotherTool();
 		
 		return listaResultados;
+		
 	}
 	
 	
 	public void getStorage(){
 		
-	
+		resultado = new ResultExec("Get Storage");
 		
 		try {
 			if(utilities.ExistVerify(sys.SystemUns)){
 				s.click(sys.SystemUns);
-				
 			}
 				
 			else{
@@ -70,39 +64,43 @@ public class Backup_Test {
 			
 			s.click(sys.shopnow);
 
-			s.wait(3.0);
+			s.wait(5.0);
 			
 			exitShopNow();
 			
-			listaResultados.add(resultado);
+			resultado.addMensagens("Passed");
 			
 		}catch (FindFailed e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			resultado.addMensagens(sys.ImageError);
 		}
+		listaResultados.add(resultado);
+		
 	}
 	
 	public void anotherTool(){
 		
+		resultado = new ResultExec("Another Tool");
+		
 		try {
+			
 			titleLSC();
 			
 			s.click(sys.anothertool);
 			
-			s.click(sys.anothertoolcheck);
-			
-			s.click(sys.shopnow);
+			s.hover(sys.anothertoolcheck);
 
 			s.wait(3.0);
-						
-			listaResultados.add(resultado);
 			
+			resultado.addMensagens("Passed");
+												
 		}catch (FindFailed e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			resultado.addMensagens(sys.ImageError);
 		}
+		listaResultados.add(resultado);
 		
 	}
 	
