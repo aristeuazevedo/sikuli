@@ -52,12 +52,10 @@ public class Checkup_Smoke_Test {
 			
 			s.wait(2.0);
 			s.click(sys.CheckupSel);
-			//s.click(sys.icn_deviceManager);
 			VerificaTela(sys.icn_deviceManager);
 			
 			s.wait(2.0);
 			s.click(sys.CheckupSel);
-			//s.click(sys.icn_snapshot);
 			VerificaTela(sys.icn_snapshot);
 			
 				

@@ -14,24 +14,22 @@ import org.sikuli.script.*;
 import utilidades.LSC_CheckUP;
 import utilidades.LSC_Main;
 import utilidades.LSC_Security;
+import utilidades.LSC_Support;
 import utilidades.LSC_System;
 import utilidades.ResultExec;
 
-@SuppressWarnings("unused")
-public class Security_Module_Test {
-	
+public class Support_Smoke_Test {
 	String idioma = "";
 	
-	LSC_Security sys;
+	LSC_Support sys;
 	
 	ResultExec resultado = new ResultExec(" Test System");
 	
 	Screen s = new Screen();
-
-	public Security_Module_Test( String idioma){
+	public Support_Smoke_Test( String idioma){
 		
 		this.idioma = idioma;
-		sys = new LSC_Security(idioma);
+		sys = new LSC_Support(idioma);
 	}
 	
 	public void Smoke() {
@@ -44,26 +42,13 @@ public class Security_Module_Test {
 			s.click(sys.LSC_Title);
 			
 			s.wait(2.0);
-			s.click(sys.SecurityUns);
-			VerificaTela(sys.icn_virusProtection);
+			s.click(sys.SupportUns);
+			VerificaTela(sys.onlinesupportIcon);
 			
 			s.wait(2.0);
-			s.click(sys.SecuritySel);
-			VerificaTela(sys.icn_password);
-			
-			s.wait(2.0);
-			s.click(sys.SecuritySel);
-			VerificaTela(sys.icn_firewall);
-			
-			s.wait(2.0);
-			s.click(sys.SecuritySel);
-			VerificaTela(sys.icn_internet);
-			
-			s.wait(2.0);
-			s.click(sys.SecuritySel);
-			VerificaTela(sys.icn_fingerprint);
-						
-							
+			s.click(sys.SupportSel);
+			VerificaTela(sys.supportModule_WarrantyIcon);
+								
 			} catch (IOException e) {
 			
 			System.out.println("Imagem não encontrada");
@@ -75,6 +60,7 @@ public class Security_Module_Test {
 			}				
 		
 	}
+
 	
 	public void VerificaTela(String icone)
 	{
@@ -90,9 +76,4 @@ public class Security_Module_Test {
 		}
 		
 	}
-
-	}
-
-
-
-
+}

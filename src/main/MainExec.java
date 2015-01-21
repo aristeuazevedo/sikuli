@@ -28,12 +28,13 @@ public class MainExec {
 		idioma = escolheIdioma(s);
 		System.out.print(idioma);
 		
-		System_Smoke_Test SystemTeste = new System_Smoke_Test(idioma);
-		Checkup_Smoke_Test CheckupTeste = new Checkup_Smoke_Test(idioma);
-
+		System_Smoke_Test SystemTest = new System_Smoke_Test(idioma);
+		Security_Module_Test SecurityTest = new Security_Module_Test(idioma);
+		Checkup_Smoke_Test CheckupTest = new Checkup_Smoke_Test(idioma);
 		
-		SystemTeste.Smoke();
-		CheckupTeste.Smoke();
+		SystemTest.Smoke();
+		SecurityTest.Smoke();
+		CheckupTest.Smoke();
 		
 		System.out.print(resultado.getNomeTeste());
 
