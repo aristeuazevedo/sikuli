@@ -9,7 +9,8 @@ public class MainExec {
 
 		ResultExec resultado = new ResultExec("");
 
-		// TODO Auto-generated method stub
+		
+		
 		@SuppressWarnings("unused")
 		TesteUm t1 = new TesteUm();
 		
@@ -26,10 +27,14 @@ public class MainExec {
 
 		idioma = escolheIdioma(s);
 		System.out.print(idioma);
+		
 		System_Smoke_Test SystemTeste = new System_Smoke_Test(idioma);
+		Checkup_Smoke_Test CheckupTeste = new Checkup_Smoke_Test(idioma);
 
-		// resultado = t1.teste(idioma);
-		resultado = SystemTeste.Smoke();
+		
+		SystemTeste.Smoke();
+		CheckupTeste.Smoke();
+		
 		System.out.print(resultado.getNomeTeste());
 
 	}

@@ -16,6 +16,8 @@ public class LSC_Main {
 	String icn_systemMonitor = caminho + "icn_systemMonitor.png";
     public String LSC_Title = caminho + "LSC_appTitle.png";
     
+    public String icn_save = caminho + "icnSave.png";
+    
     public String CheckupSel;
     public String CheckupUns;
     public String HomeSel;

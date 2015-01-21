@@ -23,7 +23,7 @@ public class System_Smoke_Test {
 	
 	LSC_System sys;
 	
-	ResultExec resultado = new ResultExec("Smoke Test");
+	ResultExec resultado = new ResultExec("Smoke Test System");
 	
 	Screen s = new Screen();
 			
@@ -99,7 +99,7 @@ public class System_Smoke_Test {
 			s.wait(sys.icn_save,40.0);
 			
 			else if(icone == sys.icn_filePrinter)
-			s.wait(10.0);
+			s.wait(3.0);
 		
 		} catch (Exception e) {
 			e.printStackTrace();
