@@ -45,22 +45,27 @@ public class Security_Module_Test {
 			
 			s.wait(2.0);
 			s.click(sys.SecurityUns);
+			s.wait(2.0);
 			VerificaTela(sys.icn_virusProtection);
 			
 			s.wait(2.0);
 			s.click(sys.SecuritySel);
+			s.wait(2.0);
 			VerificaTela(sys.icn_password);
 			
 			s.wait(2.0);
 			s.click(sys.SecuritySel);
+			s.wait(2.0);
 			VerificaTela(sys.icn_firewall);
 			
 			s.wait(2.0);
 			s.click(sys.SecuritySel);
+			s.wait(2.0);
 			VerificaTela(sys.icn_internet);
 			
 			s.wait(2.0);
 			s.click(sys.SecuritySel);
+			s.wait(2.0);
 			VerificaTela(sys.icn_fingerprint);
 						
 							

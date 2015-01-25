@@ -17,6 +17,18 @@ public class LSC_Main {
     public String LSC_Title = caminho + "LSC_appTitle.png";
     
     public String icn_save = caminho + "icnSave.png";
+    public String icn_info = caminho + "icnInfo.png";
+    
+    //icones do Access Support Online
+    public String virtualAgente = caminho + "lenovoVirtualAgentIcon.png";
+    
+    //icones do Access Support Online Chines
+    public String moreInfo = caminho + "icn_MoreHelp.png";
+    public String expert = caminho + "icn_ExpertOnline.png";
+    public String selfHelp = caminho + "icn_SelfHelp.png";
+    public String onlineRepair = caminho + "icn_OnlineRepair.png";
+    public String lenovoRobot = caminho + "icn_LenovoRobot.png";
+    public String icn_AskLenovo = caminho + "icn_AskLenovo.png";
     
     public String CheckupSel;
     public String CheckupUns;

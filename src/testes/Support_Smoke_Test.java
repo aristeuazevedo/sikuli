@@ -23,7 +23,7 @@ public class Support_Smoke_Test {
 	
 	LSC_Support sys;
 	
-	ResultExec resultado = new ResultExec(" Test System");
+	ResultExec resultado = new ResultExec(" Test Support");
 	
 	Screen s = new Screen();
 	public Support_Smoke_Test( String idioma){
@@ -43,11 +43,20 @@ public class Support_Smoke_Test {
 			
 			s.wait(2.0);
 			s.click(sys.SupportUns);
+			s.wait(2.0);
 			VerificaTela(sys.onlinesupportIcon);
 			
 			s.wait(2.0);
 			s.click(sys.SupportSel);
+			s.wait(2.0);
 			VerificaTela(sys.supportModule_WarrantyIcon);
+						
+			s.wait(2.0);
+			s.click(sys.SupportSel);
+			s.wait(2.0);
+			VerificaTela(sys.icn_configHistory);
+			
+			
 								
 			} catch (IOException e) {
 			
@@ -68,6 +77,44 @@ public class Support_Smoke_Test {
 			s.click(sys.LSC_Title);
 			s.wait(icone,10.0);
 			s.click(icone);
+			
+			//Configuration History verifica se tem o icone azul de informação
+			if(icone == sys.icn_configHistory) {
+				s.wait(sys.icn_info, 20);
+				s.click(sys.icn_info);
+			}
+			
+			//Online Support
+			else if(icone == sys.onlinesupportIcon) {
+				//exceção da linguagem chines simpleficado
+				if(idioma == "zh_CN"){
+					
+					s.wait(sys.selfHelp,20);
+					
+					s.click(sys.selfHelp);
+					
+					s.click(sys.onlineRepair);
+					
+					s.click(sys.icn_AskLenovo);
+					
+					s.click(sys.lenovoRobot);
+					
+					s.click(sys.expert);
+					
+					s.click(sys.moreInfo);
+					
+				}
+				else {
+					s.wait(sys.virtualAgente,20);
+					s.click(sys.virtualAgente);
+				}
+			}
+			
+			else {
+				s.wait(icone);
+			}
+			
+			
 			
 				
 		} catch (Exception e) {

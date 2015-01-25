@@ -47,30 +47,37 @@ public class System_Smoke_Test {
 			
 			s.wait(2.0);
 			s.click(sys.SystemUns);
+			s.wait(2.0);
 			VerificaTela(sys.icn_hardDrive);
 		
 			s.wait(2.0);
 			s.click(sys.SystemSel);
+			s.wait(2.0);
 			VerificaTela(sys.icn_memory);
 			
 			s.wait(2.0);
 			s.click(sys.SystemSel);
+			s.wait(2.0);
 			VerificaTela(sys.icn_backup);
 			
 			s.wait(2.0);
 			s.click(sys.SystemSel);
+			s.wait(2.0);
 			VerificaTela(sys.icn_softwareUpdate);
 			
 			s.wait(2.0);
 			s.click(sys.SystemSel);
+			s.wait(2.0);
 			VerificaTela(sys.icn_battery);
 		
 			s.wait(2.0);
 			s.click(sys.SystemSel);
+			s.wait(2.0);
 			VerificaTela(sys.icn_systemInfo);
 			
 			s.wait(2.0);
-			s.click(sys.SystemSel);			
+			s.click(sys.SystemSel);	
+			s.wait(2.0);
 			VerificaTela(sys.icn_filePrinter);
 			
 									

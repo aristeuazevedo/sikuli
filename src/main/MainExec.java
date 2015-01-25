@@ -28,13 +28,22 @@ public class MainExec {
 		idioma = escolheIdioma(s);
 		System.out.print(idioma);
 		
+		
+		
+		
+		//criando objeto dos testes
 		System_Smoke_Test SystemTest = new System_Smoke_Test(idioma);
 		Security_Module_Test SecurityTest = new Security_Module_Test(idioma);
 		Checkup_Smoke_Test CheckupTest = new Checkup_Smoke_Test(idioma);
+		Support_Smoke_Test SupportTest = new Support_Smoke_Test(idioma);
 		
+		//Chamando testes
 		SystemTest.Smoke();
 		SecurityTest.Smoke();
 		CheckupTest.Smoke();
+		SupportTest.Smoke();
+		
+		
 		
 		System.out.print(resultado.getNomeTeste());
 
