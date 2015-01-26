@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.sikuli.script.FindFailed;
+import org.sikuli.script.Match;
 import org.sikuli.script.Screen;
 
 import utilidades.LSC_CheckUP;
@@ -61,7 +62,11 @@ public class HardwareScan_Test  {
 			
 			s.wait(sys.settings_hw,180.0);
 			
-			s.wheel(sys.scrolltab, 1, 2);
+			
+			if(utilities.ExistVerify(sys.scrolltab)){
+				s.wheel(sys.scrolltab, 1, 2);
+				}
+			
 			
 			s.click(sys.launch_btn,1000);
 			
@@ -73,8 +78,8 @@ public class HardwareScan_Test  {
 			
 			s.click(sys.yes_btn);
 			
-			s.wait(sys.canceled_status,28000);
-			
+			s.wait(sys.canceled_status,8000);
+					
 			s.click(sys.canceled_status);
 			
 			resultado.addMensagens("Passed");
@@ -112,21 +117,43 @@ public class HardwareScan_Test  {
 			
 			s.wait(sys.settings_hw,180.0);
 			
-			//s.click(sys.selectAll);
+			/*
+			//TESTE DE HARDWARE SCAN MAIS RAPIDO
+			s.click(sys.selectAll);
+			s.click(sys.processor_hw);
+			*/
 			
-			//s.click(sys.processor_hw);
-			
-			s.wheel(sys.scrolltab, 1, 2);
+			if(utilities.ExistVerify(sys.scrolltab)){
+				s.wheel(sys.scrolltab, 1, 2);
+				}
 			
 			s.click(sys.launch_btn,1000);
 			
 			s.click(sys.ok,300);
 			
+			titleLSC();
+			
 			s.click(sys.inprogress);
 						
-			s.wait(sys.complete,25000);
+			titleLSC();
 			
-			s.click(sys.complete);
+			s.wait(sys.complete,2000);
+			/*
+			Boolean x = true;
+			while(x){
+			if(s.wait(sys.complete, 200.0)!=null){
+				x=false;
+				
+				}
+			
+			else{
+				s.click(sys.inprogress);
+				s.click(sys.LSC_Title);
+			}
+			
+			}*/
+			
+			s.click(sys.percent);
 			
 			resultado.addMensagens("Passed");
 
@@ -135,20 +162,18 @@ public class HardwareScan_Test  {
 			e.printStackTrace();
 			resultado.addMensagens(sys.ImageError);
 		}
+		
 		listaResultados.add(resultado);
 	}
 	
 	public void titleLSC(){
 		
-		try {
-			resultado = new ResultExec("LSC Title verification");		
+		try {	
 			s.wait(sys.LSC_Title,50.0);
 			s.click(sys.LSC_Title);
-			resultado.addMensagens("Passed");
 		} catch (FindFailed e) {
 			e.printStackTrace();
-			resultado.addMensagens(sys.ImageError);
 		}
-		listaResultados.add(resultado);
+		
 }
 }

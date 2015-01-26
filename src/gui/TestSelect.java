@@ -76,7 +76,6 @@ public class TestSelect extends javax.swing.JFrame {
                 
                 if(jComboBox1.getSelectedItem().toString() == "English (en-US)"){
                 	
-                	//textField.setText("Deu Certoooooo!!!");
                 	rdbtnAlert.setEnabled(true);
                 	rdbtnDashboard.setEnabled(true);
                 	rdbtnHardwareScan.setEnabled(true);
@@ -84,7 +83,6 @@ public class TestSelect extends javax.swing.JFrame {
                 	rdbtnStorageDevice.setEnabled(true);
                 	rdbtnMemory.setEnabled(true);
                 	rdbtnBackup.setEnabled(true);
-                	//rdbtnSetting.setEnabled(true);
                 }
                
                if(jComboBox1.getSelectedItem().toString() != "English (en-US)"	){
@@ -249,7 +247,7 @@ public class TestSelect extends javax.swing.JFrame {
         				.addGroup(jPanel1Layout.createSequentialGroup()
         					.addGap(18)
         					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        						.addComponent(textArea_1, GroupLayout.PREFERRED_SIZE, 287, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(textArea_1, GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
         						.addComponent(lblMessages))))
         			.addContainerGap())
         );
@@ -312,15 +310,15 @@ public class TestSelect extends javax.swing.JFrame {
         	layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(layout.createSequentialGroup()
         			.addContainerGap()
-        			.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)
-        			.addContainerGap(142, Short.MAX_VALUE))
+        			.addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+        			.addContainerGap())
         );
         layout.setVerticalGroup(
         	layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(layout.createSequentialGroup()
         			.addContainerGap()
-        			.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        			.addContainerGap(153, Short.MAX_VALUE))
+        			.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 540, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(81, Short.MAX_VALUE))
         );
         getContentPane().setLayout(layout);
 
