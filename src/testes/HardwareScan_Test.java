@@ -32,6 +32,8 @@ public class HardwareScan_Test  {
 	public List<ResultExec> hw_test(){
 		listaResultados.add(resultado);
 		
+		//teste();
+		
 		HardwareScan_Cancel();
 		
 		HardwareScan_Quick();
@@ -66,9 +68,12 @@ public class HardwareScan_Test  {
 			if(utilities.ExistVerify(sys.scrolltab)){
 				s.wheel(sys.scrolltab, 1, 2);
 				}
-			
-			
+						
 			s.click(sys.launch_btn,1000);
+			
+			titleLSC();
+			
+			s.wait(4.0);
 			
 			s.click(sys.ok,300);
 			
@@ -76,8 +81,10 @@ public class HardwareScan_Test  {
 						
 			s.click(sys.cancel);
 			
-			s.click(sys.yes_btn);
+			s.wait(2.0);
 			
+			s.click(sys.yes_btn);
+								
 			s.wait(sys.canceled_status,8000);
 					
 			s.click(sys.canceled_status);
@@ -129,6 +136,8 @@ public class HardwareScan_Test  {
 			
 			s.click(sys.launch_btn,1000);
 			
+			s.wait(2.0);
+			
 			s.click(sys.ok,300);
 			
 			titleLSC();
@@ -165,6 +174,49 @@ public class HardwareScan_Test  {
 		
 		listaResultados.add(resultado);
 	}
+	
+	public void teste(){
+		
+		titleLSC();
+		s.wait(10.0);
+		resultado = new ResultExec("Schedule");
+		try {
+			
+			if(utilities.ExistVerify(sys_checkup.CheckupUns)){
+			s.click(sys_checkup.CheckupUns);
+			}
+			
+			else{
+				s.click(sys_checkup.CheckupSel);
+			}
+			
+			s.click(sys_checkup.icn_hwScan);
+			
+			s.click(sys.schedule);
+				
+			
+			if(utilities.ExistVerify(sys.schedule_Uncheked)){
+				//s.click(sys.schedule_Uncheked);
+				resultado.addMensagens("Uncheked");
+			}
+			
+			if(utilities.ExistVerify(sys.schedule_cheked)){
+				//s.click(sys.schedule_cheked);
+				resultado.addMensagens("Cheked");
+			}
+				
+			
+			
+
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			resultado.addMensagens(sys.ImageError);
+		}
+		
+		listaResultados.add(resultado);
+	}
+	
 	
 	public void titleLSC(){
 		

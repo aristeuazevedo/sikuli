@@ -411,7 +411,7 @@ public class Utilidades {
 		try {
 				
 			s.wait(sys.LSC_Title,50.0);
-			s.doubleClick(sys.LSC_Title);
+			//s.doubleClick(sys.LSC_Title);
 		
 		} catch (FindFailed e) {
 			e.printStackTrace();

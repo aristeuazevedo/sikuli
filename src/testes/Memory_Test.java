@@ -20,7 +20,7 @@ public class Memory_Test {
 	Utilidades utilities = new Utilidades();
 	
 public Memory_Test( String idioma){
-		
+	
 		this.idioma = idioma;
 		sys = new LSC_System(idioma);
 	}

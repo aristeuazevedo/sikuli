@@ -283,9 +283,6 @@ public void editDashboard(){
 		
 		dashboardClick(sys.cpu_dashboard);
 		
-		//
-		//dashboardClick(sys.network_dashboard);
-		
 		dashboardClick(sys.hardware_dashboard);
 		
 		dashboardClick(sys.updates_dashboard);
@@ -320,10 +317,16 @@ public void dashboardClick(String icone){
 	
 	try{
 	resultado = new ResultExec(nome+" Dashboard edit");
+	titleLSC();
 	s.wait(2.0);
-	s.drag(icone);
-	Region i = s.find(sys.editMessage_dash).below();
-	s.dropAt(i);
+	
+	if(utilidades.ExistVerify(sys.editMessage_dash)){
+		s.drag(icone);
+		s.wait(2.0);
+		Region i = s.find(sys.editMessage_dash).below();
+		s.dropAt(i);
+	}
+	
 	resultado.addMensagens("Passed");
 	
 	}	catch (FindFailed e) {	
