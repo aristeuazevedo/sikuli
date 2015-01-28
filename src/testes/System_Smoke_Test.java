@@ -28,8 +28,6 @@ public class System_Smoke_Test {
 	
 	LSC_System sys;
 	
-	
-	
 	Screen s = new Screen();
 			
 	public System_Smoke_Test( String idioma){
@@ -40,14 +38,13 @@ public class System_Smoke_Test {
 	
 	public List<ResultExec> Smoke()
 	{
-			
+		listaResultados.add(resultado);
 		titleLSC();
 		
 		tabUnselected();
 						
 		VerificaTela(sys.icn_hardDrive);
-				
-		
+						
 		tabSelected();
 		VerificaTela(sys.icn_memory);
 			
@@ -69,12 +66,9 @@ public class System_Smoke_Test {
 		return listaResultados;
 	}
 	
-	
 	//TODO Execução do teste para verificar se a tela é a correta
 	public void VerificaTela(String icone)
 	{
-		
-		
 		try {
 			s.click(sys.LSC_Title);
 			resultado = new ResultExec(Utilidades.nomeIcone(icone));
@@ -87,7 +81,8 @@ public class System_Smoke_Test {
 			
 			else if(icone == sys.icn_filePrinter)
 			s.wait(3.0);
-			resultado.addMensagens("Sucesso");
+			
+			resultado.addMensagens("Passed");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -104,7 +99,7 @@ public class System_Smoke_Test {
 				resultado = new ResultExec("LSC Title verification");		
 				s.wait(sys.LSC_Title,30.0);
 				s.click(sys.LSC_Title);
-				resultado.addMensagens("Sucesso");
+				resultado.addMensagens("Passed");
 			} catch (FindFailed e) {
 				e.printStackTrace();
 				resultado.addMensagens(e.toString());
@@ -119,7 +114,7 @@ public class System_Smoke_Test {
 					s.wait(2.0);
 					s.click(sys.SystemUns);
 					s.wait(2.0);
-					resultado.addMensagens("Sucesso");
+					resultado.addMensagens("Passed");
 				} catch (FindFailed e) {
 					resultado.addMensagens(e.toString());
 					e.printStackTrace();
@@ -134,13 +129,12 @@ public class System_Smoke_Test {
 			s.wait(2.0);
 			s.click(sys.SystemSel);
 			s.wait(2.0);
-			resultado.addMensagens("Sucesso");
+			resultado.addMensagens("Passed");
 		} catch (FindFailed e) {
 			resultado.addMensagens(e.toString());
 			e.printStackTrace();
 		}
 		listaResultados.add(resultado);
-}
+	}
 	
-
 }

@@ -51,8 +51,11 @@ public class Utilidades {
 	
 	//Grava o arquivo HTML
 	public static void grava(ListaResult lista){
-		
-		File arquivo = new File("teste.html");
+		GregorianCalendar gc = new GregorianCalendar();
+		String hora = gc.getTime().getHours()+"";
+		String data = gc.getTime().getDate()+"";
+		String minuto = gc.getTime().getMinutes()+"";
+		File arquivo = new File(hora+minuto+data+".html");
 		
 		try( FileWriter fw = new FileWriter(arquivo) ){
 			fw.write("<HTML>");
@@ -72,9 +75,18 @@ public class Utilidades {
 			
 			for (ResultExec result : lista.listaResultado ) {
 				fw.write("<tr>");
+				if(result.getNomeTeste().contains("Smoke Test System")
+					|| result.getNomeTeste().contains("Smoke Test Security")
+					|| result.getNomeTeste().contains("Smoke Test Check Up")
+					)
+				{
+					fw.write("<td colspan='2' align=center ><b>"+result.getNomeTeste()+"</b></td>");
+				}
+				else{
 				fw.write("<td>"+result.getNomeTeste()+"</td>");
 				fw.write("<td>"+result.getMensagens()+"</td>");
 				fw.write("</tr>");
+				}
 			}
 			
 			fw.write("</table>");
@@ -98,7 +110,18 @@ public class Utilidades {
 		if(icone.contains("icn_battery.png")){ return "Battery Icon";}
 		if(icone.contains("icn_filePrinter.png")){ return "File and Printers Icon";}
 		if(icone.contains("icn_filePrinter.png")){ return "File and Printers Icon";}
-		return "Not Found";
+		
+		if(icone.contains("icn_virusProtection.png")){ return "Virus Protection Icon";}
+		if(icone.contains("icn_password.png")){ return "Password Icon";}
+		if(icone.contains("icn_firewall.png")){ return "Firewall Icon";}
+		if(icone.contains("icn_internet.png")){ return "Internet Connection Icon";}
+		if(icone.contains("icn_fingerprint.png")){ return "Finger Print Icon";}
+		
+		if(icone.contains("icn_hwScan.png")){ return "Hardware Scan Icon";}
+		if(icone.contains("icn_deviceManager.png")){ return "Device Manager Icon";}
+		if(icone.contains("icn_snapshot.png")){ return "Snapshop Icon";}
+		
+		return "Test Name Not Found";
 	}
 
 }

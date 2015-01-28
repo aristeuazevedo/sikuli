@@ -51,16 +51,22 @@ public class MainExec {
 		Checkup_Smoke_Test CheckupTest = new Checkup_Smoke_Test(idioma);
 		Support_Smoke_Test SupportTest = new Support_Smoke_Test(idioma);
 		
-		//Chamando testes
+		//Executa o teste
 			
 		for (ResultExec result : SystemTest.Smoke() ) {
 			lista.addResultado(result);
 		}
 		
-		//SecurityTest.Smoke();
-		//CheckupTest.Smoke();
+		for (ResultExec result : SecurityTest.Smoke() ) {
+			lista.addResultado(result);
+		}
+		
+		for (ResultExec result : CheckupTest.Smoke() ) {
+			lista.addResultado(result);
+		}
+		
 		//SupportTest.Smoke();
-		;
+		
 		
 		Utilidades.grava(lista);
 		
@@ -154,7 +160,7 @@ public class MainExec {
 		try {
 			resultado = new ResultExec("LSC initialization");							
 			java.awt.Desktop.getDesktop().open(new File("Linguagens/"+idioma+".bat"));
-			resultado.addMensagens("Sucesso");
+			resultado.addMensagens("Passed");
 		}catch (Exception e) {
 			e.printStackTrace();
 			resultado.addMensagens(e.toString());
