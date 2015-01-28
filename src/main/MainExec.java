@@ -36,6 +36,7 @@ public class MainExec {
 	static Storage_Devices_Test storageDevice;
 	static Memory_Test memoryTest;
 	static Backup_Test backupTest;
+	static Software_Updates_Test suTest;
 		
 	public static void main(String[] args) {
 				
@@ -57,6 +58,8 @@ public class MainExec {
 		lista.addResultado(initializeLSC(testParam.getShortIdioma()));
 		
 		settings = new Settings_Tests(testParam.getShortIdioma());
+		
+		
 		
 		selectSmokeTests();
 		
@@ -84,6 +87,9 @@ public class MainExec {
 		memory_test();
 		
 		backup_test();
+		
+		suTest = new Software_Updates_Test(testParam.getShortIdioma());
+		suTest.soft_updates_test();
 		
 		Utilidades.closeApp(testParam.idioma);
 		

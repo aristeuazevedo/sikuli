@@ -14,5 +14,8 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/LSC_Auto/lib/jgoodies-common-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="var" path="JAVA_HOME"/>
+	<classpathentry kind="lib" path="libs"/>
+	<classpathentry kind="var" path="ECLIPSE_HOME"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
