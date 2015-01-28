@@ -4,6 +4,8 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.sikuli.api.DesktopScreenRegion;
 import org.sikuli.api.ImageTarget;
@@ -14,16 +16,19 @@ import org.sikuli.script.*;
 import utilidades.LSC_Main;
 import utilidades.LSC_System;
 import utilidades.ResultExec;
+import utilidades.Utilidades;
 
 
 @SuppressWarnings("unused")
 public class System_Smoke_Test {
 	
+	private List<ResultExec> listaResultados = new ArrayList<ResultExec>();
+	ResultExec resultado = new ResultExec("Smoke Test System");
 	String idioma = "";
 	
 	LSC_System sys;
 	
-	ResultExec resultado = new ResultExec("Smoke Test System");
+	
 	
 	Screen s = new Screen();
 			
@@ -33,71 +38,46 @@ public class System_Smoke_Test {
 		sys = new LSC_System(idioma);
 	}
 	
-	public ResultExec Smoke()
+	public List<ResultExec> Smoke()
 	{
+			
+		titleLSC();
 		
-		try {
-										
-			java.awt.Desktop.getDesktop().open(new File("Linguagens/"+idioma+".bat"));
-					
-			System.out.print(sys.LSC_Title);
-			
-			s.wait(sys.LSC_Title,30.0);
-			s.click(sys.LSC_Title);
-			
-			s.wait(2.0);
-			s.click(sys.SystemUns);
-			s.wait(2.0);
-			VerificaTela(sys.icn_hardDrive);
+		tabUnselected();
+						
+		VerificaTela(sys.icn_hardDrive);
+				
 		
-			s.wait(2.0);
-			s.click(sys.SystemSel);
-			s.wait(2.0);
-			VerificaTela(sys.icn_memory);
+		tabSelected();
+		VerificaTela(sys.icn_memory);
 			
-			s.wait(2.0);
-			s.click(sys.SystemSel);
-			s.wait(2.0);
-			VerificaTela(sys.icn_backup);
+		tabSelected();
+		VerificaTela(sys.icn_backup);
 			
-			s.wait(2.0);
-			s.click(sys.SystemSel);
-			s.wait(2.0);
-			VerificaTela(sys.icn_softwareUpdate);
+		tabSelected();
+		VerificaTela(sys.icn_softwareUpdate);
 			
-			s.wait(2.0);
-			s.click(sys.SystemSel);
-			s.wait(2.0);
-			VerificaTela(sys.icn_battery);
+		tabSelected();
+		VerificaTela(sys.icn_battery);
 		
-			s.wait(2.0);
-			s.click(sys.SystemSel);
-			s.wait(2.0);
-			VerificaTela(sys.icn_systemInfo);
+		tabSelected();
+		VerificaTela(sys.icn_systemInfo);
 			
-			s.wait(2.0);
-			s.click(sys.SystemSel);	
-			s.wait(2.0);
-			VerificaTela(sys.icn_filePrinter);
+		tabSelected();
+		VerificaTela(sys.icn_filePrinter);
 			
-									
-		} catch (IOException e) {
-					
-			System.out.println("Imagem não encontrada");
-			e.printStackTrace();
-		}catch (Exception e) {
-			
-			e.printStackTrace();
-			resultado.addMensagens(e.toString());
-		}
-		
-		return resultado;
+		return listaResultados;
 	}
 	
+	
+	//TODO Execução do teste para verificar se a tela é a correta
 	public void VerificaTela(String icone)
 	{
+		
+		
 		try {
 			s.click(sys.LSC_Title);
+			resultado = new ResultExec(Utilidades.nomeIcone(icone));
 			s.wait(icone,10.0);
 			s.click(icone);
 			
@@ -107,16 +87,60 @@ public class System_Smoke_Test {
 			
 			else if(icone == sys.icn_filePrinter)
 			s.wait(3.0);
-		
+			resultado.addMensagens("Sucesso");
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			resultado.addMensagens(e.toString());
 		}
+		listaResultados.add(resultado);
 		
 	}
 	
-
-
-
+	//TODO Verificação do Titulo do LSC
+	public void titleLSC(){
+		
+			try {
+				resultado = new ResultExec("LSC Title verification");		
+				s.wait(sys.LSC_Title,30.0);
+				s.click(sys.LSC_Title);
+				resultado.addMensagens("Sucesso");
+			} catch (FindFailed e) {
+				e.printStackTrace();
+				resultado.addMensagens(e.toString());
+			}
+			listaResultados.add(resultado);
+	}
+	
+	//TODO Verifica a aba System não selecionada
+	public void tabUnselected(){
+				try {
+					resultado = new ResultExec("Tab System Unselected");
+					s.wait(2.0);
+					s.click(sys.SystemUns);
+					s.wait(2.0);
+					resultado.addMensagens("Sucesso");
+				} catch (FindFailed e) {
+					resultado.addMensagens(e.toString());
+					e.printStackTrace();
+				}
+				listaResultados.add(resultado);
+	}
+	
+	//TODO Verifica a aba System selecionada
+	public void tabSelected(){
+		try {
+			resultado = new ResultExec("Tab System Selected");
+			s.wait(2.0);
+			s.click(sys.SystemSel);
+			s.wait(2.0);
+			resultado.addMensagens("Sucesso");
+		} catch (FindFailed e) {
+			resultado.addMensagens(e.toString());
+			e.printStackTrace();
+		}
+		listaResultados.add(resultado);
+}
+	
 
 }

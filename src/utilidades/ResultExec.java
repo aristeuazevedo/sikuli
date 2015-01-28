@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ResultExec {
-
-	private boolean result;
 	
+	private String nomeMaquina;
+	
+	
+	private boolean result;
 	private List<String> mensagens = new ArrayList<String>();
 	private String nomeTeste;
 
@@ -14,14 +16,6 @@ public class ResultExec {
 		super();
 		this.nomeTeste = nomeTeste;
 		this.result = false;
-	}
-
-	public boolean isResult() {
-		return result;
-	}
-
-	public void setResult(boolean result) {
-		this.result = result;
 	}
 
 
@@ -39,6 +33,14 @@ public class ResultExec {
 
 	public void addMensagens(String mensagens) {
 		this.mensagens.add(mensagens);
+	}
+
+	public String getNomeMaquina() {
+		return nomeMaquina;
+	}
+
+	public void setNomeMaquina(String nomeMaquina) {
+		this.nomeMaquina = nomeMaquina;
 	}
 
 	// Encapsulamentos

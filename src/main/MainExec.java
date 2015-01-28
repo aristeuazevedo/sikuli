@@ -1,33 +1,47 @@
 package main;
+import java.io.File;
+
 import gui.Teste;
 import testes.*;
+import utilidades.ListaResult;
 import utilidades.ResultExec;
+import utilidades.Utilidades;
 
 public class MainExec {
-
+	
+	static ResultExec resultado = new ResultExec("");
+	
 	public static void main(String[] args) {
-
-		ResultExec resultado = new ResultExec("");
-
-		
-		
+				
 		@SuppressWarnings("unused")
 		TesteUm t1 = new TesteUm();
 		
 		Teste t = new Teste();
+		
+		String nomeMaquina;
+		String data;
+		
+		
 		String s = ""; // recebe a linguagem selecionada na janela
 		String idioma = "";
-
+		
+		
+		//chama a tela de seleção de idiomas
 		t.setVisible(true);
-
+		
+		//verifica se a tela de seleção ainda está ativa
 		while (t.isShowing() == true) {
 			s = t.selecao;
-
 		}
-
-		idioma = escolheIdioma(s);
-		System.out.print(idioma);
 		
+		nomeMaquina = "maquina 1";
+		data = Utilidades.horaData();
+		idioma = escolheIdioma(s);
+		
+		//objeto que carrega as informações da execução
+		ListaResult lista = new ListaResult(nomeMaquina, data, s);
+						
+		lista.addResultado(initializeLSC(idioma));
 		
 		
 		
@@ -38,14 +52,18 @@ public class MainExec {
 		Support_Smoke_Test SupportTest = new Support_Smoke_Test(idioma);
 		
 		//Chamando testes
-		SystemTest.Smoke();
-		SecurityTest.Smoke();
-		CheckupTest.Smoke();
-		SupportTest.Smoke();
+			
+		for (ResultExec result : SystemTest.Smoke() ) {
+			lista.addResultado(result);
+		}
 		
+		//SecurityTest.Smoke();
+		//CheckupTest.Smoke();
+		//SupportTest.Smoke();
+		;
 		
+		Utilidades.grava(lista);
 		
-		System.out.print(resultado.getNomeTeste());
 
 	}
 
@@ -130,4 +148,20 @@ public class MainExec {
 		return idioma;
 	}
 
+	//TODO Executa o LSC com o idioma previamente selecionado
+	public static ResultExec initializeLSC(String idioma){
+			
+		try {
+			resultado = new ResultExec("LSC initialization");							
+			java.awt.Desktop.getDesktop().open(new File("Linguagens/"+idioma+".bat"));
+			resultado.addMensagens("Sucesso");
+		}catch (Exception e) {
+			e.printStackTrace();
+			resultado.addMensagens(e.toString());
+		}
+			return resultado;
+			
+		}
+	
+	
 }
