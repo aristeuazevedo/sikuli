@@ -49,6 +49,7 @@ public class Software_Updates_Test {
 			s.click(sys.SU_Download_link);
 			s.click(sys.SU_Screen_Descrip);
 			s.click(sys.SU_Screen_Title);
+			s.click(sys.SU_No_Lenovo_Software);
 			
 			
 		
