@@ -27,6 +27,8 @@ public class Dashboard_Tests {
 	LSC_Support support;
 	LSC_CheckUP checkup;
 	
+	Region i;
+	
 	String idioma = "";
 	ResultExec resultado = new ResultExec("Dashboard Tests");
 	private List<ResultExec> listaResultados = new ArrayList<ResultExec>();
@@ -51,7 +53,7 @@ public List<ResultExec> verify_Test(){
 		
 		openDashScreen();
 		
-		allIconClicks();
+		//allIconClicks();
 					
 		editDashboard();
 		return listaResultados;
@@ -128,8 +130,7 @@ public void allIconClicks(){
 		resultado = new ResultExec("All Icons Verify");				
 		listaResultados.add(resultado);
 		s.click(sys.dashboard_button, 1000);
-		//s.doubleClick(sys.LSC_Title);
-		
+				
 		s.wait(2.0);
 		executionClick(sys.cpu_dashboard);
 		s.wait(3.0);
@@ -139,6 +140,8 @@ public void allIconClicks(){
 		s.wait(3.0);
 		exitWindow();
 		s.wait(3.0);
+			
+		
 		executionClick(sys.backup_dashboard);
 		executionClick(sys.device_dashboard);
 		executionClick(sys.firewall_dashboard);
@@ -276,7 +279,10 @@ public void editDashboard(){
 		
 		s.click(sys.dashboard_button, 700);
 		s.click(sys.edit_dash, 700);
-	
+		
+		//Verificar o local de onde colocar o icone
+				i = localVerify();
+		
 		dashboardClick(sys.storage_dashboard);
 		
 		dashboardClick(sys.memory_dashboard);
@@ -312,6 +318,17 @@ public void editDashboard(){
 	
 }
 
+public Region localVerify(){
+	try {
+		return s.find(sys.editMessage_dash);
+	} catch (FindFailed e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return null;
+}
+
+
 public void dashboardClick(String icone){
 	String nome = nomeIcone(icone);
 	
@@ -320,14 +337,19 @@ public void dashboardClick(String icone){
 	titleLSC();
 	s.wait(2.0);
 	
-	if(utilidades.ExistVerify(sys.editMessage_dash)){
-		s.drag(icone);
+	if(i!=null){
+		//s.drag(icone);
+		
 		s.wait(2.0);
-		Region i = s.find(sys.editMessage_dash).below();
-		s.dropAt(i);
+		//Region i = s.find(sys.editMessage_dash).below();
+		//s.dropAt(i);
+		s.dragDrop(icone, i);
+		resultado.addMensagens("Passed");
+	}
+	else{
+		resultado.addMensagens(sys.ImageError);
 	}
 	
-	resultado.addMensagens("Passed");
 	
 	}	catch (FindFailed e) {	
 		e.printStackTrace();
