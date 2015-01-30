@@ -53,7 +53,7 @@ public List<ResultExec> verify_Test(){
 		
 		openDashScreen();
 		
-		//allIconClicks();
+		allIconClicks();
 					
 		editDashboard();
 		return listaResultados;
@@ -279,8 +279,7 @@ public void editDashboard(){
 		
 		s.click(sys.dashboard_button, 700);
 		s.click(sys.edit_dash, 700);
-		
-		//Verificar o local de onde colocar o icone
+			
 				i = localVerify();
 		
 		dashboardClick(sys.storage_dashboard);
@@ -346,10 +345,6 @@ public void dashboardClick(String icone){
 		s.dragDrop(icone, i);
 		resultado.addMensagens("Passed");
 	}
-	else{
-		resultado.addMensagens(sys.ImageError);
-	}
-	
 	
 	}	catch (FindFailed e) {	
 		e.printStackTrace();
