@@ -418,5 +418,17 @@ public class Utilidades {
 			
 		}
 		
-}
+	}
+	
+	public void exitIE()
+	{
+		try {
+			//resultado = new ResultExec("LSC initialization");							
+			Runtime.getRuntime().exec("taskkill.exe /IM iexplore.exe /F"); 
+			//resultado.addMensagens("Passed");
+		}catch (Exception e) {
+			e.printStackTrace();
+			//resultado.addMensagens(sys.ImageError);
+		}
+	}
 }

@@ -50,13 +50,16 @@ public class Software_Updates_Test {
 			s.click(sys.SU_Screen_Descrip);
 			s.click(sys.SU_Screen_Title);
 			s.click(sys.SU_No_Lenovo_Software);
-			
-			
+			s.click(sys.SU_No_Lenovo_Software);
+			s.click(sys.SU_Lenovo_Download);
+			s.wait(10.0);
+			utilities.exitIE();
+			s.wait(2.0);
+			s.click(sys.SU_Win_Update_Green);
+			s.click(sys.SU_Win_Update_Launch);
 		
 			s.wait(3.0);
-			
-			
-					
+				
 			resultado.addMensagens("Passed");
 			listaResultados.add(resultado);
 			
