@@ -78,6 +78,7 @@ public class Utilidades {
 				if(result.getNomeTeste().contains("Smoke Test System")
 					|| result.getNomeTeste().contains("Smoke Test Security")
 					|| result.getNomeTeste().contains("Smoke Test Check Up")
+					|| result.getNomeTeste().contains("Smoke Test Support")
 					)
 				{
 					fw.write("<td colspan='2' align=center ><b>"+result.getNomeTeste()+"</b></td>");
@@ -120,6 +121,11 @@ public class Utilidades {
 		if(icone.contains("icn_hwScan.png")){ return "Hardware Scan Icon";}
 		if(icone.contains("icn_deviceManager.png")){ return "Device Manager Icon";}
 		if(icone.contains("icn_snapshot.png")){ return "Snapshop Icon";}
+		
+		if(icone.contains("onlinesupportIcon.png")){ return "Online Support Icon";}
+		if(icone.contains("supportModule_WarrantyIcon.png")){ return "Warranty Icon";}
+		if(icone.contains("icn_configHistory.png")){ return "Configuration History Icon";}
+		if(icone.contains("icn_ProductRegistration.png")){ return "Product Registration Icon";}
 		
 		return "Test Name Not Found";
 	}

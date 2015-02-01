@@ -62,8 +62,11 @@ public class MainExec {
 			lista.addResultado(result);
 		}
 		
-		//SupportTest.Smoke();
-				
+		
+		for (ResultExec result : SupportTest.Smoke() ) {
+			lista.addResultado(result);
+		}
+		
 		Utilidades.grava(lista);
 		
 	}
