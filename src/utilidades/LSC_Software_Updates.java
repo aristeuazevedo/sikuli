@@ -10,6 +10,8 @@ public class LSC_Software_Updates extends LSC_Main {
 	public String SU_Lenovo_Download = "imgs/"+idioma+"/Software_Updates_Figures/Software_Updates_Download_Button.PNG";
 	public String SU_Win_Update_Green = "imgs/"+idioma+"/Software_Updates_Figures/SU_Win_Update_Green.PNG";
 	public String SU_Win_Update_Launch = "imgs/"+idioma+"/Software_Updates_Figures/SU_Win_Update_Launch.PNG";
+	public String SU_Check_for_updates = "imgs/"+idioma+"/Software_Updates_Figures/SU_Check_for_updates.PNG";
+	public String SU_Lenovo_Never_Updated = "imgs/"+idioma+"/Software_Updates_Figures/SU_Lenovo_Never_Updated.PNG";
 	
 	
 	
