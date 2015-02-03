@@ -29,7 +29,7 @@ public class Software_Updates_Test {
 		sys = new LSC_Software_Updates(idioma);
 	}
 	
-	public List<ResultExec> soft_updates_test(){
+	public List<ResultExec> Main_Soft_updates_test(){
 		listaResultados.add(resultado);
 		
 		resultado = new ResultExec("Software Updates Link");
@@ -46,14 +46,34 @@ public class Software_Updates_Test {
 			s.click(system.icn_softwareUpdate);
 			s.click(sys.SU_Screen_Descrip);
 			s.click(sys.SU_Screen_Title);
-			
+						
+		}catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			resultado.addMensagens(sys.ImageError);
+		}
+		
+		
+		SU_Lenovo_Updates_test();
+		SU_Windows_Updates_test();
+		
+		
+		return listaResultados;
+	}
+	
+	
+	public void SU_Lenovo_Updates_test()
+	{
+		resultado = new ResultExec("Software Updates Link");
+		try {
+						
 			/////LENOVO SOFTWARE NOT INSTALLED (YELLOW ALERT)/////
 			if(utilities.ExistVerify(sys.SU_No_Lenovo_Software))
 			{
 				if(utilities.ExistVerify(sys.SU_No_Lenovo_Software_Msg))
 				{
 					s.click(sys.SU_Lenovo_Download);
-					s.wait(10.0);
+					s.wait(40.0);
 					utilities.ExistVerify(sys.SU_Lenovo_URL);
 					utilities.exitIE();
 					s.wait(5.0);
@@ -63,7 +83,7 @@ public class Software_Updates_Test {
 				{
 					s.click(sys.SU_No_Lenovo_Software);
 					s.click(sys.SU_Lenovo_Download);
-					s.wait(10.0);
+					s.wait(40.0);
 					utilities.ExistVerify(sys.SU_Lenovo_URL);
 					utilities.exitIE();
 					s.wait(5.0);
@@ -90,28 +110,54 @@ public class Software_Updates_Test {
 					s.click(sys.SU_App_Close);
 				}
 			}
-			
-			if(utilities.ExistVerify(sys.SU_Win_Update_Green))
-			{
-				s.click(sys.SU_Win_Update_Green);
-				//s.click(sys.SU_Win_Update_Launch);
-				s.wait(10.0);
-				utilities.exitWindowsUpdate();
-				s.wait(3.0);
-			}
-			
 			resultado.addMensagens("Passed");
-			listaResultados.add(resultado);
-			
 		}catch (FindFailed e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			resultado.addMensagens(sys.ImageError);
-		}
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				resultado.addMensagens(sys.ImageError);
+			}
 		
-		return listaResultados;
+		listaResultados.add(resultado);
 	}
 	
-
-	
+	public void SU_Windows_Updates_test()
+	{
+	/////WINDOWS IS UPDATED (GREEN ALERT)/////
+		
+		try{
+				if(utilities.ExistVerify(sys.SU_Win_Update_Green))
+				{
+					if(utilities.ExistVerify(sys.SU_Check_for_updates))
+					{
+						s.click(sys.SU_Launch);
+						s.wait(5.0);
+						utilities.ExistVerify(sys.SU_Win_Update_Window);
+						utilities.exitWindowsUpdate();
+						s.wait(3.0);
+					}
+					
+					else
+					{
+						s.click(sys.SU_Win_Update_Green);
+						s.click(sys.SU_Launch);
+						s.wait(5.0);
+						utilities.ExistVerify(sys.SU_Win_Update_Window);
+						utilities.exitWindowsUpdate();
+						s.wait(3.0);
+					}
+				}
+				
+				resultado.addMensagens("Passed");
+				listaResultados.add(resultado);
+				
+			}catch (FindFailed e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				resultado.addMensagens(sys.ImageError);
+			}
+			
+		
+		
+		
+	}
 }

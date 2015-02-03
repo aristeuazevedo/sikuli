@@ -89,7 +89,7 @@ public class MainExec {
 		backup_test();
 		
 		suTest = new Software_Updates_Test(testParam.getShortIdioma());
-		suTest.soft_updates_test();
+		suTest.Main_Soft_updates_test();
 		
 		Utilidades.closeApp(testParam.idioma);
 		

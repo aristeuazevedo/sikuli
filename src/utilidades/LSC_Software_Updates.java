@@ -17,6 +17,7 @@ public class LSC_Software_Updates extends LSC_Main {
 	public String SU_App_Close = "imgs/"+idioma+"/Software_Updates_Figures/SU_App_Close.PNG";
 	public String SU_No_Lenovo_Software_Msg = "imgs/"+idioma+"/Software_Updates_Figures/SU_No_Lenovo_Software_Message.PNG";
 	public String SU_Lenovo_URL = "imgs/"+idioma+"/Software_Updates_Figures/SU_Lenovo_URL.PNG";
+	public String SU_Win_Update_Window = "imgs/"+idioma+"/Software_Updates_Figures/SU_Win_Update_Window.PNG";
 	
 	
 	
