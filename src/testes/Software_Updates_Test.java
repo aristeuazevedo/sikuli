@@ -23,7 +23,6 @@ public class Software_Updates_Test {
 	Screen s = new Screen();
 	Utilidades utilities = new Utilidades();
 	
-	
 	public Software_Updates_Test(String idioma) {
 		this.idioma = idioma;
 		system = new LSC_System(idioma);
@@ -45,44 +44,57 @@ public class Software_Updates_Test {
 			}
 						
 			s.click(system.icn_softwareUpdate);
-			
-			//s.click(sys.SU_Download_link);
 			s.click(sys.SU_Screen_Descrip);
 			s.click(sys.SU_Screen_Title);
 			
-			//No Lenovo Software Instaled.
+			/////LENOVO SOFTWARE NOT INSTALLED (YELLOW ALERT)/////
 			if(utilities.ExistVerify(sys.SU_No_Lenovo_Software))
 			{
-				s.click(sys.SU_No_Lenovo_Software);
-				s.click(sys.SU_Lenovo_Download);
-				s.wait(10.0);
-				utilities.exitIE();
-				s.wait(5.0);
+				if(utilities.ExistVerify(sys.SU_No_Lenovo_Software_Msg))
+				{
+					s.click(sys.SU_Lenovo_Download);
+					s.wait(10.0);
+					utilities.ExistVerify(sys.SU_Lenovo_URL);
+					utilities.exitIE();
+					s.wait(5.0);
+				}
+				
+				else
+				{
+					s.click(sys.SU_No_Lenovo_Software);
+					s.click(sys.SU_Lenovo_Download);
+					s.wait(10.0);
+					utilities.ExistVerify(sys.SU_Lenovo_URL);
+					utilities.exitIE();
+					s.wait(5.0);
+				}
 			}
 			
-			//Never Updated Lenovo Software
+			/////NEVER UPDATED LENOVO SOFTWARE (RED ALERT)/////
 			if(utilities.ExistVerify(sys.SU_Lenovo_Never_Updated))
 			{
-				s.click(sys.SU_Lenovo_Never_Updated);
-				s.click(sys.SU_Win_Update_Launch);
-				s.wait(5.0);
-			}
-			
-			
-			if(utilities.ExistVerify(sys.SU_No_Lenovo_Software))
-			{
-				s.click(sys.SU_No_Lenovo_Software);
-				s.click(sys.SU_No_Lenovo_Software);
-				s.click(sys.SU_Lenovo_Download);
-				s.wait(10.0);
-				utilities.exitIE();
-				s.wait(5.0);
+				if(utilities.ExistVerify(sys.SU_Lenovo_Never_Updated_Msg))
+				{
+					s.click(sys.SU_Launch);
+					s.wait(5.0);
+					utilities.ExistVerify(sys.SU_App);
+					s.click(sys.SU_App_Close);
+				}
+				
+				else
+				{
+					s.click(sys.SU_Lenovo_Never_Updated);
+					s.click(sys.SU_Launch);
+					s.wait(5.0);
+					utilities.ExistVerify(sys.SU_App);
+					s.click(sys.SU_App_Close);
+				}
 			}
 			
 			if(utilities.ExistVerify(sys.SU_Win_Update_Green))
 			{
 				s.click(sys.SU_Win_Update_Green);
-				s.click(sys.SU_Win_Update_Launch);
+				//s.click(sys.SU_Win_Update_Launch);
 				s.wait(10.0);
 				utilities.exitWindowsUpdate();
 				s.wait(3.0);
@@ -97,10 +109,9 @@ public class Software_Updates_Test {
 			resultado.addMensagens(sys.ImageError);
 		}
 		
-		
-		
 		return listaResultados;
 	}
 	
+
 	
 }
