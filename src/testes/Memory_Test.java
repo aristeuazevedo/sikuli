@@ -31,9 +31,9 @@ public List<ResultExec> memory_test(){
 	titleLSC();
 	s.wait(3.0);
 	
-	 memory_verify();
+	memory_verify();
 
-	 optimize_performance();
+	optimize_performance();
 	
 	
 	return listaResultados;

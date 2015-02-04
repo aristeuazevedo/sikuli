@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.imageio.ImageIO;
 
@@ -440,5 +441,32 @@ public class Utilidades {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public static void execFpsmbios(){
+		Runtime rt = Runtime.getRuntime();
+		try {
+			Runtime.getRuntime().exec("cmd /c \"cmds\\fp_smbios_exec.bat\"");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public void readMachineType(){
+		
+		File file = new File("C:"+File.separator+"fp_smbiosresult.txt");  
+        try {  
+            Scanner arq = new Scanner(file);  
+            while (arq.hasNextLine()) {  
+                String linha = arq.nextLine();  
+                System.out.println(linha);  
+            }  
+            arq.close();  
+        } catch (IOException ioe) {  
+            ioe.printStackTrace();  
+        }  
+		
 	}
 }
