@@ -454,19 +454,63 @@ public class Utilidades {
 	}
 	
 	
-	public void readMachineType(){
+	public static Machine_Type readMachineType(){
 		
-		File file = new File("C:"+File.separator+"fp_smbiosresult.txt");  
+		Machine_Type mtype = new Machine_Type();
+		
+		String chassi;
+		String MachineType;
+		String MachineTypeExtension;
+				
+		File file = new File("C:"+File.separatorChar+"fp_smbiosresult.txt");  
         try {  
             Scanner arq = new Scanner(file);  
             while (arq.hasNextLine()) {  
                 String linha = arq.nextLine();  
-                System.out.println(linha);  
+                linha.toUpperCase();
+                
+                if(linha.contains("CHASSISTYPE") )     
+                {
+                	if(linha.contains("DESKTOP"))
+                		mtype.setChassi("Desktop");
+                	
+                	if(linha.contains("PORTABLE"))
+                		mtype.setChassi("Portable");
+                }       
+                
+                if(linha.contains("MACHINETYPE") )     
+                {
+                	if(linha.contains("THINK"))
+                		mtype.setMachineType("Think");
+                		                	
+                	if(linha.contains("THINKPAD"))
+                		mtype.setMachineType("ThinkPad");
+                		                	
+                	if(linha.contains("IDEAPAD"))
+                		mtype.setMachineType("IdeaPad");
+                	
+                	if(linha.contains("LENOVOCONSUMER"))
+                		mtype.setMachineType("LenovoConsumer");
+                }       
+                
+                if(linha.contains("MACHINETYPEEXTENSION") )     
+                {
+                	if(linha.contains("THINKPADEDGE"))
+                		mtype.setMachineTypeExtension("ThinkPad_Edge");
+                	
+                	if(linha.contains("IDEAPAD"))
+                		mtype.setMachineTypeExtension("IdeaPad");
+                }     
+                
+                System.out.println(linha); 
             }  
             arq.close();  
         } catch (IOException ioe) {  
             ioe.printStackTrace();  
         }  
+        
+        return mtype;
 		
+        
 	}
 }
