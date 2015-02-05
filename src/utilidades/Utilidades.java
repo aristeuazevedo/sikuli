@@ -89,6 +89,12 @@ public class Utilidades {
 			fw.write("</Head>");
 			fw.write("<Body>");
 
+			fw.write("<b><font color=red size=5>Chassi:"
+					+ lista.getChassi() + "</b>  </font>  <br>");
+			fw.write("<b><font color=red size=5>Machine Type:"
+					+ lista.getMachineType() + "</b>  </font>  <br>");
+			
+			
 			fw.write("<b><font color=red size=5>Machine Name:"
 					+ lista.getNomeMaquina() + "</b>  </font>  <br>");
 			fw.write("<b><font color=red size=5>Language:" + lista.getIdioma()
@@ -457,17 +463,15 @@ public class Utilidades {
 	public static Machine_Type readMachineType(){
 		
 		Machine_Type mtype = new Machine_Type();
-		
-		String chassi;
-		String MachineType;
-		String MachineTypeExtension;
 				
 		File file = new File("C:"+File.separatorChar+"fp_smbiosresult.txt");  
         try {  
+        	
             Scanner arq = new Scanner(file);  
             while (arq.hasNextLine()) {  
                 String linha = arq.nextLine();  
-                linha.toUpperCase();
+                linha = linha.toUpperCase();
+                //System.out.println(linha);
                 
                 if(linha.contains("CHASSISTYPE") )     
                 {
@@ -476,6 +480,7 @@ public class Utilidades {
                 	
                 	if(linha.contains("PORTABLE"))
                 		mtype.setChassi("Portable");
+
                 }       
                 
                 if(linha.contains("MACHINETYPE") )     
@@ -490,24 +495,27 @@ public class Utilidades {
                 		mtype.setMachineType("IdeaPad");
                 	
                 	if(linha.contains("LENOVOCONSUMER"))
-                		mtype.setMachineType("LenovoConsumer");
+                		mtype.setMachineType("Lenovo Consumer");
                 }       
                 
                 if(linha.contains("MACHINETYPEEXTENSION") )     
                 {
                 	if(linha.contains("THINKPADEDGE"))
-                		mtype.setMachineTypeExtension("ThinkPad_Edge");
+                		mtype.setMachineTypeExtension("ThinkPad Edge");
                 	
                 	if(linha.contains("IDEAPAD"))
                 		mtype.setMachineTypeExtension("IdeaPad");
                 }     
                 
-                System.out.println(linha); 
+             // System.out.println(linha); 
             }  
             arq.close();  
         } catch (IOException ioe) {  
             ioe.printStackTrace();  
         }  
+        
+        
+
         
         return mtype;
 		

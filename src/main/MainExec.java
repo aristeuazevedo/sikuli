@@ -37,18 +37,28 @@ public class MainExec {
 	static Memory_Test memoryTest;
 	static Backup_Test backupTest;
 	static Software_Updates_Test suTest;
+	
+	static Machine_Type machine_type = new Machine_Type();
 		
 	public static void main(String[] args) {
 				
 		//TestSelection window = new TestSelection();
 		TestSelect window = new TestSelect();
 			
+		//Setting the machine type usint methods of the Utilidades
+		
+		//Getting the machine information and saving on a document
+		Utilidades.execFpsmbios();
+		
 		//chama a tela de seleção de idiomas
 		window.setVisible(true);
+		
 		//verifica se a tela de seleção ainda está ativa
 		while (window.isShowing() == true) {
 			testParam = window.testParam;
 		}
+		
+		
 		
 		testParam.setData(Utilidades.horaData());
 		
@@ -59,8 +69,16 @@ public class MainExec {
 		
 		settings = new Settings_Tests(testParam.getShortIdioma());
 		
+		//reading the document of the machine information
+		machine_type = Utilidades.readMachineType();
+		lista.setChassi(machine_type.chassi);
+		//System.out.println(machine_type.chassi); 
+		lista.setMachineType(machine_type.machineType);
+		//System.out.println(machine_type.machineType); 
+		//lista.setChassi(machine_type.machineType);
+		//System.out.println(machine_type.machineTypeExtension); 
 		
-		
+
 		selectSmokeTests();
 		
 		selectSettingTests();
@@ -73,7 +91,7 @@ public class MainExec {
 				lista.addResultado(result);
 			}
 		}
-		
+						
 		Utilidades.titleLSC();
 		
 		selectDashboardTests();
@@ -88,8 +106,8 @@ public class MainExec {
 		
 		backup_test();
 		
-		suTest = new Software_Updates_Test(testParam.getShortIdioma());
-		suTest.Main_Soft_updates_test();
+		//suTest = new Software_Updates_Test(testParam.getShortIdioma());
+		//suTest.Main_Soft_updates_test();
 		
 		Utilidades.closeApp(testParam.idioma);
 		
@@ -174,8 +192,7 @@ public class MainExec {
 				}
 			}
 	}
-	
-	
+		
 	public static void selectDashboardTests(){
 		//testes de settings
 		dashboard = new Dashboard_Tests(testParam.getShortIdioma());
@@ -217,8 +234,7 @@ public class MainExec {
 			}
 		}
 	}
-	
-	
+		
 	public static void memory_test(){
 		memoryTest = new Memory_Test(testParam.getShortIdioma());
 		
