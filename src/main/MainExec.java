@@ -72,13 +72,9 @@ public class MainExec {
 		//reading the document of the machine information
 		machine_type = Utilidades.readMachineType();
 		lista.setChassi(machine_type.chassi);
-		//System.out.println(machine_type.chassi); 
-		lista.setMachineType(machine_type.machineType);
-		//System.out.println(machine_type.machineType); 
-		//lista.setChassi(machine_type.machineType);
-		//System.out.println(machine_type.machineTypeExtension); 
-		
 
+		lista.setMachineType(machine_type.machineType);
+		
 		selectSmokeTests();
 		
 		selectSettingTests();
