@@ -102,6 +102,7 @@ public class MainExec {
 		
 		backup_test();
 		
+		//TESTES DE SOFTWARE UPDATES (CARLOS)
 		//suTest = new Software_Updates_Test(testParam.getShortIdioma());
 		//suTest.Main_Soft_updates_test();
 		
