@@ -75,6 +75,7 @@ public class Utilidades {
 	 *            possui os resultados de cada teste e suas respectivas
 	 *            mensagens
 	 */
+	
 	public static void grava(ListaResult lista) {
 		GregorianCalendar gc = new GregorianCalendar();
 		String hora = gc.getTime().getHours() + "";
@@ -471,6 +472,7 @@ public class Utilidades {
             while (arq.hasNextLine()) {  
                 String linha = arq.nextLine();  
                 linha = linha.toUpperCase();
+                
                 //System.out.println(linha);
                 
                 if(linha.contains("CHASSISTYPE") )     
