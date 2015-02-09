@@ -57,9 +57,7 @@ public class MainExec {
 		while (window.isShowing() == true) {
 			testParam = window.testParam;
 		}
-		
-		
-		
+				
 		testParam.setData(Utilidades.horaData());
 		
 		//objeto que carrega as informações da execução

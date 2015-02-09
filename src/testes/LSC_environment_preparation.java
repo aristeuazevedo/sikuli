@@ -27,23 +27,24 @@ public class LSC_environment_preparation {
 
 	}
 	
+	public void welcomescreen(){
+		
+	}
+	
 	public void settings_preparation(){
 		
 		resultado = new ResultExec("Alert Exist");				
 		s.wait(10.0);
+				
+		//selecionar a tab home
+		utilities.SelectTab("home", s, sys);
+			
 		
 		if(utilities.ExistVerify(sys.icn_OkBig)){
 			resultado.addMensagens("OK Alert");
 			listaResultados.add(resultado);
 			//return false;
-		} else if (utilities.ExistVerify(sys.icn_errorBig)){
-			resultado.addMensagens("Error Alert");
-			listaResultados.add(resultado);
-		} else if (utilities.ExistVerify(sys.icn_warningBig)){
-			resultado.addMensagens("Warning Alert");
-			listaResultados.add(resultado);
 		}
-		//return true;
 		
 		
 	}
