@@ -552,10 +552,7 @@ public class Utilidades {
         } catch (IOException ioe) {  
             ioe.printStackTrace();  
         }  
-        
-        
-
-        
+            
         return mtype;
 		
         

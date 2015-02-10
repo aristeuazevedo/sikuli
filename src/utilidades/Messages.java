@@ -2,8 +2,11 @@ package utilidades;
 
 public class Messages {
 	
-	
-	
+	/*
+	 * 
+	 * This class stores all messages to show for the user
+	 * 
+	 * */	
 	public String WarningUsingIE(){
 		return "The main browser MUST be the Internet Explorer!";
 	}
