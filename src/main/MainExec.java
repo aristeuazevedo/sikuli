@@ -47,10 +47,11 @@ public class MainExec {
 		//TestSelection window = new TestSelection();
 		TestSelect window = new TestSelect();
 			
-		//Setting the machine type usint methods of the Utilidades
+		//Setting the machine type using methods of the Utilidades
 		
+		//--------------------------------------------------------------
 		//Getting the machine information and saving on a document
-		Utilidades.execFpsmbios();
+		//Utilidades.execFpsmbios();
 		
 		//chama a tela de seleção de idiomas
 		window.setVisible(true);
@@ -75,8 +76,10 @@ public class MainExec {
 
 		lista.setMachineType(machine_type.machineType);
 		
-		//environment preparation
-		env_preparation = new LSC_environment_preparation(testParam.getShortIdioma());
+		//environment preparation, for now only works on english language 
+		if(testParam.getShortIdioma().equals("en_US")){
+			env_preparation = new LSC_environment_preparation(testParam.getShortIdioma());
+		}
 		
 		selectSmokeTests();
 		

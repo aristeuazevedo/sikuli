@@ -11,17 +11,29 @@ import utilidades.LSC_System;
 import utilidades.ResultExec;
 import utilidades.Utilidades;
 
+
+/**
+ * Class used to prepare the LSC to run the tests 
+ * @author	Aristeu Azevedo
+ * @param 	sys			It has the paths to the files and images
+ * @param	idioma		Language select to be executed
+ * @param	resultado	Messages and names of the executed tests
+ * @param	s			Parameter used by Sikuli to monitor the screen
+ * @param	utilities	instance which has some common methods 
+ */
 public class LSC_environment_preparation {
 	
 	LSC_Settings sys;
 	
 	String idioma = "";
 	private List<ResultExec> listaResultados = new ArrayList<ResultExec>();
-	ResultExec resultado = new ResultExec("Backup Test");
+	ResultExec resultado = new ResultExec("");
 	Screen s = new Screen();
 	Utilidades utilities = new Utilidades();
 	
-	
+	/**
+	 * Main method, it invoke others methods to prepare the LSC to be tested 
+	 */
 	public LSC_environment_preparation(String idioma) {
 		this.idioma = idioma;
 		sys = new LSC_Settings(idioma);
@@ -33,7 +45,9 @@ public class LSC_environment_preparation {
 		settings_preparation();
 	}
 		 
-	
+	/**
+	 * Method to verify if the welcome screen is on and disable it  
+	 */
 	public void welcomescreen() {
 		s.wait(10.0);
 		try {
@@ -52,6 +66,9 @@ public class LSC_environment_preparation {
 		
 	}
 	
+	/**
+	 * Method to verify if the anonymous screen is on and disable it  
+	 */
 	public void anonimous_message(){
 		s.wait(5.0);
 		try {
@@ -68,6 +85,10 @@ public class LSC_environment_preparation {
 		
 	}
 	
+	/**
+	 * Method to verify if the alerts is disable, if them are disabled this
+	 * method invoke the AlertEnabled to turn them on 
+	 */
 	public void settings_preparation(){
 		
 		resultado = new ResultExec("Alert Exist");				
@@ -78,7 +99,7 @@ public class LSC_environment_preparation {
 		try {
 			s.click(sys.alert_button);
 		} catch (FindFailed e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		if(s.exists(sys.alerts_turned_off)!=null){
@@ -93,6 +114,9 @@ public class LSC_environment_preparation {
 		
 	}
 	
+	/**
+	 * This Method turn on all the alerts at settings screen
+	 */
 	public void	AlertEnable(){
 		
 		try{	
@@ -118,9 +142,7 @@ public class LSC_environment_preparation {
 		}
 	}
 	
-	public void dashboad_preparation(){
-		
-	}
+	
 	
 	
 }
