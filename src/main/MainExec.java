@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.print.attribute.standard.Finishings;
 
+import org.python.core.NewCompilerResources;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Screen;
 
@@ -37,6 +38,7 @@ public class MainExec {
 	static Memory_Test memoryTest;
 	static Backup_Test backupTest;
 	static Software_Updates_Test suTest;
+	static LSC_environment_preparation env_preparation;
 	
 	static Machine_Type machine_type = new Machine_Type();
 		
@@ -57,9 +59,7 @@ public class MainExec {
 		while (window.isShowing() == true) {
 			testParam = window.testParam;
 		}
-		
-		
-		
+				
 		testParam.setData(Utilidades.horaData());
 		
 		//objeto que carrega as informações da execução
@@ -74,6 +74,9 @@ public class MainExec {
 		lista.setChassi(machine_type.chassi);
 
 		lista.setMachineType(machine_type.machineType);
+		
+		//environment preparation
+		env_preparation = new LSC_environment_preparation(testParam.getShortIdioma());
 		
 		selectSmokeTests();
 		

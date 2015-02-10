@@ -26,16 +26,21 @@ public class LSC_Main {
     
     public String maximizeLSC = caminho + "maximizeLSC.PNG";
     
+    //Welcome screen 
     public String LSC_welcomeScreen;
     public String LSC_welcomeExit = caminho + "welcomeExit.PNG";
+    public String anonimous_yes;
+    public String anonimous_message;
+    
+    
     public String verifyScroll = caminho + "verifyScroll.PNG";
     
-    //icones do Access Support Online
+    //Access Support Online
     public String virtualAgente = caminho + "lenovoVirtualAgentIcon.png";
     public String lenovoForum = caminho + "lenovoForumIcon.png";
     public String lenovoSupport = caminho + "lenovoSupportIcon.png";
     
-    //icones do Access Support Online Chines
+    //Access Support Online Chinese
     public String moreInfo = caminho + "icn_MoreHelp.png";
     public String expert = caminho + "icn_ExpertOnline.png";
     public String selfHelp = caminho + "icn_SelfHelp.png";
@@ -43,7 +48,7 @@ public class LSC_Main {
     public String lenovoRobot = caminho + "icn_LenovoRobot.png";
     public String icn_AskLenovo = caminho + "icn_AskLenovo.png";
     
-    //icones
+    //icons
     public String icn_warning = caminho + "icn_accordionWarning.png";
     public String icn_error = caminho + "icn_accordionError.png";
     public String icn_aborted = caminho + "icn_accordionAborted.png";
@@ -56,7 +61,7 @@ public class LSC_Main {
     public String icn_CancelBig = caminho + "icnCancel_60x60.png";
     public String icn_warningBig = caminho + "icn_Warning_big.png";
     
-    //alertas
+    //alerts
     public String alert_Backup = caminho_alert + "home_Backup.png";
     public String alert_Battery = caminho_alert + "home_Battery.png";
     public String alert_Device = caminho_alert + "home_DeviceManager.png";
@@ -82,9 +87,11 @@ public class LSC_Main {
     public String SupportUns;
     public String SystemSel;
     public String SystemUns;
+    public String alerts_turned_off;
     
 	public String alwaysshowWlcomeScreen;
     
+	//buttons
     public String ok_button;
     public String ok;
     public String alert_button;
@@ -120,7 +127,9 @@ public class LSC_Main {
 	    alwaysshowWlcomeScreen = "imgs/"+idioma+"/alwaysShowWelcomeScreen.PNG";
 	    LSC_welcomeScreen = "imgs/"+idioma+"/welcomeScreen.PNG";
 	    alert_button = "imgs/"+idioma+"/alertButton.PNG";
-	    
+	    anonimous_yes = "imgs/"+idioma+"/anonymous_yes.PNG";
+	    anonimous_message = "imgs/"+idioma+"/send_anonymous.PNG";
+	    alerts_turned_off = "imgs/"+idioma+"/alerts_turned_off.PNG";
 	
 		}
 
