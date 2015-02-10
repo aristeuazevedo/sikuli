@@ -87,9 +87,11 @@ public class LSC_Main {
     public String SupportUns;
     public String SystemSel;
     public String SystemUns;
+    public String alerts_turned_off;
     
 	public String alwaysshowWlcomeScreen;
     
+	//buttons
     public String ok_button;
     public String ok;
     public String alert_button;
@@ -127,7 +129,7 @@ public class LSC_Main {
 	    alert_button = "imgs/"+idioma+"/alertButton.PNG";
 	    anonimous_yes = "imgs/"+idioma+"/anonymous_yes.PNG";
 	    anonimous_message = "imgs/"+idioma+"/send_anonymous.PNG";
-	    
+	    alerts_turned_off = "imgs/"+idioma+"/alerts_turned_off.PNG";
 	
 		}
 
