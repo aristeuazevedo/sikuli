@@ -1,9 +1,14 @@
 package utilidades;
 
+/*
+ * 
+ * This class is responsible to stores the informations of machine, windows, chassi, type etc
+ * 
+ */
+
 public class Machine_Type {
 
 	public String windows = "";
-	
 	public String chassi = "";
 	public String machineType = "";
 	public String machineTypeExtension= "";

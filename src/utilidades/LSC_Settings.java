@@ -21,8 +21,6 @@ public class LSC_Settings extends LSC_Main {
 	public String virusProtection_settings;
 	public String warranty_settings;
 	public String welcomeScreen_settings;
-
-	
 	
 	public String enable_alert_checked;
 	public String enable_alert_unchecked;
