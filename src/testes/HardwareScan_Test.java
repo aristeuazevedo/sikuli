@@ -92,7 +92,7 @@ public class HardwareScan_Test  {
 			resultado.addMensagens("Passed");
 
 		} catch (FindFailed e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 			resultado.addMensagens(sys.ImageError);
 		}
@@ -175,6 +175,8 @@ public class HardwareScan_Test  {
 		listaResultados.add(resultado);
 	}
 	
+	
+	//metodo para verificar se o valida o box cheked e uncheked
 	public void teste(){
 		
 		titleLSC();
@@ -209,13 +211,52 @@ public class HardwareScan_Test  {
 			
 
 		} catch (FindFailed e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			resultado.addMensagens(sys.ImageError);
 		}
 		
 		listaResultados.add(resultado);
 	}
+	
+	public void schedule_hardwarescan(){
+		
+		try {
+			
+			if(utilities.ExistVerify(sys_checkup.CheckupUns)){
+			s.click(sys_checkup.CheckupUns);
+			}
+			
+			else{
+				s.click(sys_checkup.CheckupSel);
+			}
+			
+			s.click(sys_checkup.icn_hwScan,300);
+			
+			s.click(sys.schedule,300);
+									
+			//s.hover(sys)
+			
+
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			resultado.addMensagens(sys.ImageError);
+		}
+		
+	}
+	
+	
+	public void testea(){
+		
+		try {	
+			s.wait(sys.LSC_Title,50.0);
+			s.click(sys.LSC_Title);
+		} catch (FindFailed e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 	
 	
 	public void titleLSC(){
@@ -227,5 +268,5 @@ public class HardwareScan_Test  {
 			e.printStackTrace();
 		}
 		
-}
+	}
 }
