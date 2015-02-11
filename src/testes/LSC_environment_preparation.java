@@ -1,5 +1,6 @@
 package testes;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -142,7 +143,15 @@ public class LSC_environment_preparation {
 		}
 	}
 	
-	
+	public static void UAC_nevernotify(){
+		Runtime rt = Runtime.getRuntime();
+		try {
+			rt.exec("cmd /c start \"\" \"cmds/uac.lnk");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	
 }
