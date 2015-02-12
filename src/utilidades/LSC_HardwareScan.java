@@ -17,6 +17,10 @@ public class LSC_HardwareScan extends LSC_Main  {
 	public String canceled_status = "imgs/"+idioma+"/HardwareScan_Figures/canceled_status.PNG";
 	public String yes_btn = "imgs/"+idioma+"/HardwareScan_Figures/Yes.PNG";
 	public String select_one_message = "imgs/"+idioma+"/HardwareScan_Figures/select_one_item.PNG";
+	public String nextScan = "imgs/"+idioma+"/HardwareScan_Figures/nextScan.PNG";
+	
+	public String info_NotAvailable = "imgs/"+idioma+"/HardwareScan_Figures/info_notAvailable.PNG";
+	public String notAvailable = "imgs/"+idioma+"/HardwareScan_Figures/notAvailable.PNG";
 	
 	public String schedule_cheked = "imgs/"+idioma+"/HardwareScan_Figures/ScheduleChecked.PNG";
 	public String schedule_Uncheked = "imgs/"+idioma+"/HardwareScan_Figures/scheduleUncheked.PNG";

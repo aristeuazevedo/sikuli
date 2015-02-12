@@ -34,9 +34,11 @@ public class HardwareScan_Test  {
 		
 		//teste();
 		
-		HardwareScan_Cancel();
+		//HardwareScan_Cancel();
 		
-		HardwareScan_Quick();
+		//HardwareScan_Quick();
+		
+		schedule_hardwarescan();
 		
 		return listaResultados;
 	}
@@ -218,8 +220,10 @@ public class HardwareScan_Test  {
 		listaResultados.add(resultado);
 	}
 	
+	//Method to turn on the schedule if its disable
 	public void schedule_hardwarescan(){
 		
+		resultado = new ResultExec("Disable and enable the schedule of tests");
 		try {
 			
 			if(utilities.ExistVerify(sys_checkup.CheckupUns)){
@@ -232,25 +236,43 @@ public class HardwareScan_Test  {
 			
 			s.click(sys_checkup.icn_hwScan,300);
 			
-			s.click(sys.schedule,300);
-									
-			//s.hover(sys)
 			
+			s.click(sys.schedule,300);
+			
+			//verify if the schedule is on or off
+			if(s.exists(sys.info_NotAvailable)!=null || s.exists(sys.notAvailable)!=null ){
+				//turn the schedule on 
+				ScdOn_Off();
+			}
+			
+			else{
+				
+				//turn the schedule off 
+				ScdOn_Off();
+				//turn the schedule on 
+				ScdOn_Off();
+			}
 
 		} catch (FindFailed e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			resultado.addMensagens(sys.ImageError);
 		}
 		
+		listaResultados.add(resultado);
+		
 	}
 	
 	
-	public void testea(){
+	public void ScdOn_Off(){
 		
-		try {	
-			s.wait(sys.LSC_Title,50.0);
-			s.click(sys.LSC_Title);
+		try {						
+			
+			s.wait(2.0);
+			
+			s.click(sys.scd_automaticMessage);
+			
+			s.click(sys.btn_save);
+			
 		} catch (FindFailed e) {
 			e.printStackTrace();
 		}

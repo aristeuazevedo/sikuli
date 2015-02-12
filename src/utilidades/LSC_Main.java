@@ -96,7 +96,7 @@ public class LSC_Main {
     public String ok;
     public String alert_button;
     public String btn_yes = caminho + "btn_yes.png";
-
+    public String btn_save; 
     
 	public String submit_service_request = caminho + "submit_service_request.png";
 	
@@ -130,7 +130,7 @@ public class LSC_Main {
 	    anonimous_yes = "imgs/"+idioma+"/anonymous_yes.PNG";
 	    anonimous_message = "imgs/"+idioma+"/send_anonymous.PNG";
 	    alerts_turned_off = "imgs/"+idioma+"/alerts_turned_off.PNG";
-	
+	    btn_save =   "imgs/"+idioma+"/savebutton_dash.PNG";
 		}
 
 }
