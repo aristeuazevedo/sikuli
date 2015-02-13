@@ -18,6 +18,10 @@ public class LSC_HardwareScan extends LSC_Main  {
 	public String yes_btn = "imgs/"+idioma+"/HardwareScan_Figures/Yes.PNG";
 	public String select_one_message = "imgs/"+idioma+"/HardwareScan_Figures/select_one_item.PNG";
 	public String nextScan = "imgs/"+idioma+"/HardwareScan_Figures/nextScan.PNG";
+	public String airplane_message = "imgs/"+idioma+"/HardwareScan_Figures/airplane_mode.PNG";
+	public String conect_wireless = "imgs/"+idioma+"/HardwareScan_Figures/conect_wireless.PNG";
+	public String message_warning = "imgs/"+idioma+"/HardwareScan_Figures/message_warning.PNG";
+	public String wireless = "imgs/"+idioma+"/HardwareScan_Figures/wireless.PNG";
 	
 	public String info_NotAvailable = "imgs/"+idioma+"/HardwareScan_Figures/info_notAvailable.PNG";
 	public String notAvailable = "imgs/"+idioma+"/HardwareScan_Figures/notAvailable.PNG";

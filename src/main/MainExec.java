@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.print.attribute.standard.Finishings;
+import javax.swing.JOptionPane;
 
 import org.python.core.NewCompilerResources;
 import org.sikuli.script.FindFailed;
@@ -60,7 +61,8 @@ public class MainExec {
 		while (window.isShowing() == true) {
 			testParam = window.testParam;
 		}
-				
+		
+		//JOptionPane.showInputDialog(null, "test");
 		testParam.setData(Utilidades.horaData());
 		
 		//objeto que carrega as informações da execução
@@ -209,7 +211,7 @@ public class MainExec {
 	}
 	
 	public static void hardwareScan_test(){
-		hardwarescan = new HardwareScan_Test(testParam.getShortIdioma());
+		hardwarescan = new HardwareScan_Test(testParam.getShortIdioma(), lista.getChassi());
 		
 		if(testParam.hardwarescan){
 			for (ResultExec result : hardwarescan.hw_test()) {
