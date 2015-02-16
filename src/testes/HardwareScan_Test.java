@@ -289,7 +289,6 @@ public class HardwareScan_Test  {
 		
 	}
 	
-	
 	public void ScdOn_Off(){
 		
 		try {						
