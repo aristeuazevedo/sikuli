@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Classe que armazena o resultado do teste e sua respectiva mensagem
+ * 
+ * This class stores the results of test and the message
+ * 
  * @author	Aristeu Azevedo
  */
 public class ResultExec {
@@ -19,7 +21,6 @@ public class ResultExec {
 		this.nomeTeste = nomeTeste;
 		this.result = false;
 	}
-
 
 	public String getNomeTeste() {
 		return nomeTeste;

@@ -20,14 +20,12 @@ public class Backup_Test {
 	ResultExec resultado = new ResultExec("Backup Test");
 	Screen s = new Screen();
 	Utilidades utilities = new Utilidades();
-	
-	
+		
 	public Backup_Test(String idioma) {
 		this.idioma = idioma;
 		system = new LSC_System(idioma);
 		sys = new LSC_Backup(idioma);
 	}
-
 
 	public List<ResultExec> backup_test(){
 		listaResultados.add(resultado);
@@ -41,7 +39,6 @@ public class Backup_Test {
 		return listaResultados;
 		
 	}
-	
 	
 	public void getStorage(){
 		

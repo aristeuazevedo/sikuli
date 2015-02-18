@@ -8,6 +8,28 @@ public class ListaResult {
 	private String nomeMaquina;
 	private String data;
 	private String idioma;
+	private String chassi;
+	
+	public String getChassi() {
+		return chassi;
+	}
+
+
+	public void setChassi(String chassi) {
+		this.chassi = chassi;
+	}
+
+
+	public String getMachineType() {
+		return machineType;
+	}
+
+
+	public void setMachineType(String machineType) {
+		this.machineType = machineType;
+	}
+
+	private String machineType;
 	
 	/**
 	 * Classe que armazena os "resultado" para posteriormente 

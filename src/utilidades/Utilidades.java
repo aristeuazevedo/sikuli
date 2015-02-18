@@ -22,7 +22,8 @@ import org.sikuli.script.Screen;
 import testes.HardwareScan_Test;
 
 /**
- * Classe com metodos comuns a serem utilizados por qualquer classe
+ * 
+ * In the Sikuli project, has various functions that are used for various tests in different classes, methods or parts of code.
  *
  * @author Aristeu Azevedo
  */
@@ -50,7 +51,7 @@ public class Utilidades {
 	}
 
 	/**
-	 * Captura a tela atual, como um "Print Screen"
+	 * This method take a screenshot"
 	 */
 	public static BufferedImage capture() {
 		return rob.createScreenCapture(new Rectangle(Toolkit
@@ -58,7 +59,7 @@ public class Utilidades {
 	}
 
 	/**
-	 * Retorna a data atual da maquina
+	 * This method return the current date of the environment
 	 */
 	public static String horaData() {
 		GregorianCalendar gc = new GregorianCalendar();
@@ -69,12 +70,15 @@ public class Utilidades {
 	}
 
 	/**
-	 * Gera o arquivo HTML com os resultados dos testes executados
+	 * 
+	 * This method generates a HTML file with the result of all executed tests.
+	 * 
+	 * @param 
+	 * 
+	 * Has the all results of each tests and your respective messages
 	 *
-	 * @param lista
-	 *            possui os resultados de cada teste e suas respectivas
-	 *            mensagens
-	 */
+	 **/
+	
 	public static void grava(ListaResult lista) {
 		GregorianCalendar gc = new GregorianCalendar();
 		String hora = gc.getTime().getHours() + "";
@@ -89,6 +93,12 @@ public class Utilidades {
 			fw.write("</Head>");
 			fw.write("<Body>");
 
+			fw.write("<b><font color=red size=5>Chassi:"
+					+ lista.getChassi() + "</b>  </font>  <br>");
+			fw.write("<b><font color=red size=5>Machine Type:"
+					+ lista.getMachineType() + "</b>  </font>  <br>");
+			
+			
 			fw.write("<b><font color=red size=5>Machine Name:"
 					+ lista.getNomeMaquina() + "</b>  </font>  <br>");
 			fw.write("<b><font color=red size=5>Language:" + lista.getIdioma()
@@ -150,10 +160,13 @@ public class Utilidades {
 	}
 
 	/**
-	 * Metodo para retornar o nome do icone
-	 *
+	 * 
+	 * This method return the name of icon 
+	 * 
 	 * @param icone
-	 *            caminho da imagem do icone
+	 * 
+	 * The String icone haves the link for the icons
+	 *           
 	 */
 	public static String nomeIcone(String icone) {
 
@@ -223,7 +236,13 @@ public class Utilidades {
 
 		return "Test Name Not Found";
 	}
-
+	
+	/*
+	 * 
+	 * This method is responsible for select the Tab for executes one or more tests.
+	 * 
+	 * */
+	
 	public ResultExec SelectTab(String tab, Screen s, LSC_Main sys) {
 		ResultExec resultado = new ResultExec("");
 		tab = tab.toUpperCase();
@@ -328,6 +347,13 @@ public class Utilidades {
 		return true;
 	}
 
+	/*
+	 * 
+	 * This method alter the name of icon
+	 *  
+	 * */
+	
+	
 	public String redefineNomeIcone(String caminho) {
 
 		if (caminho.contains("memory_settings")) {
@@ -381,6 +407,12 @@ public class Utilidades {
 		return "";
 	}
 
+	/*
+	 * 
+	 * This method maximize the LSC
+	 * 
+	 */
+	
 	public void maximimaLSC(String idioma) {
 		main = new LSC_Main(idioma);
 		s.wait(4.0);
@@ -396,6 +428,12 @@ public class Utilidades {
 
 	}
 
+	/*
+	 * 
+	 * This problem close the LSC 
+	 * 
+	 * */
+	
 	public static void closeApp(String idioma) {
 		main = new LSC_Main(idioma);
 		s.wait(4.0);
@@ -420,6 +458,12 @@ public class Utilidades {
 		}
 		
 	}
+	
+	/*
+	 * 
+	 * This method is the responsible by close the screen of Internet Explorer
+	 * 
+	 * */
 	
 	public void exitIE()
 	{
@@ -454,19 +498,63 @@ public class Utilidades {
 	}
 	
 	
-	public void readMachineType(){
+	public static Machine_Type readMachineType(){
 		
-		File file = new File("C:"+File.separator+"fp_smbiosresult.txt");  
+		Machine_Type mtype = new Machine_Type();
+				
+		File file = new File("C:"+File.separatorChar+"fp_smbiosresult.txt");  
         try {  
+        	
             Scanner arq = new Scanner(file);  
             while (arq.hasNextLine()) {  
                 String linha = arq.nextLine();  
-                System.out.println(linha);  
+                linha = linha.toUpperCase();
+                
+                //System.out.println(linha);
+                
+                if(linha.contains("CHASSISTYPE") )     
+                {
+                	if(linha.contains("DESKTOP"))
+                		mtype.setChassi("Desktop");
+                	
+                	if(linha.contains("PORTABLE"))
+                		mtype.setChassi("Portable");
+
+                }       
+                
+                if(linha.contains("MACHINETYPE") )     
+                {
+                	if(linha.contains("THINK"))
+                		mtype.setMachineType("Think");
+                		                	
+                	if(linha.contains("THINKPAD"))
+                		mtype.setMachineType("ThinkPad");
+                		                	
+                	if(linha.contains("IDEAPAD"))
+                		mtype.setMachineType("IdeaPad");
+                	
+                	if(linha.contains("LENOVOCONSUMER"))
+                		mtype.setMachineType("Lenovo Consumer");
+                }       
+                
+                if(linha.contains("MACHINETYPEEXTENSION") )     
+                {
+                	if(linha.contains("THINKPADEDGE"))
+                		mtype.setMachineTypeExtension("ThinkPad Edge");
+                	
+                	if(linha.contains("IDEAPAD"))
+                		mtype.setMachineTypeExtension("IdeaPad");
+                }     
+                
+             // System.out.println(linha); 
             }  
             arq.close();  
         } catch (IOException ioe) {  
             ioe.printStackTrace();  
         }  
+            
+        return mtype;
 		
+        
 	}
 }

@@ -1,5 +1,14 @@
 package testes;
 
+/*
+ * 
+ * This class is responsible to executes all tests about alerts of LSC
+ * This class needs a three external classes, LSC_Settings, ResultExec and Utilidades and all are in package utilidades
+ * 
+ * 
+ * */
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +34,10 @@ public class AlertTests {
 		sys = new LSC_Settings(idioma);
 		
 		}
+	
+	/*
+	 * This method create 
+	 * */
 	
 	public List<ResultExec> verify_Test(){
 		
@@ -182,33 +195,7 @@ public class AlertTests {
 			listaResultados.add(resultado);
 		}
 		return true;
-		/*
-		try{
-			s.click(sys.icn_OkBig);
-			
-			return false;
-			
-			} catch (FindFailed e) {	
-				
-				e.printStackTrace();
-				
-				try{
-					s.click(sys.icn_errorBig);
-					resultado.addMensagens("Error Alert");
-				}catch (FindFailed e1) {	
-					e1.printStackTrace();
-				}
-				
-				try{
-					s.click(sys.icn_warningBig);
-					resultado.addMensagens("Warning Alert");
-				}catch (FindFailed e1) {	
-					e1.printStackTrace();
-				}
-				
-				listaResultados.add(resultado);
-			}
-	return true;*/
+
 	}
 	
 	public void	AlertDisable(){
@@ -265,7 +252,5 @@ public class AlertTests {
 		}
 		return false;
 	}
-	
-
 	
 }

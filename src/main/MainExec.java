@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.print.attribute.standard.Finishings;
+import javax.swing.JOptionPane;
 
+import org.python.core.NewCompilerResources;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Screen;
 
@@ -37,19 +39,30 @@ public class MainExec {
 	static Memory_Test memoryTest;
 	static Backup_Test backupTest;
 	static Software_Updates_Test suTest;
+	static LSC_environment_preparation env_preparation;
+	
+	static Machine_Type machine_type = new Machine_Type();
 		
 	public static void main(String[] args) {
 				
 		//TestSelection window = new TestSelection();
 		TestSelect window = new TestSelect();
 			
+		//Setting the machine type using methods of the Utilidades
+		
+		//--------------------------------------------------------------
+		//Getting the machine information and saving on a document
+		//Utilidades.execFpsmbios();
+		
 		//chama a tela de seleção de idiomas
 		window.setVisible(true);
+		
 		//verifica se a tela de seleção ainda está ativa
 		while (window.isShowing() == true) {
 			testParam = window.testParam;
 		}
 		
+		//JOptionPane.showInputDialog(null, "test");
 		testParam.setData(Utilidades.horaData());
 		
 		//objeto que carrega as informações da execução
@@ -59,7 +72,16 @@ public class MainExec {
 		
 		settings = new Settings_Tests(testParam.getShortIdioma());
 		
+		//reading the document of the machine information
+		machine_type = Utilidades.readMachineType();
+		lista.setChassi(machine_type.chassi);
+
+		lista.setMachineType(machine_type.machineType);
 		
+		//environment preparation, for now only works on english language 
+		if(testParam.getShortIdioma().equals("en_US")){
+			env_preparation = new LSC_environment_preparation(testParam.getShortIdioma());
+		}
 		
 		selectSmokeTests();
 		
@@ -73,7 +95,7 @@ public class MainExec {
 				lista.addResultado(result);
 			}
 		}
-		
+						
 		Utilidades.titleLSC();
 		
 		selectDashboardTests();
@@ -88,8 +110,9 @@ public class MainExec {
 		
 		backup_test();
 		
-		suTest = new Software_Updates_Test(testParam.getShortIdioma());
-		suTest.Main_Soft_updates_test();
+		//TESTES DE SOFTWARE UPDATES (CARLOS)
+		//suTest = new Software_Updates_Test(testParam.getShortIdioma());
+		//suTest.Main_Soft_updates_test();
 		
 		Utilidades.closeApp(testParam.idioma);
 		
@@ -174,8 +197,7 @@ public class MainExec {
 				}
 			}
 	}
-	
-	
+		
 	public static void selectDashboardTests(){
 		//testes de settings
 		dashboard = new Dashboard_Tests(testParam.getShortIdioma());
@@ -189,7 +211,7 @@ public class MainExec {
 	}
 	
 	public static void hardwareScan_test(){
-		hardwarescan = new HardwareScan_Test(testParam.getShortIdioma());
+		hardwarescan = new HardwareScan_Test(testParam.getShortIdioma(), lista.getChassi());
 		
 		if(testParam.hardwarescan){
 			for (ResultExec result : hardwarescan.hw_test()) {
@@ -217,8 +239,7 @@ public class MainExec {
 			}
 		}
 	}
-	
-	
+		
 	public static void memory_test(){
 		memoryTest = new Memory_Test(testParam.getShortIdioma());
 		
