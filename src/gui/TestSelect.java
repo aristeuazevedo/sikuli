@@ -83,6 +83,7 @@ public class TestSelect extends javax.swing.JFrame {
                 	rdbtnStorageDevice.setEnabled(true);
                 	rdbtnMemory.setEnabled(true);
                 	rdbtnBackup.setEnabled(true);
+                	rdbtnSoftwareUpdate.setEnabled(true);
                 }
                
                if(jComboBox1.getSelectedItem().toString() != "English (en-US)"	){
@@ -183,6 +184,9 @@ public class TestSelect extends javax.swing.JFrame {
         
         rdbtnBackup = new JRadioButton("Backup");
         rdbtnBackup.setEnabled(false);
+              
+        rdbtnSoftwareUpdate = new JRadioButton("Software Update");
+        rdbtnSoftwareUpdate.setEnabled(false);
         
         //Listener
         rdbtnDeviceManager.addChangeListener(new ChangeListener() {
@@ -200,6 +204,8 @@ public class TestSelect extends javax.swing.JFrame {
         });
         
         JLabel lblMessages = new JLabel("Messages");
+        
+        
         
         
         
@@ -243,11 +249,12 @@ public class TestSelect extends javax.swing.JFrame {
         						.addComponent(rdbtnDeviceManager)
         						.addComponent(rdbtnStorageDevice)
         						.addComponent(rdbtnMemory)
-        						.addComponent(rdbtnBackup)))
+        						.addComponent(rdbtnBackup)
+        						.addComponent(rdbtnSoftwareUpdate)))
         				.addGroup(jPanel1Layout.createSequentialGroup()
         					.addGap(18)
         					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        						.addComponent(textArea_1, GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+        						.addComponent(textArea_1)
         						.addComponent(lblMessages))))
         			.addContainerGap())
         );
@@ -293,7 +300,9 @@ public class TestSelect extends javax.swing.JFrame {
         					.addPreferredGap(ComponentPlacement.RELATED)
         					.addComponent(rdbtnMemory)
         					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addComponent(rdbtnBackup)))
+        					.addComponent(rdbtnBackup)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(rdbtnSoftwareUpdate)))
         			.addPreferredGap(ComponentPlacement.RELATED)
         			.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
         				.addGroup(jPanel1Layout.createSequentialGroup()
@@ -301,7 +310,7 @@ public class TestSelect extends javax.swing.JFrame {
         					.addPreferredGap(ComponentPlacement.RELATED)
         					.addComponent(textArea_1, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE))
         				.addComponent(jToggleButton1))
-        			.addContainerGap(22, Short.MAX_VALUE))
+        			.addContainerGap(94, Short.MAX_VALUE))
         );
         jPanel1.setLayout(jPanel1Layout);
 
@@ -416,6 +425,10 @@ public class TestSelect extends javax.swing.JFrame {
     	
     	if(rdbtnBackup.isSelected()){
     		testParam.setBackup(true);
+    	}
+    	
+    	if(rdbtnSoftwareUpdate.isSelected()){
+    		testParam.setSoftwareupdates(true);
     	}
     	
     	testParam.setSettings(rdbtnSetting.isSelected());
@@ -571,4 +584,5 @@ public class TestSelect extends javax.swing.JFrame {
     private JRadioButton rdbtnMemory;
     private JRadioButton rdbtnBackup;
     private JTextArea textArea_1;
+    private JRadioButton rdbtnSoftwareUpdate;
 }

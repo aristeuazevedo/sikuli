@@ -110,10 +110,8 @@ public class MainExec {
 		
 		backup_test();
 		
-		//TESTES DE SOFTWARE UPDATES (CARLOS)
-		//suTest = new Software_Updates_Test(testParam.getShortIdioma());
-		//suTest.Main_Soft_updates_test();
-		
+		softwareUpdates_test();
+				
 		Utilidades.closeApp(testParam.idioma);
 		
 		Utilidades.grava(lista);
@@ -255,6 +253,16 @@ public class MainExec {
 		
 		if(testParam.isBackup()){
 			for (ResultExec result : backupTest.backup_test()) {
+				lista.addResultado(result);
+			}
+		}
+	}
+	
+	public static void softwareUpdates_test(){
+		suTest = new Software_Updates_Test(testParam.getShortIdioma());
+		
+		if(testParam.isSoftwareupdates()){
+			for (ResultExec result : suTest.Main_Soft_updates_test()) {
 				lista.addResultado(result);
 			}
 		}

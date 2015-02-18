@@ -33,6 +33,8 @@ public class TestsParameters {
 	private boolean storageDevices;
 	private boolean memory;
 	private boolean backup;
+	
+	private boolean softwareupdates;
 
 	public String getIdioma() {
 		return idioma;
@@ -160,6 +162,14 @@ public class TestsParameters {
 
 	public void setBackup(boolean backup) {
 		this.backup = backup;
+	}
+
+	public boolean isSoftwareupdates() {
+		return softwareupdates;
+	}
+
+	public void setSoftwareupdates(boolean softwareupdates) {
+		this.softwareupdates = softwareupdates;
 	}
 
 }
