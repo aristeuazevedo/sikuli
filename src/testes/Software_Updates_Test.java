@@ -64,7 +64,7 @@ public class Software_Updates_Test {
 	
 	public void SU_Lenovo_Updates_test()
 	{
-		resultado = new ResultExec("Software Updates Link");
+		resultado = new ResultExec("Lenovo Software Updates Test");
 		try {
 						
 			/////LENOVO SOFTWARE NOT INSTALLED (YELLOW ALERT)/////
@@ -110,7 +110,9 @@ public class Software_Updates_Test {
 					s.click(sys.SU_App_Close);
 				}
 			}
+			
 			resultado.addMensagens("Passed");
+			
 		}catch (FindFailed e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -122,9 +124,79 @@ public class Software_Updates_Test {
 	
 	public void SU_Windows_Updates_test()
 	{
-	/////WINDOWS IS UPDATED (GREEN ALERT)/////
 		
+		resultado = new ResultExec("Windows Update Test");
 		try{
+				/////WINDOWS IS UPDATED (GREEN ALERT)/////
+				if(utilities.ExistVerify(sys.SU_Win_Update_Green))
+				{
+					if(utilities.ExistVerify(sys.SU_Check_for_updates))
+					{
+						s.click(sys.SU_Launch);
+						s.wait(5.0);
+						utilities.ExistVerify(sys.SU_Win_Update_Window);
+						utilities.exitWindowsUpdate();
+						s.wait(3.0);
+					}
+					
+					else
+					{
+						s.click(sys.SU_Win_Update_Green);
+						s.click(sys.SU_Launch);
+						s.wait(5.0);
+						utilities.ExistVerify(sys.SU_Win_Update_Window);
+						utilities.exitWindowsUpdate();
+						s.wait(3.0);
+					}
+				}
+				
+				/////WINDOWS IS OUT OF DATE 30 DAYS (YELLOW ALERT)/////
+				if(utilities.ExistVerify(sys.SU_Win_Update_Green))
+				{
+					if(utilities.ExistVerify(sys.SU_Check_for_updates))
+					{
+						s.click(sys.SU_Launch);
+						s.wait(5.0);
+						utilities.ExistVerify(sys.SU_Win_Update_Window);
+						utilities.exitWindowsUpdate();
+						s.wait(3.0);
+					}
+					
+					else
+					{
+						s.click(sys.SU_Win_Update_Green);
+						s.click(sys.SU_Launch);
+						s.wait(5.0);
+						utilities.ExistVerify(sys.SU_Win_Update_Window);
+						utilities.exitWindowsUpdate();
+						s.wait(3.0);
+					}
+				}
+
+				/////WINDOWS IS OUT OF DATE 60 DAYS (RED ALERT)/////
+				if(utilities.ExistVerify(sys.SU_Win_Update_Green))
+				{
+					if(utilities.ExistVerify(sys.SU_Check_for_updates))
+					{
+						s.click(sys.SU_Launch);
+						s.wait(5.0);
+						utilities.ExistVerify(sys.SU_Win_Update_Window);
+						utilities.exitWindowsUpdate();
+						s.wait(3.0);
+					}
+					
+					else
+					{
+						s.click(sys.SU_Win_Update_Green);
+						s.click(sys.SU_Launch);
+						s.wait(5.0);
+						utilities.ExistVerify(sys.SU_Win_Update_Window);
+						utilities.exitWindowsUpdate();
+						s.wait(3.0);
+					}
+				}
+				
+				/////WINDOWS UPDATE IS NOT AUTOMATICALLY (YELLOW ALERT)/////
 				if(utilities.ExistVerify(sys.SU_Win_Update_Green))
 				{
 					if(utilities.ExistVerify(sys.SU_Check_for_updates))
@@ -155,9 +227,5 @@ public class Software_Updates_Test {
 				e.printStackTrace();
 				resultado.addMensagens(sys.ImageError);
 			}
-			
-		
-		
-		
 	}
 }
