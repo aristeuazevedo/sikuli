@@ -72,7 +72,7 @@ public class Software_Updates_Test {
 			{
 				if(utilities.ExistVerify(sys.SU_No_Lenovo_Software_Msg))
 				{
-					s.click(sys.SU_Lenovo_Download);
+					s.click(sys.SU_Download_Button);
 					s.wait(40.0);
 					utilities.ExistVerify(sys.SU_Lenovo_URL);
 					utilities.exitIE();
@@ -82,7 +82,7 @@ public class Software_Updates_Test {
 				else
 				{
 					s.click(sys.SU_No_Lenovo_Software);
-					s.click(sys.SU_Lenovo_Download);
+					s.click(sys.SU_Download_Button);
 					s.wait(40.0);
 					utilities.ExistVerify(sys.SU_Lenovo_URL);
 					utilities.exitIE();
@@ -151,7 +151,7 @@ public class Software_Updates_Test {
 				}
 				
 				/////WINDOWS IS OUT OF DATE 30 DAYS (YELLOW ALERT)/////
-				if(utilities.ExistVerify(sys.SU_Win_Update_Green))
+				if(utilities.ExistVerify(sys.SU_Win_Update_Yellow_30days))
 				{
 					if(utilities.ExistVerify(sys.SU_Check_for_updates))
 					{
@@ -164,7 +164,7 @@ public class Software_Updates_Test {
 					
 					else
 					{
-						s.click(sys.SU_Win_Update_Green);
+						s.click(sys.SU_Win_Update_Yellow_30days);
 						s.click(sys.SU_Launch);
 						s.wait(5.0);
 						utilities.ExistVerify(sys.SU_Win_Update_Window);
@@ -174,7 +174,7 @@ public class Software_Updates_Test {
 				}
 
 				/////WINDOWS IS OUT OF DATE 60 DAYS (RED ALERT)/////
-				if(utilities.ExistVerify(sys.SU_Win_Update_Green))
+				if(utilities.ExistVerify(sys.SU_Win_Update_Red_60days))
 				{
 					if(utilities.ExistVerify(sys.SU_Check_for_updates))
 					{
@@ -187,7 +187,7 @@ public class Software_Updates_Test {
 					
 					else
 					{
-						s.click(sys.SU_Win_Update_Green);
+						s.click(sys.SU_Win_Update_Red_60days);
 						s.click(sys.SU_Launch);
 						s.wait(5.0);
 						utilities.ExistVerify(sys.SU_Win_Update_Window);
