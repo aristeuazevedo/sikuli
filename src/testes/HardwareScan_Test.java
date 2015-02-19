@@ -41,26 +41,22 @@ public class HardwareScan_Test  {
 	 */ 
 	public List<ResultExec> hw_test(){
 		listaResultados.add(resultado);
-				
-		//teste();
 		
-		//HardwareScan_Cancel();
+		HardwareScan_Cancel();
 		
-		//HardwareScan_Quick();
+		HardwareScan_Quick();
 		
-		//schedule_hardwarescan();
+		schedule_hardwarescan();
 		
 		Wifi_message();
 		//disable the wifi connection to test the warning messages
 		//of HardwareScan
-		
-		
-		
+				
 		return listaResultados;
 	}
 	
 	/**
-	 * Method to Run the hardware scan but cancel in the midle of execution
+	 * Method to Run the hardware scan but cancel in the middle of execution
 	 */ 
 	public void HardwareScan_Cancel(){
 		
@@ -171,20 +167,6 @@ public class HardwareScan_Test  {
 			titleLSC();
 			
 			s.wait(sys.complete,2000);
-			/*
-			Boolean x = true;
-			while(x){
-			if(s.wait(sys.complete, 200.0)!=null){
-				x=false;
-				
-				}
-			
-			else{
-				s.click(sys.inprogress);
-				s.click(sys.LSC_Title);
-			}
-			
-			}*/
 			
 			s.click(sys.percent);
 			
@@ -198,52 +180,10 @@ public class HardwareScan_Test  {
 		
 		listaResultados.add(resultado);
 	}
-	
-	
-	//metodo para verificar se o valida o box cheked e uncheked
-	public void teste(){
 		
-		titleLSC();
-		s.wait(10.0);
-		resultado = new ResultExec("Schedule");
-		try {
-			
-			if(utilities.ExistVerify(sys_checkup.CheckupUns)){
-			s.click(sys_checkup.CheckupUns);
-			}
-			
-			else{
-				s.click(sys_checkup.CheckupSel);
-			}
-			
-			s.click(sys_checkup.icn_hwScan);
-			
-			s.click(sys.schedule);
-				
-			
-			if(utilities.ExistVerify(sys.schedule_Uncheked)){
-				//s.click(sys.schedule_Uncheked);
-				resultado.addMensagens("Uncheked");
-			}
-			
-			if(utilities.ExistVerify(sys.schedule_cheked)){
-				//s.click(sys.schedule_cheked);
-				resultado.addMensagens("Cheked");
-			}
-				
-			
-			
-
-		} catch (FindFailed e) {
-			e.printStackTrace();
-			resultado.addMensagens(sys.ImageError);
-		}
-		
-		listaResultados.add(resultado);
-	}
-	
 	/**
 	 * Method to turn on and off the schedule feature
+	 * Disable and enable the schedule of test
 	 */
 	public void schedule_hardwarescan(){
 		
@@ -289,6 +229,9 @@ public class HardwareScan_Test  {
 		
 	}
 	
+	/**
+	 * Used to alternate the Schedule Hardware Scan (on/off)
+	 */
 	public void ScdOn_Off(){
 		
 		try {						
@@ -304,7 +247,10 @@ public class HardwareScan_Test  {
 		}
 		
 	}
-		
+	
+	/**
+	 * Used to disable the wifi mode
+	 */
 	public void Wifi_Disable(){
 		
 		try {
@@ -316,10 +262,12 @@ public class HardwareScan_Test  {
 		
 	}
 	
+	/**
+	 * Verify the message before the starts of hardware scan
+	 */
 	public void Wifi_message(){
 				
-	if(chassi.equals("Portable")){
-		
+		resultado = new ResultExec("Machine using and wifi warning message");	
 			
 		try {
 				
@@ -345,33 +293,48 @@ public class HardwareScan_Test  {
 				s.wheel(sys.scrolltab, 1, 2);
 			}
 			
-			//veirificar mensagens
+			//messages verify before the HardwareScan
 			
 			s.wait(2.0);
-			if(s.exists(sys.wireless)!=null)	{	
-				s.hover(sys.wireless);
-				Wifi_Disable();
-				s.click(sys.launch_btn);
-				s.hover(sys.conect_wireless);
-				s.hover(sys.message_warning);
+			
+			if(chassi.equals("Portable")){
+				
+				if(s.exists(sys.wireless)!=null)	{	
+					s.hover(sys.wireless);
+					Wifi_Disable();
+					s.click(sys.launch_btn);
+					s.hover(sys.conect_wireless);
+					s.hover(sys.message_warning);
+					
+					resultado.addMensagens("(Portable) Has 'Wifi' and 'Using machine' message");
+				}
+				
+				else{
+					s.click(sys.launch_btn);
+					s.hover(sys.conect_wireless);
+					s.hover(sys.message_warning);
+					
+					resultado.addMensagens("(Portable) 'Has Using machine' message");
+				}
 			}
 			
-			else{
-				s.click(sys.launch_btn);
-				s.hover(sys.message_warning);
+			if(chassi.equals("Desktop")){
+				
+					s.click(sys.launch_btn);
+					s.hover(sys.message_warning);
+					resultado.addMensagens("(Desktop) Has 'Using machine' message");
 				
 			}
-				
+			
 			s.click(sys.cancel);
 			
 			} catch (FindFailed e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
+				resultado.addMensagens(sys.ImageError);
 			}
-						
-	}
-		
-		
+					
+		listaResultados.add(resultado);
+			
 	}
 	
 	public void titleLSC(){
@@ -384,4 +347,5 @@ public class HardwareScan_Test  {
 		}
 		
 	}
+	
 }
