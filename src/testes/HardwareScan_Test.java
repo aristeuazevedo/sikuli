@@ -17,6 +17,16 @@ import utilidades.LSC_HardwareScan;
 import utilidades.ResultExec;
 import utilidades.Utilidades;
 
+/**
+ * Class used to prepare the LSC to run the tests 
+ * @author	Aristeu Azevedo
+ * @param 	sys			It has the paths to the files and images
+ * @param	sys_checkup It has the paths to "check up" files and images
+ * @param	idioma		Language select to be executed
+ * @param	resultado	Messages and names of the executed tests
+ * @param	s			Parameter used by Sikuli to monitor the screen
+ * @param	utilities	instance which has some common methods 
+ */
 public class HardwareScan_Test  {
 	
 	LSC_HardwareScan sys;
@@ -28,7 +38,11 @@ public class HardwareScan_Test  {
 	Screen s = new Screen();
 	Utilidades utilities = new Utilidades();
 	
-	
+	/**
+	 * Constructor of the Hardware scan tests class
+	 * @param idioma Used to verify the language selected by the user
+	 * @param chassi Used to verify the the type of the machine
+	 */ 
 	public HardwareScan_Test( String idioma, String chassi){
 		this.chassi = chassi;
 		this.idioma = idioma;
@@ -49,8 +63,7 @@ public class HardwareScan_Test  {
 		schedule_hardwarescan();
 		
 		Wifi_message();
-		//disable the wifi connection to test the warning messages
-		//of HardwareScan
+		
 				
 		return listaResultados;
 	}
